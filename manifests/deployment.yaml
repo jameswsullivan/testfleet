@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx3
   namespace: james-test-fleet
 spec:
   replicas: 1
   selector:
     matchLabels:
-      workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx
+      workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx3
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -17,13 +17,13 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx3
       namespace: james-test-fleet
     spec:
       containers:
         - image: nginx
           imagePullPolicy: Always
-          name: nginx
+          name: nginx3
           resources: {}
           securityContext:
             allowPrivilegeEscalation: false
