@@ -21,7 +21,8 @@ spec:
     spec:
       containers:
         - name: mod-configuration
-          image: folioorg/mod-configuration:5.13.0-SNAPSHOT.139
+          registry: docker.io
+          image: nginx
           imagePullPolicy: Always
           # ports:
           #   - containerPort: 8081
