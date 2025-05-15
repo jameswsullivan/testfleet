@@ -20,36 +20,6 @@
         namespace: folio-modules-test
       spec:
         containers:
-          - env:
-              - name: JAVA_OPTIONS
-                value: -XX:MaxRAMPercentage=66.0
-              - name: DB_HOST
-                value: postgres
-              - name: DB_PORT
-                value: '5432'
-              - name: DB_USERNAME
-                value: folio_admin
-              - name: DB_PASSWORD
-                value: folio_admin
-              - name: DB_DATABASE
-                value: okapi_modules
-              - name: DB_QUERYTIMEOUT
-                value: '60000'
-              - name: DB_CHARSET
-                value: UTF-8
-              - name: DB_MAXPOOLSIZE
-                value: '5'
-            envFrom:
-              configMapRef:
-                name: db-connect
-                optional: false
-              secretRef:
-                name: db-connect
-                optional: false
-            image: folioorg/mod-configuration:5.13.0-SNAPSHOT.139
+          - image: folioorg/mod-configuration:5.13.0-SNAPSHOT.139
             imagePullPolicy: Always
             name: mod-configuration
-            ports:
-              - containerPort: 8081
-                name: 8081_TCP_0
-                protocol: TCP
