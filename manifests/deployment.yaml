@@ -17,7 +17,7 @@ spec:
     metadata:
       # creationTimestamp: null
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx3
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx2
       namespace: james-test-fleet
     spec:
       containers:
