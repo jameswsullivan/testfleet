@@ -5,9 +5,9 @@ metadata:
   namespace: james-test-fleet
 spec:
   replicas: 1
-  # selector:
-  #   matchLabels:
-  #     workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx3
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx2
   strategy:
     # rollingUpdate:
     #   maxSurge: 25%
