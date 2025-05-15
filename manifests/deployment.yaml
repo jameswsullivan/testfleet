@@ -1,40 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx3
+  name: nginx2
   namespace: james-test-fleet
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx3
+  # selector:
+  #   matchLabels:
+  #     workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx3
   strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
+    # rollingUpdate:
+    #   maxSurge: 25%
+    #   maxUnavailable: 25%
     type: RollingUpdate
   template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx3
-      namespace: james-test-fleet
+    # metadata:
+    #   creationTimestamp: null
+    #   labels:
+    #     workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx3
+    #   namespace: james-test-fleet
     spec:
       containers:
         - image: nginx
           imagePullPolicy: Always
-          name: nginx3
-          resources: {}
-          securityContext:
-            allowPrivilegeEscalation: false
-            privileged: false
-            readOnlyRootFilesystem: false
-            runAsNonRoot: false
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
+          name: nginx2
+          # resources: {}
+          # securityContext:
+          #   allowPrivilegeEscalation: false
+          #   privileged: false
+          #   readOnlyRootFilesystem: false
+          #   runAsNonRoot: false
+          # terminationMessagePath: /dev/termination-log
+          # terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
+      # schedulerName: default-scheduler
+      # securityContext: {}
+      # terminationGracePeriodSeconds: 30
 
