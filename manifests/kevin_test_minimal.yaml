@@ -10,10 +10,7 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-configuration
-    strategy:
-      rollingUpdate:
-        maxSurge: 1
-        maxUnavailable: 0
+    updateStrategy:
       type: RollingUpdate
     template:
       metadata:
