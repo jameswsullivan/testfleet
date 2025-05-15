@@ -10,6 +10,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-configuration
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -88,6 +93,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-permissions
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -166,6 +176,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-tags
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -244,6 +259,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-users
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -338,6 +358,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-users-bl
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -400,6 +425,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-password-validator
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -478,6 +508,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-login-keycloak
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -588,6 +623,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-users-keycloak
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -650,6 +690,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-roles-keycloak
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -734,6 +779,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-notes
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -814,6 +864,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-scheduler
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -892,6 +947,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-settings
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
@@ -966,6 +1026,11 @@
     selector:
       matchLabels:
         workload.user.cattle.io/workloadselector: deployment-folio-scratch-mod-okapi-facade
+    strategy:
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 0
+      type: RollingUpdate
     template:
       metadata:
         labels:
