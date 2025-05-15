@@ -23,10 +23,10 @@ spec:
         - name: mod-configuration
           image: folioorg/mod-configuration:5.13.0-SNAPSHOT.139
           imagePullPolicy: Always
-          ports:
-            - containerPort: 8081
-              name: 8081_TCP_0
-              protocol: TCP
+          # ports:
+          #   - containerPort: 8081
+          #     name: 8081_TCP_0
+          #     protocol: TCP
           env:
             - name: JAVA_OPTIONS
               value: -XX:MaxRAMPercentage=66.0
