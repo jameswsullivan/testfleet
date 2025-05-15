@@ -14,11 +14,11 @@ spec:
     #   maxUnavailable: 25%
     type: RollingUpdate
   template:
-    # metadata:
-    #   creationTimestamp: null
-    #   labels:
-    #     workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx3
-    #   namespace: james-test-fleet
+    metadata:
+      # creationTimestamp: null
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx3
+      namespace: james-test-fleet
     spec:
       containers:
         - image: nginx
