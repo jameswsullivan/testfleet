@@ -49,32 +49,8 @@
                   optional: false
             image: folioorg/mod-configuration:5.13.0-SNAPSHOT.139
             imagePullPolicy: Always
-            livenessProbe:
-              failureThreshold: 3
-              httpGet:
-                path: /admin/health
-                port: '8081'
-                scheme: HTTP
-              initialDelaySeconds: 45
-              periodSeconds: 60
-              successThreshold: 1
-              timeoutSeconds: 5
             name: mod-configuration
             ports:
               - containerPort: 8081
                 name: 8081_TCP_0
                 protocol: TCP
-            readinessProbe:
-              failureThreshold: 3
-              httpGet:
-                path: /admin/health
-                port: '8081'
-                scheme: HTTP
-              initialDelaySeconds: 45
-              periodSeconds: 60
-              successThreshold: 1
-              timeoutSeconds: 5
-            resources:
-              limits:
-                cpu: 500m
-                memory: 1Gi
