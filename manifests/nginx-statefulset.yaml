@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-nginx5
-  strategy:
+  updateStrategy:
     type: RollingUpdate
   serviceName: nginx5-test
   template:
