@@ -2,17 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: '6'
-    meta.helm.sh/release-name: mgr-applications
-    meta.helm.sh/release-namespace: folio-modules
-  creationTimestamp: '2025-05-06T15:14:52Z'
-  generation: 11
+    deployment.kubernetes.io/revision: '1'
+    field.cattle.io/publicEndpoints: >-
+      [{"addresses":["10.55.148.140"],"port":443,"protocol":"HTTPS","serviceName":"demonstration:web","ingressName":"demonstration:fuseki-temp","hostname":"fuseki-pre.library.tamu.edu","allNodes":true}]
+    objectset.rio.cattle.io/applied: >-
+      H4sIAAAAAAAA/6xUTW/jNhD9LwP0JjmyLNsxgR6CbLdFkU2N3WQXTdzDiBzbrClSIEe2VcP/vaD8mf247cmY4fjNmzdvtAOs9WfyQTsLArCuw826DwmstFUg4B3VxrUVWYYEKmJUyAhiB2itY2TtbIihK/8lyYG457XrSWQ21NPuRkeQknI5KiaTtMwHmBZjmqeYq1E6VlSOlSxySQXsEzBYkungLgDSE7LzIMA6X6GF5Ie9lhiWIOB2PlblqD8aD2SWFcV4kE8m8zwbjrJy0J+XWXE7KLJhOYEENs6vjEPVawL5K6RTPpAheeiuzkKkiipnA/tu+nRDZeRusSIQEKNDEGqU1P3xqjpWhppknLH2buEphHeEymhLn0g6qwKIUZYl4Kk2WmIA0QVrHTf0hw7sfPugK80g+lkCF4Y7qJDl8uGs4U8bLnKOCVq0Edc7Y7RdPNcKmQ59t58av4jD5sNfok9w+2xxjdpgaU7pfQLc1jH6+AYg5qmqzQnsxx67jMC6osBY1RE7y4s0K9J89NQfi34usv4LJDDXZNTV1LXzHEDA6+tuBtJZRm3JT53nGYjbLJmBsuERK5qBmMU1ptYpqrv3ZAZLF/hYHGtXOhpx1ZQk2fTir7fEFGInH6l5JnXHZ3rDNMuf8lwUQ1EMX66dd2EYuJMAIr/Bn/nDl1DItr+R1TOrfNJi/rl9+LLsv+Qxflz9/d+HXzuuMmW/GQVRpcttdetnsI+adnejnX26SGUbY66P7Kca5Gjqs7IBxOsOdIWdL+xC2y0kh3jaGDN1RssWBNyZDbYBvjqg47Zed29X1W3qq0rv2ElnQMDT/RT2/8RrCa7xkuKQkRrJxmtu751l2nJnLGPcZur1Whta0G9Bojmcp5ijCZSAxBpLbTTrE0p9qlbnIk+o/rKm/egcv9eGQhuYqstzY+/Co7Px+ZjsLklpC4J9Q9H4vtK2a/2BQojaIMdv2I2i9c3Va2rcAr5bf9IxEogV3B7AoxDKhvP7vWkCk3+vfYif8qNJv11DkEtSjSH/eFBZ0Rwbw+k5D99TdP+G2+8eJU3Ja6fOH7VBtt/v9/8HAAD//wb9fwVvBgAA
+    objectset.rio.cattle.io/id: be2c6499-b23a-47ef-a2d6-7deb7dc42ce4
+  creationTimestamp: '2025-02-06T21:44:14Z'
+  generation: 16
   labels:
-    app.kubernetes.io/instance: mgr-applications
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: mgr-applications
-    app.kubernetes.io/version: 1.3.0
-    helm.sh/chart: mgr-applications-0.0.14
+    cattle.io/creator: norman
+    objectset.rio.cattle.io/hash: 8f7db61673c004473299f20560b31fb0483405b9
+    workload.user.cattle.io/workloadselector: deployment-demonstration-web
   managedFields:
     - apiVersion: apps/v1
       fieldsType: FieldsV1
@@ -20,242 +21,70 @@ metadata:
         f:metadata:
           f:annotations:
             .: {}
-            f:meta.helm.sh/release-name: {}
-            f:meta.helm.sh/release-namespace: {}
+            f:field.cattle.io/publicEndpoints: {}
+            f:objectset.rio.cattle.io/applied: {}
+            f:objectset.rio.cattle.io/id: {}
           f:labels:
             .: {}
-            f:app.kubernetes.io/instance: {}
-            f:app.kubernetes.io/managed-by: {}
-            f:app.kubernetes.io/name: {}
-            f:app.kubernetes.io/version: {}
-            f:helm.sh/chart: {}
+            f:cattle.io/creator: {}
+            f:objectset.rio.cattle.io/hash: {}
+            f:workload.user.cattle.io/workloadselector: {}
         f:spec:
           f:progressDeadlineSeconds: {}
+          f:replicas: {}
           f:revisionHistoryLimit: {}
           f:selector: {}
           f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
             f:type: {}
           f:template:
             f:metadata:
+              f:annotations:
+                .: {}
+                f:cattle.io/timestamp: {}
+                f:field.cattle.io/ports: {}
+                f:kubectl.kubernetes.io/restartedAt: {}
+                f:workload.cattle.io/state: {}
               f:labels:
                 .: {}
-                f:app.kubernetes.io/instance: {}
-                f:app.kubernetes.io/name: {}
+                f:workload.user.cattle.io/workloadselector: {}
             f:spec:
               f:containers:
-                k:{"name":"mgr-applications"}:
+                k:{"name":"web"}:
                   .: {}
-                  f:env:
-                    .: {}
-                    k:{"name":"DB_CHARSET"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"DB_DATABASE"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"DB_HOST"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"DB_MAXPOOLSIZE"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"DB_PASSWORD"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"DB_PORT"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"DB_QUERYTIMEOUT"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"DB_USERNAME"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"ENV"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"FOLIO_CLIENT_CONNECT_TIMEOUT"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"FOLIO_CLIENT_READ_TIMEOUT"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"JAVA_OPTIONS"}: {}
-                    k:{"name":"KAFKA_HOST"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KAFKA_PORT"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KC_ADMIN_CLIENT_ID"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KC_ADMIN_CLIENT_SECRET"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KC_ADMIN_PASSWORD"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KC_CONFIG_TTL"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KC_IDENTITY_PROVIDER_BASE_URL"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KC_IMPORT_ENABLED"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KC_INTEGRATION_ENABLED"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KC_LOGIN_CLIENT_ID"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KC_LOGIN_CLIENT_SUFFIX"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KC_URL"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KONG_ADMIN_URL"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KONG_CONNECT_TIMEOUT"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KONG_INTEGRATION_ENABLED"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KONG_READ_TIMEOUT"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"KONG_WRITE_TIMEOUT"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"MOD_USERS_BL"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"MOD_USERS_KEYCLOAK_URL"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"MODULE_URL"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"OKAPI_INTEGRATION_ENABLED"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"ROUTEMANAGEMENT_ENABLE"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"SECRET_STORE_TYPE"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"SECRET_STORE_VAULT_ADDRESS"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"SECRET_STORE_VAULT_TOKEN"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"SECURITY_ENABLED"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"SIDECAR_FORWARD_UNKNOWN_REQUESTS_DESTINATION"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"TE_URL"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"am.url"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
-                    k:{"name":"tenant.url"}:
-                      .: {}
-                      f:name: {}
-                      f:value: {}
+                  f:image: {}
                   f:imagePullPolicy: {}
                   f:name: {}
                   f:ports:
                     .: {}
-                    k:{"containerPort":8081,"protocol":"TCP"}:
+                    k:{"containerPort":80,"protocol":"TCP"}:
                       .: {}
                       f:containerPort: {}
                       f:name: {}
                       f:protocol: {}
-                  f:resources:
+                  f:resources: {}
+                  f:securityContext:
                     .: {}
-                    f:limits:
-                      .: {}
-                      f:memory: {}
-                    f:requests:
-                      .: {}
-                      f:memory: {}
+                    f:allowPrivilegeEscalation: {}
+                    f:capabilities: {}
+                    f:privileged: {}
+                    f:readOnlyRootFilesystem: {}
+                    f:runAsNonRoot: {}
+                  f:stdin: {}
                   f:terminationMessagePath: {}
                   f:terminationMessagePolicy: {}
+                  f:tty: {}
               f:dnsPolicy: {}
               f:restartPolicy: {}
               f:schedulerName: {}
               f:securityContext: {}
-              f:serviceAccount: {}
-              f:serviceAccountName: {}
               f:terminationGracePeriodSeconds: {}
-      manager: helm
-      operation: Update
-      time: '2025-05-06T15:25:46Z'
-    - apiVersion: apps/v1
-      fieldsType: FieldsV1
-      fieldsV1:
-        f:spec:
-          f:replicas: {}
-          f:template:
-            f:metadata:
-              f:namespace: {}
-            f:spec:
-              f:containers:
-                k:{"name":"mgr-applications"}:
-                  f:image: {}
       manager: agent
       operation: Update
-      time: '2025-05-06T16:29:03Z'
+      time: '2025-04-05T01:09:17Z'
     - apiVersion: apps/v1
       fieldsType: FieldsV1
       fieldsV1:
@@ -263,7 +92,6 @@ metadata:
           f:annotations:
             f:deployment.kubernetes.io/revision: {}
         f:status:
-          f:availableReplicas: {}
           f:conditions:
             .: {}
             k:{"type":"Available"}:
@@ -283,161 +111,74 @@ metadata:
               f:status: {}
               f:type: {}
           f:observedGeneration: {}
-          f:readyReplicas: {}
-          f:replicas: {}
-          f:updatedReplicas: {}
       manager: kube-controller-manager
       operation: Update
       subresource: status
-      time: '2025-05-06T16:29:10Z'
-  name: mgr-applications
-  namespace: folio-modules-test
-  resourceVersion: '43078688'
-  uid: 09fd6f53-409f-487b-9880-1c0abacd7fe7
+      time: '2025-04-05T01:09:17Z'
+  name: web
+  namespace: james-test-fleet
+  resourceVersion: '29228223'
+  uid: 1ab0e1ad-dbe8-455f-a14b-0caf53def4fb
 spec:
   progressDeadlineSeconds: 600
-  replicas: 1
+  replicas: 0
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app.kubernetes.io/instance: mgr-applications
-      app.kubernetes.io/name: mgr-applications
+      workload.user.cattle.io/workloadselector: deployment-demonstration-web
   strategy:
-    type: Recreate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
+      annotations:
+        cattle.io/timestamp: '2024-04-26T17:12:01Z'
+        field.cattle.io/ports: >-
+          [[{"containerPort":80,"dnsName":"web-nodeport","hostPort":0,"kind":"NodePort","name":"web","protocol":"TCP","sourcePort":0}]]
+        kubectl.kubernetes.io/restartedAt: '2024-05-02T22:45:45Z'
+        workload.cattle.io/state: '{"c3J2LWs4cy1wcmUtd29ya2VyLWh1Z2Utd2NkYzM=":"c-trw6s:m-hxm8r"}'
       creationTimestamp: null
       labels:
-        app.kubernetes.io/instance: mgr-applications
-        app.kubernetes.io/name: mgr-applications
-      namespace: folio-modules-test
+        workload.user.cattle.io/workloadselector: deployment-demonstration-web
     spec:
       containers:
-        - env:
-            - name: ROUTEMANAGEMENT_ENABLE
-              value: 'true'
-            - name: MODULE_URL
-              value: http://mgr-applications
-            - name: FOLIO_CLIENT_CONNECT_TIMEOUT
-              value: 600s
-            - name: FOLIO_CLIENT_READ_TIMEOUT
-              value: 600s
-            - name: KONG_CONNECT_TIMEOUT
-              value: '941241418'
-            - name: KONG_READ_TIMEOUT
-              value: '941241418'
-            - name: KONG_WRITE_TIMEOUT
-              value: '941241418'
-            - name: KC_ADMIN_CLIENT_ID
-              value: folio-backend-admin-client
-            - name: KC_ADMIN_CLIENT_SECRET
-              value: folio-backend-admin-client
-            - name: KC_ADMIN_PASSWORD
-              value: 12345
-            - name: KC_CONFIG_TTL
-              value: 3600s
-            - name: KC_IDENTITY_PROVIDER_BASE_URL
-              value: https://folio-keycloak-scratch.library.tamu.edu
-            - name: KC_IMPORT_ENABLED
-              value: 'true'
-            - name: KC_INTEGRATION_ENABLED
-              value: 'true'
-            - name: KC_LOGIN_CLIENT_SUFFIX
-              value: '-application'
-            - name: KC_LOGIN_CLIENT_ID
-              value: sidecar-module-access-client
-            - name: KC_URL
-              value: https://folio-keycloak-scratch.library.tamu.edu
-            - name: KONG_ADMIN_URL
-              value: http://kong:8001
-            - name: KONG_INTEGRATION_ENABLED
-              value: 'true'
-            - name: MOD_USERS_BL
-              value: http://mod-users-bl:8082
-            - name: MOD_USERS_KEYCLOAK_URL
-              value: http://mod-users-keycloak:8082
-            - name: OKAPI_INTEGRATION_ENABLED
-              value: 'false'
-            - name: SECRET_STORE_TYPE
-              value: VAULT
-            - name: SECRET_STORE_VAULT_ADDRESS
-              value: http://vault-server:8200
-              value: 123456
-            - name: SECURITY_ENABLED
-              value: 'false'
-            - name: SIDECAR_FORWARD_UNKNOWN_REQUESTS_DESTINATION
-              value: http://kong:8000
-            - name: TE_URL
-              value: http://mgr-tenant-entitlements
-            - name: am.url
-              value: http://mgr-applications
-            - name: tenant.url
-              value: http://mgr-tenants
-            - name: JAVA_OPTIONS
-              value: >-
-                -Dlogging.level.root=DEBUG -Dsecure_store=Vault
-                -XX:MaxRAMPercentage=80.0
-            - name: JAVA_OPTIONS
-              value: '-XX:MaxRAMPercentage=75.0'
-            - name: ENV
-              value: folio
-            - name: KAFKA_HOST
-              value: kafka-scratch
-            - name: KAFKA_PORT
-              value: '9092'
-            - name: DB_CHARSET
-              value: UTF-8
-            - name: DB_DATABASE
-              value: folio_modules
-            - name: DB_HOST
-              value: pg-folio-postgresql
-            - name: DB_MAXPOOLSIZE
-              value: '50'
-            - name: DB_PASSWORD
-              value: 12345
-            - name: DB_PORT
-              value: '5432'
-            - name: DB_QUERYTIMEOUT
-              value: '60000'
-            - name: DB_USERNAME
-              value: folio_admin
-          image: folioci/mgr-applications:3.1.0-SNAPSHOT.158
-          imagePullPolicy: IfNotPresent
-          name: mgr-applications
+        - image: nginx
+          imagePullPolicy: Always
+          name: web
           ports:
-            - containerPort: 8081
-              name: http
+            - containerPort: 80
+              name: web
               protocol: TCP
-          resources:
-            limits:
-              memory: 2Gi
-            requests:
-              memory: 256Mi
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities: {}
+            privileged: false
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+          stdin: true
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          tty: true
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
-      serviceAccount: mgr-applications
-      serviceAccountName: mgr-applications
       terminationGracePeriodSeconds: 30
 status:
-  availableReplicas: 1
   conditions:
-    - lastTransitionTime: '2025-05-06T16:29:10Z'
-      lastUpdateTime: '2025-05-06T16:29:10Z'
+    - lastTransitionTime: '2025-02-06T21:44:14Z'
+      lastUpdateTime: '2025-02-06T21:44:14Z'
       message: Deployment has minimum availability.
       reason: MinimumReplicasAvailable
       status: 'True'
       type: Available
-    - lastTransitionTime: '2025-05-06T15:14:52Z'
-      lastUpdateTime: '2025-05-06T16:29:10Z'
-      message: ReplicaSet "mgr-applications-56b749c844" has successfully progressed.
+    - lastTransitionTime: '2025-02-06T21:44:14Z'
+      lastUpdateTime: '2025-02-06T21:44:14Z'
+      message: ReplicaSet "web-6fb7dd7fb5" has successfully progressed.
       reason: NewReplicaSetAvailable
       status: 'True'
       type: Progressing
-  observedGeneration: 11
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
+  observedGeneration: 16
