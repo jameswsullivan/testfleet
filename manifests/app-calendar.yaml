@@ -33,7 +33,8 @@ items:
                 - secretRef:
                     name: db-connect
                     optional: true
-              image: folioorg/app-calendar:2.1.0-SNAPSHOT
+              image: folioorg/mod-calendar
+              tag: latest
               imagePullPolicy: Always
               livenessProbe:
                 failureThreshold: 3
