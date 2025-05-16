@@ -318,6 +318,89 @@ spec:
               value: 'true'
             - name: MODULE_URL
               value: http://mgr-applications
+            - name: FOLIO_CLIENT_CONNECT_TIMEOUT
+              value: 600s
+            - name: FOLIO_CLIENT_READ_TIMEOUT
+              value: 600s
+            - name: KONG_CONNECT_TIMEOUT
+              value: '941241418'
+            - name: KONG_READ_TIMEOUT
+              value: '941241418'
+            - name: KONG_WRITE_TIMEOUT
+              value: '941241418'
+            - name: KC_ADMIN_CLIENT_ID
+              value: folio-backend-admin-client
+            - name: KC_ADMIN_CLIENT_SECRET
+              value: folio-backend-admin-client
+            - name: KC_ADMIN_PASSWORD
+              value: 12345
+            - name: KC_CONFIG_TTL
+              value: 3600s
+            - name: KC_IDENTITY_PROVIDER_BASE_URL
+              value: https://folio-keycloak-scratch.library.tamu.edu
+            - name: KC_IMPORT_ENABLED
+              value: 'true'
+            - name: KC_INTEGRATION_ENABLED
+              value: 'true'
+            - name: KC_LOGIN_CLIENT_SUFFIX
+              value: '-application'
+            - name: KC_LOGIN_CLIENT_ID
+              value: sidecar-module-access-client
+            - name: KC_URL
+              value: https://folio-keycloak-scratch.library.tamu.edu
+            - name: KONG_ADMIN_URL
+              value: http://kong:8001
+            - name: KONG_INTEGRATION_ENABLED
+              value: 'true'
+            - name: MOD_USERS_BL
+              value: http://mod-users-bl:8082
+            - name: MOD_USERS_KEYCLOAK_URL
+              value: http://mod-users-keycloak:8082
+            - name: OKAPI_INTEGRATION_ENABLED
+              value: 'false'
+            - name: SECRET_STORE_TYPE
+              value: VAULT
+            - name: SECRET_STORE_VAULT_ADDRESS
+              value: http://vault-server:8200
+              value: 123456
+            - name: SECURITY_ENABLED
+              value: 'false'
+            - name: SIDECAR_FORWARD_UNKNOWN_REQUESTS_DESTINATION
+              value: http://kong:8000
+            - name: TE_URL
+              value: http://mgr-tenant-entitlements
+            - name: am.url
+              value: http://mgr-applications
+            - name: tenant.url
+              value: http://mgr-tenants
+            - name: JAVA_OPTIONS
+              value: >-
+                -Dlogging.level.root=DEBUG -Dsecure_store=Vault
+                -XX:MaxRAMPercentage=80.0
+            - name: JAVA_OPTIONS
+              value: '-XX:MaxRAMPercentage=75.0'
+            - name: ENV
+              value: folio
+            - name: KAFKA_HOST
+              value: kafka-scratch
+            - name: KAFKA_PORT
+              value: '9092'
+            - name: DB_CHARSET
+              value: UTF-8
+            - name: DB_DATABASE
+              value: folio_modules
+            - name: DB_HOST
+              value: pg-folio-postgresql
+            - name: DB_MAXPOOLSIZE
+              value: '50'
+            - name: DB_PASSWORD
+              value: 12345
+            - name: DB_PORT
+              value: '5432'
+            - name: DB_QUERYTIMEOUT
+              value: '60000'
+            - name: DB_USERNAME
+              value: folio_admin
           image: folioci/mgr-applications:3.1.0-SNAPSHOT.158
           imagePullPolicy: IfNotPresent
           name: mgr-applications
