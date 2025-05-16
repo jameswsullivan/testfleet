@@ -818,11 +818,11 @@ items:
                   value: '5'
               envFrom:
                 - configMapRef:
-                  name: vault-connect
-                  optional: true
+                    name: vault-connect
+                    optional: true
                 - secretRef:
-                  name: vault-connect
-                  optional: true
+                    name: vault-connect
+                    optional: true
               image: folioorg/mod-scheduler:3.1.0-SNAPSHOT.119
               imagePullPolicy: Always
               livenessProbe:
