@@ -1,0 +1,360 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '6'
+    meta.helm.sh/release-name: mgr-applications
+    meta.helm.sh/release-namespace: folio-modules
+  creationTimestamp: '2025-05-06T15:14:52Z'
+  generation: 11
+  labels:
+    app.kubernetes.io/instance: mgr-applications
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: mgr-applications
+    app.kubernetes.io/version: 1.3.0
+    helm.sh/chart: mgr-applications-0.0.14
+  managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:meta.helm.sh/release-name: {}
+            f:meta.helm.sh/release-namespace: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+            f:app.kubernetes.io/managed-by: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+            f:helm.sh/chart: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app.kubernetes.io/instance: {}
+                f:app.kubernetes.io/name: {}
+            f:spec:
+              f:containers:
+                k:{"name":"mgr-applications"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"DB_CHARSET"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DB_DATABASE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DB_HOST"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DB_MAXPOOLSIZE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DB_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DB_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DB_QUERYTIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"DB_USERNAME"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ENV"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FOLIO_CLIENT_CONNECT_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"FOLIO_CLIENT_READ_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"JAVA_OPTIONS"}: {}
+                    k:{"name":"KAFKA_HOST"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KAFKA_PORT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KC_ADMIN_CLIENT_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KC_ADMIN_CLIENT_SECRET"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KC_ADMIN_PASSWORD"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KC_CONFIG_TTL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KC_IDENTITY_PROVIDER_BASE_URL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KC_IMPORT_ENABLED"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KC_INTEGRATION_ENABLED"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KC_LOGIN_CLIENT_ID"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KC_LOGIN_CLIENT_SUFFIX"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KC_URL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_ADMIN_URL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_CONNECT_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_INTEGRATION_ENABLED"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_READ_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"KONG_WRITE_TIMEOUT"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MOD_USERS_BL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MOD_USERS_KEYCLOAK_URL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"MODULE_URL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"OKAPI_INTEGRATION_ENABLED"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"ROUTEMANAGEMENT_ENABLE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SECRET_STORE_TYPE"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SECRET_STORE_VAULT_ADDRESS"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SECRET_STORE_VAULT_TOKEN"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SECURITY_ENABLED"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"SIDECAR_FORWARD_UNKNOWN_REQUESTS_DESTINATION"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"TE_URL"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"am.url"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                    k:{"name":"tenant.url"}:
+                      .: {}
+                      f:name: {}
+                      f:value: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8081,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:memory: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+      manager: helm
+      operation: Update
+      time: '2025-05-06T15:25:46Z'
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:replicas: {}
+          f:template:
+            f:metadata:
+              f:namespace: {}
+            f:spec:
+              f:containers:
+                k:{"name":"mgr-applications"}:
+                  f:image: {}
+      manager: agent
+      operation: Update
+      time: '2025-05-06T16:29:03Z'
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+      time: '2025-05-06T16:29:10Z'
+  name: mgr-applications
+  namespace: folio-modules-test
+  resourceVersion: '43078688'
+  uid: 09fd6f53-409f-487b-9880-1c0abacd7fe7
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: mgr-applications
+      app.kubernetes.io/name: mgr-applications
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: mgr-applications
+        app.kubernetes.io/name: mgr-applications
+      namespace: folio-modules-test
+    spec:
+      containers:
+        - env:
+            - name: ROUTEMANAGEMENT_ENABLE
+              value: 'true'
+            - name: MODULE_URL
+              value: http://mgr-applications
+          image: folioci/mgr-applications:3.1.0-SNAPSHOT.158
+          imagePullPolicy: IfNotPresent
+          name: mgr-applications
+          ports:
+            - containerPort: 8081
+              name: http
+              protocol: TCP
+          resources:
+            limits:
+              memory: 2Gi
+            requests:
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: mgr-applications
+      serviceAccountName: mgr-applications
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+    - lastTransitionTime: '2025-05-06T16:29:10Z'
+      lastUpdateTime: '2025-05-06T16:29:10Z'
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: 'True'
+      type: Available
+    - lastTransitionTime: '2025-05-06T15:14:52Z'
+      lastUpdateTime: '2025-05-06T16:29:10Z'
+      message: ReplicaSet "mgr-applications-56b749c844" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: 'True'
+      type: Progressing
+  observedGeneration: 11
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
