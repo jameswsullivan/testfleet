@@ -121,7 +121,7 @@ metadata:
   uid: 1ab0e1ad-dbe8-455f-a14b-0caf53def4fb
 spec:
   progressDeadlineSeconds: 600
-  replicas: 0
+  replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
