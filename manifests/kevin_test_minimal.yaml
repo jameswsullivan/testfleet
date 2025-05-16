@@ -17,7 +17,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-configuration
+            app: test-mod-configuration
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-configuration
           namespace: folio-modules-test
         spec:
@@ -97,7 +97,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-permissions
+            app: test-mod-permissions
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-permissions
           namespace: folio-modules-test
         spec:
@@ -177,7 +177,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-tags
+            app: test-mod-tags
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-tags
           namespace: folio-modules-test
         spec:
@@ -257,7 +257,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-users
+            app: test-mod-users
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-users
           namespace: folio-modules-test
         spec:
@@ -353,7 +353,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-users-bl
+            app: test-mod-users-bl
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-users-bl
           namespace: folio-modules-test
         spec:
@@ -417,7 +417,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-password-validator
+            app: test-mod-password-validator
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-password-validator
           namespace: folio-modules-test
         spec:
@@ -497,7 +497,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-login-keycloak
+            app: test-mod-login-keycloak
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-login-keycloak
           namespace: folio-modules-test
         spec:
@@ -609,7 +609,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-users-keycloak
+            app: test-mod-users-keycloak
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-users-keycloak
           namespace: folio-modules-test
         spec:
@@ -673,7 +673,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-roles-keycloak
+            app: test-mod-roles-keycloak
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-roles-keycloak
           namespace: folio-modules-test
         spec:
@@ -759,7 +759,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-notes
+            app: test-mod-notes
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-notes
           namespace: folio-modules-test
         spec:
@@ -841,7 +841,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-scheduler
+            app: test-mod-scheduler
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-scheduler
           namespace: folio-modules-test
         spec:
@@ -921,7 +921,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-settings
+            app: test-mod-settings
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-settings
           namespace: folio-modules-test
         spec:
@@ -997,7 +997,7 @@ items:
       template:
         metadata:
           labels:
-            app: mod-okapi-facade
+            app: test-mod-okapi-facade
             workload.user.cattle.io/workloadselector: deployment-folio-scratch-test-mod-okapi-facade
           namespace: folio-modules-test
         spec:
