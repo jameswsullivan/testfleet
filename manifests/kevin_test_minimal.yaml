@@ -1,24 +1,25 @@
 apiVersion: v1
+kind: List
 items:
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-configuration
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-configuration
       name: test-mod-configuration
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-configuration
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-configuration
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-configuration
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-configuration
+            app: mod-configuration
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-configuration
           namespace: folio-modules-test
         spec:
           containers:
@@ -42,13 +43,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
                     name: db-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: db-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-configuration:5.13.0-SNAPSHOT.139
               imagePullPolicy: Always
               livenessProbe:
@@ -84,21 +84,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-permissions
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-permissions
       name: test-mod-permissions
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-permissions
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-permissions
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-permissions
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-permissions
+            app: mod-permissions
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-permissions
           namespace: folio-modules-test
         spec:
           containers:
@@ -122,13 +122,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
                     name: db-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: db-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-permissions:6.8.0-SNAPSHOT.192
               imagePullPolicy: Always
               livenessProbe:
@@ -164,21 +163,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-tags
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-tags
       name: test-mod-tags
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-tags
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-tags
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-tags
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-tags
+            app: mod-tags
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-tags
           namespace: folio-modules-test
         spec:
           containers:
@@ -202,13 +201,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
                     name: db-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: db-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-tags:2.5.0-SNAPSHOT.115
               imagePullPolicy: Always
               livenessProbe:
@@ -244,21 +242,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users
       name: test-mod-users
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-users
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users
+            app: mod-users
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users
           namespace: folio-modules-test
         spec:
           containers:
@@ -298,13 +296,15 @@ items:
                 - name: AWS_SDK
                   value: 'false'
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
                     name: db-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: db-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-users:19.6.0-SNAPSHOT.350
               imagePullPolicy: Always
               livenessProbe:
@@ -340,21 +340,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-bl
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-bl
       name: test-mod-users-bl
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-bl
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-bl
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-users-bl
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-bl
+            app: mod-users-bl
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-bl
           namespace: folio-modules-test
         spec:
           containers:
@@ -362,13 +362,12 @@ items:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=66.0
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
                     name: db-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: db-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-users-bl:7.11.0-SNAPSHOT.181
               imagePullPolicy: Always
               livenessProbe:
@@ -404,21 +403,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-password-validator
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-password-validator
       name: test-mod-password-validator
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-password-validator
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-password-validator
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-password-validator
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-password-validator
+            app: mod-password-validator
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-password-validator
           namespace: folio-modules-test
         spec:
           containers:
@@ -442,13 +441,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
                     name: db-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: db-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-password-validator:3.5.0-SNAPSHOT.97
               imagePullPolicy: Always
               livenessProbe:
@@ -484,21 +482,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-login-keycloak
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-login-keycloak
       name: test-mod-login-keycloak
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-login-keycloak
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-login-keycloak
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-login-keycloak
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-login-keycloak
+            app: mod-login-keycloak
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-login-keycloak
           namespace: folio-modules-test
         spec:
           containers:
@@ -554,13 +552,27 @@ items:
                 - name: KC_CONFIG_VAULT_TRUSTSTORE_FILE_PATH
                   value: ''
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
                     name: vault-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: vault-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-login-keycloak:3.1.0-SNAPSHOT.120
               imagePullPolicy: Always
               livenessProbe:
@@ -596,21 +608,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-keycloak
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-keycloak
       name: test-mod-users-keycloak
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-keycloak
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-keycloak
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-users-keycloak
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-keycloak
+            app: mod-users-keycloak
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-keycloak
           namespace: folio-modules-test
         spec:
           containers:
@@ -618,13 +630,27 @@ items:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=66.0
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
                     name: vault-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: vault-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-users-keycloak:3.1.0-SNAPSHOT.153
               imagePullPolicy: Always
               livenessProbe:
@@ -660,21 +686,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-roles-keycloak
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-roles-keycloak
       name: test-mod-roles-keycloak
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-roles-keycloak
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-roles-keycloak
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-roles-keycloak
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-roles-keycloak
+            app: mod-roles-keycloak
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-roles-keycloak
           namespace: folio-modules-test
         spec:
           containers:
@@ -704,13 +730,27 @@ items:
                 - name: KC_CLIENT_ID_TTL
                   value: '3600'
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
                     name: vault-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: vault-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-roles-keycloak:3.1.0-SNAPSHOT.217
               imagePullPolicy: Always
               livenessProbe:
@@ -746,21 +786,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-notes
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-notes
       name: test-mod-notes
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-notes
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-notes
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-notes
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-notes
+            app: mod-notes
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-notes
           namespace: folio-modules-test
         spec:
           containers:
@@ -786,13 +826,12 @@ items:
                 - name: NOTES_TYPES_DEFAULTS_LIMIT
                   value: '25'
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
                     name: db-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: db-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-notes:7.1.0-SNAPSHOT.283
               imagePullPolicy: Always
               livenessProbe:
@@ -828,21 +867,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-scheduler
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-scheduler
       name: test-mod-scheduler
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-scheduler
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-scheduler
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-scheduler
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-scheduler
+            app: mod-scheduler
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-scheduler
           namespace: folio-modules-test
         spec:
           containers:
@@ -866,13 +905,27 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
                     name: vault-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: vault-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-scheduler:3.1.0-SNAPSHOT.119
               imagePullPolicy: Always
               livenessProbe:
@@ -908,21 +961,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-settings
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-settings
       name: test-mod-settings
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-settings
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-settings
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-settings
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-settings
+            app: mod-settings
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-settings
           namespace: folio-modules-test
         spec:
           containers:
@@ -942,13 +995,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
                     name: db-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: db-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-settings:1.3.0-SNAPSHOT.57
               imagePullPolicy: Always
               livenessProbe:
@@ -984,21 +1036,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-okapi-facade
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-okapi-facade
       name: test-mod-okapi-facade
       namespace: folio-modules-test
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-okapi-facade
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-okapi-facade
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: test-mod-okapi-facade
-            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-okapi-facade
+            app: mod-okapi-facade
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-okapi-facade
           namespace: folio-modules-test
         spec:
           containers:
@@ -1022,13 +1074,15 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
                     name: db-connect
-                    optional: false
-                  secretRef:
+                    optional: true
+                - secretRef:
                     name: db-connect
-                    optional: false
+                    optional: true
               image: folioorg/mod-okapi-facade:3.1.0-SNAPSHOT.61
               imagePullPolicy: Always
               livenessProbe:
