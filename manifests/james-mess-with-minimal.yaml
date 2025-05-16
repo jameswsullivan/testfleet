@@ -1,4 +1,5 @@
 apiVersion: v1
+kind: List
 items:
   - apiVersion: apps/v1
     kind: Deployment
@@ -42,13 +43,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
-                    name: db-connect
-                    optional: false
-                  secretRef:
-                    name: db-connect
-                    optional: false
+                configMapRef:
+                  name: db-connect
+                  optional: false
+                secretRef:
+                  name: db-connect
+                  optional: false
               image: folioorg/mod-configuration:5.13.0-SNAPSHOT.139
               imagePullPolicy: Always
               livenessProbe:
@@ -122,13 +122,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
-                    name: db-connect
-                    optional: false
-                  secretRef:
-                    name: db-connect
-                    optional: false
+                configMapRef:
+                  name: db-connect
+                  optional: false
+                secretRef:
+                  name: db-connect
+                  optional: false
               image: folioorg/mod-permissions:6.8.0-SNAPSHOT.192
               imagePullPolicy: Always
               livenessProbe:
@@ -202,13 +201,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
-                    name: db-connect
-                    optional: false
-                  secretRef:
-                    name: db-connect
-                    optional: false
+                configMapRef:
+                  name: db-connect
+                  optional: false
+                secretRef:
+                  name: db-connect
+                  optional: false
               image: folioorg/mod-tags:2.5.0-SNAPSHOT.115
               imagePullPolicy: Always
               livenessProbe:
@@ -298,13 +296,12 @@ items:
                 - name: AWS_SDK
                   value: 'false'
               envFrom:
-                value:
-                  configMapRef:
-                    name: db-connect
-                    optional: false
-                  secretRef:
-                    name: db-connect
-                    optional: false
+                configMapRef:
+                  name: db-connect
+                  optional: false
+                secretRef:
+                  name: db-connect
+                  optional: false
               image: folioorg/mod-users:19.6.0-SNAPSHOT.350
               imagePullPolicy: Always
               livenessProbe:
@@ -362,13 +359,12 @@ items:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=66.0
               envFrom:
-                value:
-                  configMapRef:
-                    name: db-connect
-                    optional: false
-                  secretRef:
-                    name: db-connect
-                    optional: false
+                configMapRef:
+                  name: db-connect
+                  optional: false
+                secretRef:
+                  name: db-connect
+                  optional: false
               image: folioorg/mod-users-bl:7.11.0-SNAPSHOT.181
               imagePullPolicy: Always
               livenessProbe:
@@ -442,13 +438,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
-                    name: db-connect
-                    optional: false
-                  secretRef:
-                    name: db-connect
-                    optional: false
+                configMapRef:
+                  name: db-connect
+                  optional: false
+                secretRef:
+                  name: db-connect
+                  optional: false
               image: folioorg/mod-password-validator:3.5.0-SNAPSHOT.97
               imagePullPolicy: Always
               livenessProbe:
@@ -554,13 +549,12 @@ items:
                 - name: KC_CONFIG_VAULT_TRUSTSTORE_FILE_PATH
                   value: ''
               envFrom:
-                value:
-                  configMapRef:
-                    name: vault-connect
-                    optional: false
-                  secretRef:
-                    name: vault-connect
-                    optional: false
+                configMapRef:
+                  name: vault-connect
+                  optional: false
+                secretRef:
+                  name: vault-connect
+                  optional: false
               image: folioorg/mod-login-keycloak:3.1.0-SNAPSHOT.120
               imagePullPolicy: Always
               livenessProbe:
@@ -618,13 +612,12 @@ items:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=66.0
               envFrom:
-                value:
-                  configMapRef:
-                    name: vault-connect
-                    optional: false
-                  secretRef:
-                    name: vault-connect
-                    optional: false
+                configMapRef:
+                  name: vault-connect
+                  optional: false
+                secretRef:
+                  name: vault-connect
+                  optional: false
               image: folioorg/mod-users-keycloak:3.1.0-SNAPSHOT.153
               imagePullPolicy: Always
               livenessProbe:
@@ -704,13 +697,12 @@ items:
                 - name: KC_CLIENT_ID_TTL
                   value: '3600'
               envFrom:
-                value:
-                  configMapRef:
-                    name: vault-connect
-                    optional: false
-                  secretRef:
-                    name: vault-connect
-                    optional: false
+                configMapRef:
+                  name: vault-connect
+                  optional: false
+                secretRef:
+                  name: vault-connect
+                  optional: false
               image: folioorg/mod-roles-keycloak:3.1.0-SNAPSHOT.217
               imagePullPolicy: Always
               livenessProbe:
@@ -786,13 +778,12 @@ items:
                 - name: NOTES_TYPES_DEFAULTS_LIMIT
                   value: '25'
               envFrom:
-                value:
-                  configMapRef:
-                    name: db-connect
-                    optional: false
-                  secretRef:
-                    name: db-connect
-                    optional: false
+                configMapRef:
+                  name: db-connect
+                  optional: false
+                secretRef:
+                  name: db-connect
+                  optional: false
               image: folioorg/mod-notes:7.1.0-SNAPSHOT.283
               imagePullPolicy: Always
               livenessProbe:
@@ -866,13 +857,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
-                    name: vault-connect
-                    optional: false
-                  secretRef:
-                    name: vault-connect
-                    optional: false
+                configMapRef:
+                  name: vault-connect
+                  optional: false
+                secretRef:
+                  name: vault-connect
+                  optional: false
               image: folioorg/mod-scheduler:3.1.0-SNAPSHOT.119
               imagePullPolicy: Always
               livenessProbe:
@@ -942,13 +932,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
-                    name: db-connect
-                    optional: false
-                  secretRef:
-                    name: db-connect
-                    optional: false
+                configMapRef:
+                  name: db-connect
+                  optional: false
+                secretRef:
+                  name: db-connect
+                  optional: false
               image: folioorg/mod-settings:1.3.0-SNAPSHOT.57
               imagePullPolicy: Always
               livenessProbe:
@@ -1022,13 +1011,12 @@ items:
                 - name: DB_MAXPOOLSIZE
                   value: '5'
               envFrom:
-                value:
-                  configMapRef:
-                    name: db-connect
-                    optional: false
-                  secretRef:
-                    name: db-connect
-                    optional: false
+                configMapRef:
+                  name: db-connect
+                  optional: false
+                secretRef:
+                  name: db-connect
+                  optional: false
               image: folioorg/mod-okapi-facade:3.1.0-SNAPSHOT.61
               imagePullPolicy: Always
               livenessProbe:
