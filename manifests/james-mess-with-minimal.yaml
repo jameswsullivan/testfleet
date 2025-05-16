@@ -4,22 +4,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-configuration
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-configuration
       name: test-mod-configuration
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-configuration
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-configuration
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-configuration
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-configuration
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-configuration
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -84,22 +84,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-permissions
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-permissions
       name: test-mod-permissions
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-permissions
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-permissions
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-permissions
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-permissions
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-permissions
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -164,22 +164,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-tags
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-tags
       name: test-mod-tags
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-tags
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-tags
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-tags
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-tags
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-tags
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -244,22 +244,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users
       name: test-mod-users
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-users
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -340,22 +340,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-bl
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-bl
       name: test-mod-users-bl
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-bl
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-bl
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-users-bl
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-bl
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-bl
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -404,22 +404,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-password-validator
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-password-validator
       name: test-mod-password-validator
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-password-validator
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-password-validator
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-password-validator
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-password-validator
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-password-validator
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -484,22 +484,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-login-keycloak
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-login-keycloak
       name: test-mod-login-keycloak
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-login-keycloak
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-login-keycloak
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-login-keycloak
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-login-keycloak
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-login-keycloak
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -596,22 +596,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-keycloak
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-keycloak
       name: test-mod-users-keycloak
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-keycloak
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-keycloak
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-users-keycloak
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-users-keycloak
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-users-keycloak
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -660,22 +660,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-roles-keycloak
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-roles-keycloak
       name: test-mod-roles-keycloak
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-roles-keycloak
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-roles-keycloak
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-roles-keycloak
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-roles-keycloak
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-roles-keycloak
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -746,22 +746,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-notes
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-notes
       name: test-mod-notes
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-notes
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-notes
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-notes
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-notes
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-notes
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -828,22 +828,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-scheduler
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-scheduler
       name: test-mod-scheduler
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-scheduler
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-scheduler
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-scheduler
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-scheduler
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-scheduler
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -908,22 +908,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-settings
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-settings
       name: test-mod-settings
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-settings
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-settings
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-settings
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-settings
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-settings
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
@@ -984,22 +984,22 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-okapi-facade
+        workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-okapi-facade
       name: test-mod-okapi-facade
-      namespace: folio-modules-test
+      namespace: james-test-fleet
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-okapi-facade
+          workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-okapi-facade
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: test-mod-okapi-facade
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-modules-test-mod-okapi-facade
-          namespace: folio-modules-test
+            workload.user.cattle.io/workloadselector: apps.deployment-james-test-fleet-mod-okapi-facade
+          namespace: james-test-fleet
         spec:
           containers:
             - env:
