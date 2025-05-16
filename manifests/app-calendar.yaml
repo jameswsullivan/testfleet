@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-app-calendar
+      name: app-calendar
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-app-calendar
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: app-calendar
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-app-calendar
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+              image: folioorg/app-calendar:2.1.0-SNAPSHOT
+              imagePullPolicy: Always
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: app-calendar
+              ports:
+                - containerPort: 8081
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
