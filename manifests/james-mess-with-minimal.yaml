@@ -62,10 +62,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-configuration
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -141,10 +137,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-permissions
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -220,10 +212,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-tags
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -315,10 +303,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-users
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -378,10 +362,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-users-bl
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -457,10 +437,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-password-validator
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -568,10 +544,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-login-keycloak
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -631,10 +603,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-users-keycloak
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -716,10 +684,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-roles-keycloak
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -797,10 +761,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-notes
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -876,10 +836,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-scheduler
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -951,10 +907,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-settings
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -1030,10 +982,6 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: test-mod-okapi-facade
-              ports:
-                - containerPort: 8081
-                  name: 8081_TCP_0
-                  protocol: TCP
               readinessProbe:
                 failureThreshold: 3
                 httpGet:
