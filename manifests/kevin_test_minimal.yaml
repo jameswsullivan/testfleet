@@ -64,7 +64,7 @@ items:
               name: test-mod-configuration
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -143,7 +143,7 @@ items:
               name: test-mod-permissions
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -222,7 +222,7 @@ items:
               name: test-mod-tags
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -320,7 +320,7 @@ items:
               name: test-mod-users
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -383,7 +383,7 @@ items:
               name: test-mod-users-bl
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -462,7 +462,7 @@ items:
               name: test-mod-password-validator
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -588,7 +588,7 @@ items:
               name: test-mod-login-keycloak
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -666,7 +666,7 @@ items:
               name: test-mod-users-keycloak
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -766,7 +766,7 @@ items:
               name: test-mod-roles-keycloak
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -847,7 +847,7 @@ items:
               name: test-mod-notes
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -941,7 +941,7 @@ items:
               name: test-mod-scheduler
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -1016,7 +1016,7 @@ items:
               name: test-mod-settings
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -1098,7 +1098,7 @@ items:
               name: test-mod-okapi-facade
               ports:
                 - containerPort: 8081
-                  name: 8081-TCP-0
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
