@@ -5,21 +5,21 @@ items:
     kind: Deployment
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-app-calendar
-      name: app-calendar
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
+      name: mod-calendar
       namespace: folio-modules
     spec:
       replicas: 1
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-app-calendar
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: app-calendar
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-app-calendar
+            app: mod-calendar
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
           namespace: folio-modules
         spec:
           containers:
@@ -33,9 +33,10 @@ items:
                 - secretRef:
                     name: db-connect
                     optional: true
-              image: folioorg/mod-calendar
-              tag: latest
+              image: folioci/mod-calendar:3.4.0-SNAPSHOT.181
               imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
               livenessProbe:
                 failureThreshold: 3
                 httpGet:
@@ -46,7 +47,7 @@ items:
                 periodSeconds: 60
                 successThreshold: 1
                 timeoutSeconds: 5
-              name: app-calendar
+              name: mod-calendar
               ports:
                 - containerPort: 8081
                   name: primary
