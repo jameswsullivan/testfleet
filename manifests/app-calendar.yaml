@@ -35,7 +35,8 @@ items:
                     optional: true
               image:
                 pullPolicy: Always
-                repository: folioci/mod-calendar:3.4.0-SNAPSHOT.181
+                repository: folioci/mod-calendar
+                tag: 3.4.0-SNAPSHOT.181
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
