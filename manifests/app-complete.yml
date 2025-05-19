@@ -1,0 +1,3414 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-graphql
+      name: mod-graphql
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-graphql
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-graphql
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-graphql
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - secretRef:
+                    name: mod-graphql
+                    optional: true
+              image: folioci/mod-graphql:1.13.1000374
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-graphql
+              ports:
+                - containerPort: 3001
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 2Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-quick-marc
+      name: mod-quick-marc
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-quick-marc
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-quick-marc
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-quick-marc
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=85.0 -Dlog4j2.formatMsgNoLookups=true
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-quick-marc:7.1.0-SNAPSHOT.322
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-quick-marc
+              ports:
+                - containerPort: 8081
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 2Gi
+  - apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-inventory-storage
+      name: mod-inventory-storage
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-inventory-storage
+      serviceName: mod-inventory-storage
+      template:
+        metadata:
+          labels:
+            app: mod-inventory-storage
+            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-inventory-storage
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: REPLICATION_FACTOR
+                  value: '3'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-inventory-storage:29.1.0-SNAPSHOT.1134
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-inventory-storage
+              ports:
+                - containerPort: 8081
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 3Gi
+      updateStrategy:
+        type: RollingUpdate
+  - apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-circulation-storage
+      name: mod-circulation-storage
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-circulation-storage
+      serviceName: mod-circulation-storage
+      template:
+        metadata:
+          labels:
+            app: mod-circulation-storage
+            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-circulation-storage
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: REPLICATION_FACTOR
+                  value: '3'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-circulation-storage:17.5.0-SNAPSHOT.438
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-circulation-storage
+              ports:
+                - containerPort: 8081
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 3Gi
+      updateStrategy:
+        type: RollingUpdate
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-search
+      name: mod-search
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-search
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-search
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-search
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
+                    name: elasticsearch-connect
+                    optional: true
+                - secretRef:
+                    name: mod-search
+                    optional: true
+              image: folioci/mod-search:5.1.0-SNAPSHOT.699
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-search
+              ports:
+                - containerPort: 8081
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 4Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory
+      name: mod-inventory
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-inventory
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Dorg.folio.metadata.inventory.storage.type=okapi
+                    -Dlog4j2.formatMsgNoLookups=true
+                - name: inventory.kafka.DataImportConsumerVerticle.instancesNumber
+                  value: '10'
+                - name: inventory.kafka.MarcBibInstanceHridSetConsumerVerticle.instancesNumber
+                  value: '10'
+                - name: kafka.consumer.max.poll.records
+                  value: '10'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-inventory:21.2.0-SNAPSHOT.872
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-inventory
+              ports:
+                - containerPort: 9403
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 3Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-circulation
+      name: mod-circulation
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-circulation
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-circulation
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-circulation
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-circulation:24.5.0-SNAPSHOT.1307
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-circulation
+              ports:
+                - containerPort: 9801
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 2Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-feesfines
+      name: mod-feesfines
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-feesfines
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-feesfines
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-feesfines
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-feesfines:19.4.0-SNAPSHOT.246
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-feesfines
+              ports:
+                - containerPort: 8081
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-patron-blocks
+      name: mod-patron-blocks
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-patron-blocks
+      serviceName: mod-patron-blocks
+      template:
+        metadata:
+          labels:
+            app: mod-patron-blocks
+            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-patron-blocks
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-patron-blocks:1.13.0-SNAPSHOT.108
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-patron-blocks
+              ports:
+                - containerPort: 8081
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 3Gi
+      updateStrategy:
+        type: RollingUpdate
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-entities-links
+      name: mod-entities-links
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-entities-links
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-entities-links
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-entities-links
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=85.0 -Dlog4j2.formatMsgNoLookups=true
+                    -Dspring.datasource.hikari.connection-timeout=3000
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - secretRef:
+                    name: mod-entities-links
+                    optional: true
+              image: folioci/mod-entities-links:4.1.0-SNAPSHOT.336
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-entities-links
+              ports:
+                - containerPort: 8081
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 4Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-source-record-manager
+      name: mod-source-record-manager
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-source-record-manager
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-source-record-manager
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-source-record-manager
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-source-record-manager:3.11.0-SNAPSHOT.1023
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-source-record-manager
+              ports:
+                - containerPort: 8081
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 6Gi
+  - apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-di-converter-storage
+      name: mod-di-converter-storage
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-di-converter-storage
+      serviceName: mod-di-converter-storage
+      template:
+        metadata:
+          labels:
+            app: mod-di-converter-storage
+            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-di-converter-storage
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-di-converter-storage:2.5.0-SNAPSHOT.74
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-di-converter-storage
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 4Gi
+      updateStrategy:
+        type: RollingUpdate
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-patron
+      name: mod-patron
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-patron
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-patron
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-patron
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-patron:6.4.0-SNAPSHOT.168
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-patron
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export
+      name: mod-data-export
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-data-export
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export
+          namespace: folio-modules
+        spec:
+          containers:
+            - args:
+                - -Dbucket.name=folio-data-export
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-spring
+      name: mod-data-export-spring
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-spring
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-data-export-spring
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-spring
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+                - name: KAFKA_HOST
+                  value: 10.0.2.15
+                - name: KAFKA_PORT
+                  value: '9092'
+                - name: OKAPI_URL
+                  value: http://okapi:9130
+                - name: ENV
+                  value: folio
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
+                    name: minio-connect
+                    optional: true
+                - secretRef:
+                    name: minio-connect
+                    optional: true
+                - secretRef:
+                    name: mod-data-export-spring
+                    optional: true
+              image: folioci/mod-data-export-spring:3.6.0-SNAPSHOT.303
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-data-export-spring
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 4Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-worker
+      name: mod-data-export-worker
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-worker
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-data-export-worker
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-worker
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -XX:MetaspaceSize=384m -XX:MaxMetaspaceSize=512m
+                    -Xmx2048m
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+                - name: KAFKA_HOST
+                  value: 10.0.2.15
+                - name: KAFKA_PORT
+                  value: '9092'
+                - name: AWS_URL
+                  value: http://127.0.0.1:9000/
+                - name: AWS_REGION
+                  value: ''
+                - name: AWS_BUCKET
+                  value: test-bucket2
+                - name: AWS_ACCESS_KEY_ID
+                  value: AKIAIOSFODNN7EXAMPLE
+                - name: AWS_SECRET_ACCESS_KEY
+                  value: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+                - name: LOCAL_FS_URL
+                  value: http://127.0.0.1:9000/
+                - name: LOCAL_FS_REGION
+                  value: ''
+                - name: LOCAL_FS_BUCKET
+                  value: local-test-bucket2
+                - name: LOCAL_FS_ACCESS_KEY_ID
+                  value: AKIAIOSFODNN7EXAMPLE
+                - name: LOCAL_FS_SECRET_ACCESS_KEY
+                  value: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+                - name: LOCAL_FS_COMPOSE_WITH_AWS_SDK
+                  value: 'false'
+                - name: ENV
+                  value: folio
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: minio-connect
+                    optional: true
+                - secretRef:
+                    name: minio-connect
+                    optional: true
+              image: folioci/mod-data-export-worker:3.5.0-SNAPSHOT.614
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-data-export-worker
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 4Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
+      name: mod-rtac
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-rtac
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-rtac:3.9.0-SNAPSHOT.108
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-rtac
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-remote-storage
+      name: mod-remote-storage
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-remote-storage
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-remote-storage
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-remote-storage
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=75.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: KAFKA_HOST
+                  value: kafka
+                - name: KAFKA_PORT
+                  value: '9092'
+                - name: KAFKA_SECURITY_PROTOCOL
+                  value: PLAINTEXT
+                - name: KAFKA_SSL_KEYSTORE_LOCATION
+                  value: ''
+                - name: KAFKA_SSL_KEYSTORE_PASSWORD
+                  value: ''
+                - name: KAFKA_SSL_TRUSTSTORE_LOCATION
+                  value: ''
+                - name: KAFKA_SSL_TRUSTSTORE_PASSWORD
+                  value: ''
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - secretRef:
+                    name: mod-remote-storage
+                    optional: true
+              image: folioci/mod-remote-storage:3.5.0-SNAPSHOT.227
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-remote-storage
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 4Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
+      name: mod-calendar
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-calendar
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+                - name: DB_HOST
+                  value: localhost
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-calendar:3.4.0-SNAPSHOT.181
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-calendar
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-audit
+      name: mod-audit
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-audit
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-audit
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-audit
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-audit:3.0.0-SNAPSHOT.221
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-audit
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 2Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-courses
+      name: mod-courses
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-courses
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-courses
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-courses
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-courses:1.4.12-SNAPSHOT.168
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-courses
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-source-record-storage
+      name: mod-source-record-storage
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-source-record-storage
+      serviceName: mod-source-record-storage
+      template:
+        metadata:
+          labels:
+            app: mod-source-record-storage
+            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-source-record-storage
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '15'
+                - name: DB_RECONNECTATTEMPTS
+                  value: '3'
+                - name: KAFKA_HOST
+                  value: 10.0.2.15
+                - name: KAFKA_PORT
+                  value: '9092'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-source-record-storage:5.11.0-SNAPSHOT.682
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-source-record-storage
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 6Gi
+      updateStrategy:
+        type: RollingUpdate
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-import
+      name: mod-data-import
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-import
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-data-import
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-import
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+                - name: KAFKA_HOST
+                  value: 10.0.2.15
+                - name: KAFKA_PORT
+                  value: '9092'
+                - name: AWS_URL
+                  value: http://127.0.0.1:9000/
+                - name: AWS_REGION
+                  value: ''
+                - name: AWS_BUCKET
+                  value: example-bucket
+                - name: AWS_ACCESS_KEY_ID
+                  value: AKIAIOSFODNN7EXAMPLE
+                - name: AWS_SECRET_ACCESS_KEY
+                  value: wJalrXUtnFEMI/K7MDENG/EXAMPLEKEY
+                - name: AWS_SDK
+                  value: 'false'
+                - name: S3_FORCEPATHSTYLE
+                  value: 'false'
+                - name: SPLIT_FILES_ENABLED
+                  value: 'false'
+                - name: RECORDS_PER_SPLIT_FILE
+                  value: '1000'
+                - name: SCORE_JOB_SMALLEST
+                  value: '40'
+                - name: SCORE_JOB_LARGEST
+                  value: '-40'
+                - name: SCORE_JOB_REFERENCE
+                  value: '100000'
+                - name: SCORE_AGE_NEWEST
+                  value: '0'
+                - name: SCORE_AGE_OLDEST
+                  value: '50'
+                - name: SCORE_AGE_EXTREME_THRESHOLD_MINUTES
+                  value: '480'
+                - name: SCORE_AGE_EXTREME_VALUE
+                  value: '10000'
+                - name: SCORE_TENANT_USAGE_MIN
+                  value: '100'
+                - name: SCORE_TENANT_USAGE_MAX
+                  value: '-200'
+                - name: SCORE_PART_NUMBER_FIRST
+                  value: '1'
+                - name: SCORE_PART_NUMBER_LAST
+                  value: '0'
+                - name: SCORE_PART_NUMBER_LAST_REFERENCE
+                  value: '100'
+                - name: ASYNC_PROCESSOR_POLL_INTERVAL_MS
+                  value: '5000'
+                - name: ASYNC_PROCESSOR_MAX_WORKERS_COUNT
+                  value: '1'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-data-import:3.4.0-SNAPSHOT.332
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-data-import
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 4Gi
+  - apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-agreements
+      name: mod-agreements
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-agreements
+      serviceName: mod-agreements
+      template:
+        metadata:
+          labels:
+            app: mod-agreements
+            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-agreements
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=67.0
+                    -XX:+PrintFlagsFinal
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_MAXPOOLSIZE
+                  value: '50'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-agreements:7.3.0-SNAPSHOT.765
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-agreements
+              ports:
+                - containerPort: 8080
+                  name: 8080-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 3Gi
+      updateStrategy:
+        type: RollingUpdate
+  - apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-licenses
+      name: mod-licenses
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-licenses
+      serviceName: mod-licenses
+      template:
+        metadata:
+          labels:
+            app: mod-licenses
+            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-licenses
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0
+                    -XX:+PrintFlagsFinal
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_MAXPOOLSIZE
+                  value: '50'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-licenses:6.3.0-SNAPSHOT.285
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-licenses
+              ports:
+                - containerPort: 8080
+                  name: 8080-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 4Gi
+      updateStrategy:
+        type: RollingUpdate
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-email
+      name: mod-email
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-email
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-email
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-email
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-email:1.20.0-SNAPSHOT.93
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-email
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-event-config
+      name: mod-event-config
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-event-config
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-event-config
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-event-config
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-event-config:2.10.0-SNAPSHOT.72
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-event-config
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-notify
+      name: mod-notify
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-notify
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-notify
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-notify
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-notify:3.5.0-SNAPSHOT.139
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-notify
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-sender
+      name: mod-sender
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-sender
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-sender
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-sender
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-sender:1.14.1
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-sender
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-template-engine
+      name: mod-template-engine
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-template-engine
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-template-engine
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-template-engine
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-template-engine:1.23.0-SNAPSHOT.103
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-template-engine
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-pubsub
+      name: mod-pubsub
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-pubsub
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-pubsub
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-pubsub
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0 -XX:+HeapDumpOnOutOfMemoryError
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+                - name: KAFKA_HOST
+                  value: 10.0.2.15
+                - name: KAFKA_PORT
+                  value: '9092'
+                - name: OKAPI_URL
+                  value: http://10.0.2.15:9130
+                - name: SYSTEM_USER_NAME
+                  value: pub-sub
+                - name: SYSTEM_USER_PASSWORD
+                  value: pubsub
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - secretRef:
+                    name: mod-pubsub
+                    optional: true
+              image: folioci/mod-pubsub:2.17.0-SNAPSHOT.260
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-pubsub
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 4Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
+      name: mod-gobi
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-gobi
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-gobi:3.1.0-SNAPSHOT.253
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-gobi
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-copycat
+      name: mod-copycat
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-copycat
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-copycat
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-copycat
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-copycat:1.8.0
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-copycat
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 4Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-kb-ebsco-java
+      name: mod-kb-ebsco-java
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-kb-ebsco-java
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-kb-ebsco-java
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-kb-ebsco-java
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=85.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_QUERYTIMEOUT
+                  value: '60000'
+                - name: DB_CHARSET
+                  value: UTF-8
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-kb-ebsco-java:6.1.0-SNAPSHOT.465
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-kb-ebsco-java
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ncip
+      name: mod-ncip
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ncip
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-ncip
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ncip
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-ncip:1.16.0-SNAPSHOT.109
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-ncip
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory-update
+      name: mod-inventory-update
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory-update
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-inventory-update
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory-update
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-inventory-update:4.1.1-SNAPSHOT.141
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-inventory-update
+              ports:
+                - containerPort: 8080
+                  name: 8080-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 3Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-user-import
+      name: mod-user-import
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-user-import
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-user-import
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-user-import
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-user-import:3.11.0-SNAPSHOT.108
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-user-import
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 4Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-service-interaction
+      name: mod-service-interaction
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-service-interaction
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-service-interaction
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-service-interaction
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=55.0
+                    -XX:+PrintFlagsFinal
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-service-interaction:4.3.0-SNAPSHOT.142
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-service-interaction
+              ports:
+                - containerPort: 8080
+                  name: 8080-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
+      name: mod-ebsconet
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-ebsconet
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=80.0
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-ebsconet:2.5.0-SNAPSHOT.89
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-ebsconet
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-batch-print
+      name: mod-batch-print
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-batch-print
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-batch-print
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-batch-print
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=66.0
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_MAXPOOLSIZE
+                  value: '5'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-batch-print:1.3.1-SNAPSHOT.15
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-batch-print
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: '1'
+                  memory: 2Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-serials-management
+      name: mod-serials-management
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-serials-management
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-serials-management
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-serials-management
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=55.0
+                    -XX:+PrintFlagsFinal
+                - name: DB_HOST
+                  value: postgres
+                - name: DB_PORT
+                  value: '5432'
+                - name: DB_USERNAME
+                  value: folio_admin
+                - name: DB_PASSWORD
+                  value: folio_admin
+                - name: DB_DATABASE
+                  value: okapi_modules
+                - name: DB_MAXPOOLSIZE
+                  value: '50'
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+              image: folioci/mod-serials-management:2.1.0-SNAPSHOT.159
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-serials-management
+              ports:
+                - containerPort: 8080
+                  name: 8080-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-record-specifications
+      name: mod-record-specifications
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-record-specifications
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-record-specifications
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-record-specifications
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=85.0
+                - description: Postgres hostname
+                  name: DB_HOST
+                  value: localhost
+                - description: Postgres port
+                  name: DB_PORT
+                  value: '5432'
+                - description: Postgres username
+                  name: DB_USERNAME
+                  value: folio_admin
+                - description: Postgres username password
+                  name: DB_PASSWORD
+                  value: folio_admin
+                - description: Postgres database name
+                  name: DB_DATABASE
+                  value: okapi_modules
+                - description: This property controls the maximum size that the pool
+                    is allowed to reach, including both idle and in-use connections
+                  name: DB_MAXPOOLSIZE
+                  value: '10'
+                - description: This property controls the minimum number of idle connections
+                    that HikariCP tries to maintain in the pool
+                  name: DB_MINIMUM_IDLE
+                  value: '10'
+                - description: This property controls the maximum number of milliseconds
+                    that a client will wait for a connection from the pool
+                  name: DB_CONNECTION_TIMEOUT
+                  value: '30000'
+                - description: This property controls the maximum amount of time that
+                    a connection is allowed to sit idle in the pool. This setting
+                    only applies when `DB_MINIMUM_IDLE` is defined to be less than
+                    `DB_MAXPOOLSIZE`
+                  name: DB_IDLE_TIMEOUT
+                  value: '600000'
+                - description: This property controls how frequently HikariCP will
+                    attempt to keep a connection alive, in order to prevent it from
+                    being timed out by the database or network infrastructure (0 -
+                    disabled)
+                  name: DB_KEEPALIVE_TIME
+                  value: '0'
+                - description: This property controls the maximum lifetime of a connection
+                    in the pool
+                  name: DB_MAX_LIFETIME
+                  value: '1800000'
+                - description: This property controls the maximum amount of time that
+                    a connection will be tested for aliveness. This value must be
+                    less than the `DB_CONNECTION_TIMEOUT`
+                  name: DB_VALIDATION_TIMEOUT
+                  value: '5000'
+                - description: This property controls whether the pool will "fail
+                    fast" if the pool cannot be seeded with an initial connection
+                    successfully
+                  name: DB_INITIALIZATION_FAIL_TIMEOUT
+                  value: '30000'
+                - description: This property controls the amount of time that a connection
+                    can be out of the pool before a message is logged indicating a
+                    possible connection leak (0 - disabled)
+                  name: DB_LEAK_DETECTION_THRESHOLD
+                  value: '30000'
+                - description: Kafka broker hostname
+                  name: KAFKA_HOST
+                  value: kafka
+                - description: Kafka broker port
+                  name: KAFKA_PORT
+                  value: '9092'
+                - description: Kafka security protocol used to communicate with brokers
+                    (SSL or PLAINTEXT)
+                  name: KAFKA_SECURITY_PROTOCOL
+                  value: PLAINTEXT
+                - description: The location of the Kafka key store file. This is optional
+                    for client and can be used for two-way authentication for client.
+                  name: KAFKA_SSL_KEYSTORE_LOCATION
+                  value: ''
+                - description: The store password for the Kafka key store file. This
+                    is optional for client and only needed if 'ssl.keystore.location'
+                    is configured.
+                  name: KAFKA_SSL_KEYSTORE_PASSWORD
+                  value: ''
+                - description: The location of the Kafka trust store file.
+                  name: KAFKA_SSL_TRUSTSTORE_LOCATION
+                  value: ''
+                - description: The password for the Kafka trust store file. If a password
+                    is not set, trust store file configured will still be used, but
+                    integrity checking is disabled.
+                  name: KAFKA_SSL_TRUSTSTORE_PASSWORD
+                  value: ''
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+              image: folioci/mod-record-specifications:2.1.0-SNAPSHOT.99
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-record-specifications
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
