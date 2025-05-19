@@ -33,7 +33,8 @@ items:
                 - secretRef:
                     name: db-connect
                     optional: true
-              image: folioci/mod-calendar:3.4.0-SNAPSHOT.181
+              image: folioci/mod-calendar
+              tag: 3.4.0-SNAPSHOT.181
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
