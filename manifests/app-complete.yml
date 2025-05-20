@@ -25,7 +25,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: folio-modules-global
@@ -96,33 +96,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=85.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
-                - name: KAFKA_HOST
-                  value: 10.0.2.15
-                - name: KAFKA_PORT
-                  value: '9092'
-                - name: REPLICATION_FACTOR
-                  value: '1'
-                - name: NUMBER_OF_PARTITIONS
-                  value: '1'
-                - name: ENV
-                  value: folio
+                  value: -XX:MaxRAMPercentage=85.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -193,83 +167,9 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: ENV
-                  value: folio
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
-                - name: DB_MAXSHAREDPOOLSIZE
-                  value: '3'
-                - name: DB_CONNECTIONRELEASEDELAY
-                  value: '60000'
-                - name: DB_RECONNECTATTEMPTS
-                  value: '3'
-                - name: DB_RECONNECTINTERVAL
-                  value: '10000'
-                - name: DB_EXPLAIN_QUERY_THRESHOLD
-                  value: '1000000'
-                - name: DB_ALLOW_SUPPRESS_OPTIMISTIC_LOCKING
-                  value: '0001-01-01T00:00:00Z'
-                - name: KAFKA_HOST
-                  value: kafka
-                - name: KAFKA_PORT
-                  value: '9092'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
                 - name: REPLICATION_FACTOR
-                  value: '1'
-                - name: KAFKA_DOMAIN_TOPIC_NUM_PARTITIONS
-                  value: '50'
-                - name: KAFKA_CLASSIFICATION_TYPE_TOPIC_NUM_PARTITIONS
-                  value: '1'
-                - name: KAFKA_CALL_NUMBER_TYPE_TOPIC_NUM_PARTITIONS
-                  value: '1'
-                - name: KAFKA_LOCATION_TOPIC_NUM_PARTITIONS
-                  value: '1'
-                - name: KAFKA_LIBRARY_TOPIC_NUM_PARTITIONS
-                  value: '1'
-                - name: KAFKA_CAMPUS_TOPIC_NUM_PARTITIONS
-                  value: '1'
-                - name: KAFKA_INSTITUTION_TOPIC_NUM_PARTITIONS
-                  value: '1'
-                - name: KAFKA_SUBJECT_TYPE_TOPIC_NUM_PARTITIONS
-                  value: '1'
-                - name: KAFKA_SUBJECT_SOURCE_TOPIC_NUM_PARTITIONS
-                  value: '1'
-                - name: KAFKA_REINDEX_RECORDS_TOPIC_NUM_PARTITIONS
-                  value: '16'
-                - name: KAFKA_REINDEX_RECORDS_TOPIC_MESSAGE_RETENTION
-                  value: '86400000'
-                - name: KAFKA_REINDEX_RECORDS_TOPIC_MAX_MESSAGE_SIZE
-                  value: '10485760'
-                - name: KAFKA_REINDEX_PRODUCER_MAX_REQUEST_SIZE_BYTES
-                  value: '10485760'
-                - name: S3_URL
-                  value: http://127.0.0.1:9000/
-                - name: S3_REGION
-                  value: ''
-                - name: S3_BUCKET
-                  value: marc-migrations
-                - name: S3_ACCESS_KEY_ID
-                  value: ''
-                - name: S3_SECRET_ACCESS_KEY
-                  value: ''
-                - name: S3_IS_AWS
-                  value: 'true'
-                - name: ECS_TLR_FEATURE_ENABLED
-                  value: 'false'
+                  value: '3'
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -342,31 +242,9 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
-                - name: KAFKA_HOST
-                  value: kafka
-                - name: KAFKA_PORT
-                  value: '9092'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
                 - name: REPLICATION_FACTOR
-                  value: '1'
-                - name: ENV
-                  value: folio
+                  value: '3'
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -441,237 +319,8 @@ items:
         spec:
           containers:
             - env:
-                - description: The logical name of the deployment, must be unique
-                    across all environments using the same shared Kafka/Elasticsearch
-                    clusters, `a-z (any case)`, `0-9`, `-`, `_` symbols only allowed
-                  name: ENV
-                  value: folio
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=85.0
-                - description: Kafka broker hostname
-                  name: KAFKA_HOST
-                  value: kafka
-                - description: Kafka broker port
-                  name: KAFKA_PORT
-                  value: '9092'
-                - description: Kafka security protocol used to communicate with brokers
-                    (SSL or PLAINTEXT)
-                  name: KAFKA_SECURITY_PROTOCOL
-                  value: PLAINTEXT
-                - description: The location of the Kafka key store file. This is optional
-                    for client and can be used for two-way authentication for client.
-                  name: KAFKA_SSL_KEYSTORE_LOCATION
-                  value: ''
-                - description: The store password for the Kafka key store file. This
-                    is optional for client and only needed if 'ssl.keystore.location'
-                    is configured.
-                  name: KAFKA_SSL_KEYSTORE_PASSWORD
-                  value: ''
-                - description: The location of the Kafka trust store file.
-                  name: KAFKA_SSL_TRUSTSTORE_LOCATION
-                  value: ''
-                - description: The password for the Kafka trust store file. If a password
-                    is not set, trust store file configured will still be used, but
-                    integrity checking is disabled.
-                  name: KAFKA_SSL_TRUSTSTORE_PASSWORD
-                  value: ''
-                - description: Custom subscription pattern for Kafka consumers.
-                  name: KAFKA_EVENTS_CONSUMER_PATTERN
-                  value: (folio\.)(.*\.)inventory\.(instance|holdings-record|item|bound-with)
-                - description: Custom number of kafka concurrent threads for message
-                    consuming.
-                  name: KAFKA_EVENTS_CONCURRENCY
-                  value: '2'
-                - description: Maximum number of records returned in a single call
-                    to poll() for 'instance|holdings-record|item|bound-with' events.
-                  name: KAFKA_CONSUMER_EVENTS_MAX_POLL_RECORDS
-                  value: '200'
-                - description: Maximum processing time allowed for consumer on 'instance|holdings-record|item|bound-with'
-                    events.
-                  name: KAFKA_CONSUMER_EVENTS_MAX_POLL_INTERVAL_MS
-                  value: '600000'
-                - description: Custom subscription pattern for Kafka authority message
-                    consumers.
-                  name: KAFKA_AUTHORITIES_CONSUMER_PATTERN
-                  value: (folio\.)(.*\.)authorities\.authority
-                - description: Custom number of kafka concurrent threads for authority
-                    message consuming.
-                  name: KAFKA_AUTHORITIES_CONCURRENCY
-                  value: '1'
-                - description: Custom number of kafka concurrent threads for `search.reindex.range-index`
-                    message consuming.
-                  name: KAFKA_REINDEX_RANGE_INDEX_CONCURRENCY
-                  value: '1'
-                - description: Amount of partitions for `search.reindex.range-index`
-                    topic.
-                  name: KAFKA_REINDEX_RANGE_INDEX_TOPIC_PARTITIONS
-                  value: '16'
-                - description: Replication factor for `search.reindex.range-index`
-                    topic.
-                  name: KAFKA_REINDEX_RANGE_INDEX_TOPIC_REPLICATION_FACTOR
-                  value: ''
-                - description: Custom number of kafka concurrent threads for `inventory.reindex-records`
-                    message consuming.
-                  name: KAFKA_REINDEX_RECORDS_CONCURRENCY
-                  value: '2'
-                - description: Maximum number of records returned in a single call
-                    to poll().
-                  name: KAFKA_CONSUMER_MAX_POLL_RECORDS
-                  value: '200'
-                - description: Specifies time to wait before reattempting query.
-                  name: KAFKA_RETRY_INTERVAL_MS
-                  value: '2000'
-                - description: Specifies how many queries attempt to perform after
-                    the first one failed.
-                  name: KAFKA_RETRY_DELIVERY_ATTEMPTS
-                  value: '6'
-                - description: Elasticsearch URL
-                  name: ELASTICSEARCH_URL
-                  value: http://elasticsearch:9200
-                - description: Elasticsearch username (not required for dev envs)
-                  name: ELASTICSEARCH_USERNAME
-                  value: elastic
-                - description: Elasticsearch password (not required for dev envs)
-                  name: ELASTICSEARCH_PASSWORD
-                  value: s3cret
-                - description: Specify if Elasticsearch request/response compression
-                    enabled
-                  name: ELASTICSEARCH_COMPRESSION_ENABLED
-                  value: 'true'
-                - description: Postgres hostname
-                  name: DB_HOST
-                  value: postgres
-                - description: Postgres port
-                  name: DB_PORT
-                  value: '5432'
-                - description: Postgres username
-                  name: DB_USERNAME
-                  value: postgres
-                - description: Postgres username password
-                  name: DB_PASSWORD
-                  value: postgres
-                - description: Postgres database name
-                  name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
-                - description: Format for passing data to elasticsearch (json/smile)
-                  name: INDEXING_DATA_FORMAT
-                  value: smile
-                - description: Defines if module should process subjects/contributors/classifications/call-numbers
-                    in a background
-                  name: INSTANCE_CHILDREN_INDEX_ENABLED
-                  value: 'true'
-                - description: Scheduler delay for indexing subjects/contributors/classifications
-                  name: INSTANCE_CHILDREN_INDEX_DELAY_MS
-                  value: '60000'
-                - description: Batch size for indexing subjects/contributors/classifications
-                  name: INSTANCE_CHILDREN_INDEX_BATCH_SIZE
-                  value: '500'
-                - description: Comma separated list of languages for multilang fields
-                  name: INITIAL_LANGUAGES
-                  value: eng
-                - description: Provides the maximum number of supported languages
-                  name: MAX_SUPPORTED_LANGUAGES
-                  value: '5'
-                - description: Username for `mod-search` system user
-                  name: SYSTEM_USER_USERNAME
-                  value: mod-search
-                - description: Password for `mod-search` system user (not required
-                    for dev envs)
-                  name: SYSTEM_USER_PASSWORD
-                  value: ''
-                - description: OKAPI URL used to login system user, required
-                  name: OKAPI_URL
-                  value: ''
-                - description: Specifies if globally search by all field values must
-                    be enabled or not (tenant can override this setting)
-                  name: SEARCH_BY_ALL_FIELDS_ENABLED
-                  value: 'false'
-                - description: Specifies if globally browse instance subject feature
-                    is enabled
-                  name: BROWSE_SUBJECTS_ENABLED
-                  value: 'true'
-                - description: Specifies if globally browse instance contributor feature
-                    is enabled
-                  name: BROWSE_CONTRIBUTORS_ENABLED
-                  value: 'true'
-                - description: Specifies if globally browse instance classification
-                    feature is enabled
-                  name: BROWSE_CLASSIFICATIONS_ENABLED
-                  value: 'true'
-                - description: Specifies if globally browse instance call-number feature
-                    is enabled
-                  name: BROWSE_CALL_NUMBERS_ENABLED
-                  value: 'true'
-                - description: The number of records to be loaded by each scroll query.
-                    10000 is a max value
-                  name: SCROLL_QUERY_SIZE
-                  value: '1000'
-                - description: Specifies time to wait before reattempting query.
-                  name: STREAM_ID_RETRY_INTERVAL_MS
-                  value: '1000'
-                - description: Specifies how many queries attempt to perform after
-                    the first one failed.
-                  name: STREAM_ID_RETRY_ATTEMPTS
-                  value: '3'
-                - description: The number of threads to keep in the pool, even if
-                    they are idle.
-                  name: STREAM_ID_CORE_POOL_SIZE
-                  value: '2'
-                - description: The maximum number of threads to allow in the pool.
-                  name: STREAM_ID_MAX_POOL_SIZE
-                  value: '2'
-                - description: The capacity of the queue.
-                  name: STREAM_ID_QUEUE_CAPACITY
-                  value: '500'
-                - description: The maximum time to wait for search query response
-                  name: SEARCH_QUERY_TIMEOUT
-                  value: 25s
-                - description: The maximum elasticsearch query offset for additional
-                    requests on browse around
-                  name: MAX_BROWSE_REQUEST_OFFSET
-                  value: '500'
-                - description: Defines number of locations to retrieve per inventory
-                    http request on locations reindex process
-                  name: REINDEX_LOCATION_BATCH_SIZE
-                  value: '1000'
-                - description: Defines maximum batch request IDs count for searching
-                    consolidated items/holdings in consortium
-                  name: MAX_SEARCH_BATCH_REQUEST_IDS_COUNT
-                  value: '20000'
-                - description: The range size that represents the number of merge
-                    entities to process during the Merge process of reindex
-                  name: REINDEX_MERGE_RANGE_SIZE
-                  value: '500'
-                - description: The range size that represents the number of upload
-                    entities to process during the Upload process of reindex
-                  name: REINDEX_UPLOAD_RANGE_SIZE
-                  value: '1000'
-                - description: The level of deepness of upload range generator affecting
-                    the number of ranges to be generated
-                  name: REINDEX_UPLOAD_RANGE_LEVEL
-                  value: '3'
-                - description: The number of threads for publishing the merge ranges
-                    to keep in the pool, even if they are idle.
-                  name: REINDEX_MERGE_RANGE_PUBLISHER_CORE_POOL_SIZE
-                  value: '3'
-                - description: The maximum number of threads for publishing the merge
-                    ranges to allow in the pool.
-                  name: REINDEX_MERGE_RANGE_PUBLISHER_MAX_POOL_SIZE
-                  value: '6'
-                - description: The retry interval in ms for reindex merge range request
-                    publishing.
-                  name: REINDEX_MERGE_RANGE_PUBLISHER_RETRY_INTERVAL_MS
-                  value: '1000'
-                - description: The maximum number of retries for reindex merge range
-                    request publishing.
-                  name: REINDEX_MERGE_RANGE_PUBLISHER_RETRY_ATTEMPTS
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -755,26 +404,13 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=66.0 -Dorg.folio.metadata.inventory.storage.type=okapi
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_IDLETIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
-                - name: KAFKA_HOST
-                  value: 10.0.2.15
-                - name: KAFKA_PORT
-                  value: '9092'
+                    -Dlog4j2.formatMsgNoLookups=true
+                - name: inventory.kafka.DataImportConsumerVerticle.instancesNumber
+                  value: '10'
+                - name: inventory.kafka.MarcBibInstanceHridSetConsumerVerticle.instancesNumber
+                  value: '10'
+                - name: kafka.consumer.max.poll.records
+                  value: '10'
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -848,19 +484,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: SCHEDULED_ANONYMIZATION_NUMBER_OF_LOANS_TO_CHECK
-                  value: '50000'
-                - name: ENABLE_FLOATING_COLLECTIONS
-                  value: 'true'
-                - name: KAFKA_HOST
-                  value: kafka
-                - name: KAFKA_PORT
-                  value: '9092'
-                - name: REPLICATION_FACTOR
-                  value: '1'
-                - name: ENV
-                  value: folio
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: folio-modules-global
@@ -928,23 +552,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1012,23 +620,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1101,173 +693,8 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=85.0
-                - description: The logical name of the deployment, must be unique
-                    across all environments using the same shared Kafka/Elasticsearch
-                    clusters, `a-z (any case)`, `0-9`, `-`, `_` symbols only allowed
-                  name: ENV
-                  value: folio
-                - description: Postgres hostname
-                  name: DB_HOST
-                  value: localhost
-                - description: Postgres port
-                  name: DB_PORT
-                  value: '5432'
-                - description: Postgres username
-                  name: DB_USERNAME
-                  value: folio_admin
-                - description: Postgres username password
-                  name: DB_PASSWORD
-                  value: folio_admin
-                - description: Postgres database name
-                  name: DB_DATABASE
-                  value: okapi_modules
-                - description: This property controls the maximum size that the pool
-                    is allowed to reach, including both idle and in-use connections
-                  name: DB_MAXPOOLSIZE
-                  value: '10'
-                - description: This property controls the minimum number of idle connections
-                    that HikariCP tries to maintain in the pool
-                  name: DB_MINIMUM_IDLE
-                  value: '10'
-                - description: This property controls the maximum number of milliseconds
-                    that a client will wait for a connection from the pool
-                  name: DB_CONNECTION_TIMEOUT
-                  value: '30000'
-                - description: This property controls the maximum amount of time that
-                    a connection is allowed to sit idle in the pool. This setting
-                    only applies when `DB_MINIMUM_IDLE` is defined to be less than
-                    `DB_MAXPOOLSIZE`
-                  name: DB_IDLE_TIMEOUT
-                  value: '600000'
-                - description: This property controls how frequently HikariCP will
-                    attempt to keep a connection alive, in order to prevent it from
-                    being timed out by the database or network infrastructure (0 -
-                    disabled)
-                  name: DB_KEEPALIVE_TIME
-                  value: '0'
-                - description: This property controls the maximum lifetime of a connection
-                    in the pool
-                  name: DB_MAX_LIFETIME
-                  value: '1800000'
-                - description: This property controls the maximum amount of time that
-                    a connection will be tested for aliveness. This value must be
-                    less than the `DB_CONNECTION_TIMEOUT`
-                  name: DB_VALIDATION_TIMEOUT
-                  value: '5000'
-                - description: This property controls whether the pool will "fail
-                    fast" if the pool cannot be seeded with an initial connection
-                    successfully
-                  name: DB_INITIALIZATION_FAIL_TIMEOUT
-                  value: '30000'
-                - description: This property controls the amount of time that a connection
-                    can be out of the pool before a message is logged indicating a
-                    possible connection leak (0 - disabled)
-                  name: DB_LEAK_DETECTION_THRESHOLD
-                  value: '30000'
-                - description: Okapi URL
-                  name: OKAPI_URL
-                  value: okapi
-                - description: Kafka broker hostname
-                  name: KAFKA_HOST
-                  value: kafka
-                - description: Kafka broker port
-                  name: KAFKA_PORT
-                  value: '9092'
-                - description: Kafka security protocol used to communicate with brokers
-                    (SSL or PLAINTEXT)
-                  name: KAFKA_SECURITY_PROTOCOL
-                  value: PLAINTEXT
-                - description: The location of the Kafka key store file. This is optional
-                    for client and can be used for two-way authentication for client.
-                  name: KAFKA_SSL_KEYSTORE_LOCATION
-                  value: ''
-                - description: The store password for the Kafka key store file. This
-                    is optional for client and only needed if 'ssl.keystore.location'
-                    is configured.
-                  name: KAFKA_SSL_KEYSTORE_PASSWORD
-                  value: ''
-                - description: The location of the Kafka trust store file.
-                  name: KAFKA_SSL_TRUSTSTORE_LOCATION
-                  value: ''
-                - description: The password for the Kafka trust store file. If a password
-                    is not set, trust store file configured will still be used, but
-                    integrity checking is disabled.
-                  name: KAFKA_SSL_TRUSTSTORE_PASSWORD
-                  value: ''
-                - description: Maximum number of records returned in a single call
-                    to poll().
-                  name: KAFKA_CONSUMER_MAX_POLL_RECORDS
-                  value: '50'
-                - description: Amount of partitions for `authority-authority-source-file`
-                    topic.
-                  name: KAFKA_AUTHORITY_SOURCE_FILE_TOPIC_PARTITIONS
-                  value: '1'
-                - description: Replication factor for `authority-authority-source-file`
-                    topic.
-                  name: KAFKA_AUTHORITY_SOURCE_FILE_TOPIC_REPLICATION_FACTOR
-                  value: ''
-                - description: Amount of partitions for `links.instance-authority`
-                    topic.
-                  name: KAFKA_INSTANCE_AUTHORITY_TOPIC_PARTITIONS
-                  value: '10'
-                - description: Replication factor for `links.instance-authority` topic.
-                  name: KAFKA_INSTANCE_AUTHORITY_TOPIC_REPLICATION_FACTOR
-                  value: ''
-                - description: Amount of partitions for `links.instance-authority-stats`
-                    topic.
-                  name: KAFKA_INSTANCE_AUTHORITY_STATS_TOPIC_PARTITIONS
-                  value: '10'
-                - description: Replication factor for `links.instance-authority-stats`
-                    topic.
-                  name: KAFKA_INSTANCE_AUTHORITY_STATS_TOPIC_REPLICATION_FACTOR
-                  value: ''
-                - description: Number of kafka concurrent threads for `inventory.authority`
-                    message consuming.
-                  name: KAFKA_AUTHORITIES_CONSUMER_CONCURRENCY
-                  value: '1'
-                - description: Number of kafka concurrent threads for `links.instance-authority-stats`
-                    message consuming.
-                  name: KAFKA_INSTANCE_AUTHORITY_STATS_CONSUMER_CONCURRENCY
-                  value: '1'
-                - description: Number of instance-authority links `links.instance-authority`
-                    event contains while processing authority link source change.
-                  name: KAFKA_INSTANCE_AUTHORITY_CHANGE_PARTITIONS
-                  value: '100'
-                - description: Number of instances to retrieve from inventory storage
-                    per one request (Max 90 - based on maximum URI length)
-                  name: INSTANCE_STORAGE_QUERY_BATCH_SIZE
-                  value: '50'
-                - description: The retention period in days for keeping the deleted
-                    authorities in authority_archive DB table
-                  name: AUTHORITY_ARCHIVES_EXPIRATION_PERIOD
-                  value: '7'
-                - description: S3 compatible service url
-                  name: S3_URL
-                  value: http://localhost:9000/
-                - description: S3 compatible service region
-                  name: S3_REGION
-                  value: ''
-                - description: S3 compatible service bucket
-                  name: S3_BUCKET
-                  value: marc-migrations
-                - description: S3 compatible service access key
-                  name: S3_ACCESS_KEY_ID
-                  value: ''
-                - description: S3 compatible service secret key
-                  name: S3_SECRET_ACCESS_KEY
-                  value: ''
-                - description: Specify if AWS S3 is used as files storage
-                  name: S3_IS_AWS
-                  value: 'true'
-                - description: Specify number of retries if S3 client return any kind
-                    of error
-                  name: S3_RETRY_COUNT
-                  value: '3'
-                - description: Specify millisecond delay between retries if S3 client
-                    return any kind of error
-                  name: S3_RETRY_DELAY_MS
-                  value: '500'
+                  value: -XX:MaxRAMPercentage=85.0 -Dlog4j2.formatMsgNoLookups=true
+                    -Dspring.datasource.hikari.connection-timeout=3000
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1347,31 +774,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '15'
-                - name: KAFKA_HOST
-                  value: 10.0.2.15
-                - name: KAFKA_PORT
-                  value: '9092'
-                - name: DB_RECONNECTATTEMPTS
-                  value: '3'
-                - name: DB_RECONNECTINTERVAL
-                  value: '1000'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1442,23 +845,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1531,7 +918,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1600,25 +987,11 @@ items:
           namespace: folio-modules
         spec:
           containers:
-            - env:
+            - args:
+                - -Dbucket.name=folio-data-export
+              env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '10'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1695,31 +1068,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
-                - name: KAFKA_HOST
-                  value: 10.0.2.15
-                - name: KAFKA_PORT
-                  value: '9092'
-                - name: OKAPI_URL
-                  value: http://okapi:9130
-                - name: ENV
-                  value: folio
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1805,52 +1154,8 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0 -XX:MetaspaceSize=384m -XX:MaxMetaspaceSize=512m
-                    -Xmx2048m
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
-                - name: KAFKA_HOST
-                  value: 10.0.2.15
-                - name: KAFKA_PORT
-                  value: '9092'
-                - name: AWS_URL
-                  value: http://127.0.0.1:9000/
-                - name: AWS_REGION
-                  value: ''
-                - name: AWS_BUCKET
-                  value: test-bucket2
-                - name: AWS_ACCESS_KEY_ID
-                  value: AKIAIOSFODNN7EXAMPLE
-                - name: AWS_SECRET_ACCESS_KEY
-                  value: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-                - name: LOCAL_FS_URL
-                  value: http://127.0.0.1:9000/
-                - name: LOCAL_FS_REGION
-                  value: ''
-                - name: LOCAL_FS_BUCKET
-                  value: local-test-bucket2
-                - name: LOCAL_FS_ACCESS_KEY_ID
-                  value: AKIAIOSFODNN7EXAMPLE
-                - name: LOCAL_FS_SECRET_ACCESS_KEY
-                  value: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-                - name: LOCAL_FS_COMPOSE_WITH_AWS_SDK
-                  value: 'false'
-                - name: ENV
-                  value: folio
+                  value: -XX:MetaspaceSize=384m -XX:MaxMetaspaceSize=512m -Xmx2048m
+                    -XX:MaxRAMPercentage=88.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1930,7 +1235,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2001,37 +1306,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=75.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: KAFKA_HOST
-                  value: kafka
-                - name: KAFKA_PORT
-                  value: '9092'
-                - name: KAFKA_SECURITY_PROTOCOL
-                  value: PLAINTEXT
-                - name: KAFKA_SSL_KEYSTORE_LOCATION
-                  value: ''
-                - name: KAFKA_SSL_KEYSTORE_PASSWORD
-                  value: ''
-                - name: KAFKA_SSL_TRUSTSTORE_LOCATION
-                  value: ''
-                - name: KAFKA_SSL_TRUSTSTORE_PASSWORD
-                  value: ''
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=75.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2108,17 +1383,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: localhost
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2189,23 +1454,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2279,23 +1528,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2363,29 +1596,8 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '15'
-                - name: DB_RECONNECTATTEMPTS
-                  value: '3'
-                - name: KAFKA_HOST
-                  value: 10.0.2.15
-                - name: KAFKA_PORT
-                  value: '9092'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+                    -Dsrs.record.matching.fallback-query.enable=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2461,73 +1673,13 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
-                - name: KAFKA_HOST
-                  value: 10.0.2.15
-                - name: KAFKA_PORT
-                  value: '9092'
-                - name: AWS_URL
-                  value: http://127.0.0.1:9000/
-                - name: AWS_REGION
-                  value: ''
-                - name: AWS_BUCKET
-                  value: example-bucket
-                - name: AWS_ACCESS_KEY_ID
-                  value: AKIAIOSFODNN7EXAMPLE
-                - name: AWS_SECRET_ACCESS_KEY
-                  value: wJalrXUtnFEMI/K7MDENG/EXAMPLEKEY
-                - name: AWS_SDK
-                  value: 'false'
-                - name: S3_FORCEPATHSTYLE
-                  value: 'false'
-                - name: SPLIT_FILES_ENABLED
-                  value: 'false'
-                - name: RECORDS_PER_SPLIT_FILE
-                  value: '1000'
-                - name: SCORE_JOB_SMALLEST
-                  value: '40'
-                - name: SCORE_JOB_LARGEST
-                  value: '-40'
-                - name: SCORE_JOB_REFERENCE
-                  value: '100000'
-                - name: SCORE_AGE_NEWEST
-                  value: '0'
-                - name: SCORE_AGE_OLDEST
-                  value: '50'
-                - name: SCORE_AGE_EXTREME_THRESHOLD_MINUTES
-                  value: '480'
-                - name: SCORE_AGE_EXTREME_VALUE
-                  value: '10000'
-                - name: SCORE_TENANT_USAGE_MIN
-                  value: '100'
-                - name: SCORE_TENANT_USAGE_MAX
-                  value: '-200'
-                - name: SCORE_PART_NUMBER_FIRST
-                  value: '1'
-                - name: SCORE_PART_NUMBER_LAST
-                  value: '0'
-                - name: SCORE_PART_NUMBER_LAST_REFERENCE
-                  value: '100'
-                - name: ASYNC_PROCESSOR_POLL_INTERVAL_MS
-                  value: '5000'
-                - name: ASYNC_PROCESSOR_MAX_WORKERS_COUNT
-                  value: '1'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: data.import.storage.type
+                  value: LOCAL_STORAGE
+                - name: data.import.storage.path
+                  value: /storage/upload
+                - name: file.processing.buffer.chunk.size
+                  value: '10'
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2597,21 +1749,13 @@ items:
         spec:
           containers:
             - env:
+                - name: GRAILS_SERVER_HOST
+                  value: mod-agreements
+                - name: GRAILS_SERVER_PORT
+                  value: '8080'
                 - name: JAVA_OPTIONS
-                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=67.0
-                    -XX:+PrintFlagsFinal
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_MAXPOOLSIZE
-                  value: '50'
+                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0
+                    -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2682,19 +1826,7 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0
-                    -XX:+PrintFlagsFinal
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_MAXPOOLSIZE
-                  value: '50'
+                    -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2767,23 +1899,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2854,23 +1970,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2941,23 +2041,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3028,7 +2112,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3099,23 +2183,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3186,33 +2254,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0 -XX:+HeapDumpOnOutOfMemoryError
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
-                - name: KAFKA_HOST
-                  value: 10.0.2.15
-                - name: KAFKA_PORT
-                  value: '9092'
-                - name: OKAPI_URL
-                  value: http://10.0.2.15:9130
-                - name: SYSTEM_USER_NAME
-                  value: pub-sub
-                - name: SYSTEM_USER_PASSWORD
-                  value: pubsub
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3292,7 +2334,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3363,23 +2405,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3450,23 +2476,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=85.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_QUERYTIMEOUT
-                  value: '60000'
-                - name: DB_CHARSET
-                  value: UTF-8
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3537,7 +2547,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3608,7 +2618,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3679,7 +2689,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3751,7 +2761,7 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=55.0
-                    -XX:+PrintFlagsFinal
+                    -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3822,7 +2832,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3896,19 +2906,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=66.0
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_MAXPOOLSIZE
-                  value: '5'
+                  value: -XX:MaxRAMPercentage=66.0 -Dport=8081 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3979,20 +2977,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=55.0
-                    -XX:+PrintFlagsFinal
-                - name: DB_HOST
-                  value: postgres
-                - name: DB_PORT
-                  value: '5432'
-                - name: DB_USERNAME
-                  value: folio_admin
-                - name: DB_PASSWORD
-                  value: folio_admin
-                - name: DB_DATABASE
-                  value: okapi_modules
-                - name: DB_MAXPOOLSIZE
-                  value: '50'
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -4066,92 +3051,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=85.0
-                - description: Postgres hostname
-                  name: DB_HOST
-                  value: localhost
-                - description: Postgres port
-                  name: DB_PORT
-                  value: '5432'
-                - description: Postgres username
-                  name: DB_USERNAME
-                  value: folio_admin
-                - description: Postgres username password
-                  name: DB_PASSWORD
-                  value: folio_admin
-                - description: Postgres database name
-                  name: DB_DATABASE
-                  value: okapi_modules
-                - description: This property controls the maximum size that the pool
-                    is allowed to reach, including both idle and in-use connections
-                  name: DB_MAXPOOLSIZE
-                  value: '10'
-                - description: This property controls the minimum number of idle connections
-                    that HikariCP tries to maintain in the pool
-                  name: DB_MINIMUM_IDLE
-                  value: '10'
-                - description: This property controls the maximum number of milliseconds
-                    that a client will wait for a connection from the pool
-                  name: DB_CONNECTION_TIMEOUT
-                  value: '30000'
-                - description: This property controls the maximum amount of time that
-                    a connection is allowed to sit idle in the pool. This setting
-                    only applies when `DB_MINIMUM_IDLE` is defined to be less than
-                    `DB_MAXPOOLSIZE`
-                  name: DB_IDLE_TIMEOUT
-                  value: '600000'
-                - description: This property controls how frequently HikariCP will
-                    attempt to keep a connection alive, in order to prevent it from
-                    being timed out by the database or network infrastructure (0 -
-                    disabled)
-                  name: DB_KEEPALIVE_TIME
-                  value: '0'
-                - description: This property controls the maximum lifetime of a connection
-                    in the pool
-                  name: DB_MAX_LIFETIME
-                  value: '1800000'
-                - description: This property controls the maximum amount of time that
-                    a connection will be tested for aliveness. This value must be
-                    less than the `DB_CONNECTION_TIMEOUT`
-                  name: DB_VALIDATION_TIMEOUT
-                  value: '5000'
-                - description: This property controls whether the pool will "fail
-                    fast" if the pool cannot be seeded with an initial connection
-                    successfully
-                  name: DB_INITIALIZATION_FAIL_TIMEOUT
-                  value: '30000'
-                - description: This property controls the amount of time that a connection
-                    can be out of the pool before a message is logged indicating a
-                    possible connection leak (0 - disabled)
-                  name: DB_LEAK_DETECTION_THRESHOLD
-                  value: '30000'
-                - description: Kafka broker hostname
-                  name: KAFKA_HOST
-                  value: kafka
-                - description: Kafka broker port
-                  name: KAFKA_PORT
-                  value: '9092'
-                - description: Kafka security protocol used to communicate with brokers
-                    (SSL or PLAINTEXT)
-                  name: KAFKA_SECURITY_PROTOCOL
-                  value: PLAINTEXT
-                - description: The location of the Kafka key store file. This is optional
-                    for client and can be used for two-way authentication for client.
-                  name: KAFKA_SSL_KEYSTORE_LOCATION
-                  value: ''
-                - description: The store password for the Kafka key store file. This
-                    is optional for client and only needed if 'ssl.keystore.location'
-                    is configured.
-                  name: KAFKA_SSL_KEYSTORE_PASSWORD
-                  value: ''
-                - description: The location of the Kafka trust store file.
-                  name: KAFKA_SSL_TRUSTSTORE_LOCATION
-                  value: ''
-                - description: The password for the Kafka trust store file. If a password
-                    is not set, trust store file configured will still be used, but
-                    integrity checking is disabled.
-                  name: KAFKA_SSL_TRUSTSTORE_PASSWORD
-                  value: ''
+                  value: -XX:MaxRAMPercentage=66.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
