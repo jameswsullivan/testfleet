@@ -152,6 +152,7 @@ items:
       labels:
         workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-inventory-storage
       name: mod-inventory-storage
+      namespace: folio-modules
     spec:
       replicas: 1
       selector:
@@ -227,6 +228,7 @@ items:
       labels:
         workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-circulation-storage
       name: mod-circulation-storage
+      namespace: folio-modules
     spec:
       replicas: 1
       selector:
@@ -605,6 +607,7 @@ items:
       labels:
         workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-patron-blocks
       name: mod-patron-blocks
+      namespace: folio-modules
     spec:
       replicas: 1
       selector:
@@ -830,6 +833,7 @@ items:
       labels:
         workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-di-converter-storage
       name: mod-di-converter-storage
+      namespace: folio-modules
     spec:
       replicas: 1
       selector:
@@ -1581,6 +1585,7 @@ items:
       labels:
         workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-source-record-storage
       name: mod-source-record-storage
+      namespace: folio-modules
     spec:
       replicas: 1
       selector:
@@ -1735,6 +1740,7 @@ items:
       labels:
         workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-agreements
       name: mod-agreements
+      namespace: folio-modules
     spec:
       replicas: 1
       selector:
@@ -1810,6 +1816,7 @@ items:
       labels:
         workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch---mod-licenses
       name: mod-licenses
+      namespace: folio-modules
     spec:
       replicas: 1
       selector:
