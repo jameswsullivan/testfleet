@@ -159,8 +159,6 @@ items:
         matchLabels:
           workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-inventory-storage
       serviceName: mod-inventory-storage
-      strategy:
-        type: RollingUpdate
       template:
         metadata:
           labels:
@@ -223,6 +221,8 @@ items:
                 requests:
                   cpu: 1m
                   memory: 128Mi
+      updateStrategy:
+        type: RollingUpdate
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
@@ -236,8 +236,6 @@ items:
         matchLabels:
           workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-circulation-storage
       serviceName: mod-circulation-storage
-      strategy:
-        type: RollingUpdate
       template:
         metadata:
           labels:
@@ -300,6 +298,8 @@ items:
                 requests:
                   cpu: 1m
                   memory: 128Mi
+      updateStrategy:
+        type: RollingUpdate
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -616,8 +616,6 @@ items:
         matchLabels:
           workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-patron-blocks
       serviceName: mod-patron-blocks
-      strategy:
-        type: RollingUpdate
       template:
         metadata:
           labels:
@@ -675,6 +673,8 @@ items:
                 requests:
                   cpu: 1m
                   memory: 128Mi
+      updateStrategy:
+        type: RollingUpdate
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -843,8 +843,6 @@ items:
         matchLabels:
           workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-di-converter-storage
       serviceName: mod-di-converter-storage
-      strategy:
-        type: RollingUpdate
       template:
         metadata:
           labels:
@@ -902,6 +900,8 @@ items:
                 requests:
                   cpu: 1m
                   memory: 128Mi
+      updateStrategy:
+        type: RollingUpdate
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -1596,8 +1596,6 @@ items:
         matchLabels:
           workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-source-record-storage
       serviceName: mod-source-record-storage
-      strategy:
-        type: RollingUpdate
       template:
         metadata:
           labels:
@@ -1659,6 +1657,8 @@ items:
                 requests:
                   cpu: 1m
                   memory: 128Mi
+      updateStrategy:
+        type: RollingUpdate
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -1752,8 +1752,6 @@ items:
         matchLabels:
           workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-agreements
       serviceName: mod-agreements
-      strategy:
-        type: RollingUpdate
       template:
         metadata:
           labels:
@@ -1816,6 +1814,8 @@ items:
                 requests:
                   cpu: 1m
                   memory: 128Mi
+      updateStrategy:
+        type: RollingUpdate
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
@@ -1829,8 +1829,6 @@ items:
         matchLabels:
           workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
       serviceName: mod-licenses
-      strategy:
-        type: RollingUpdate
       template:
         metadata:
           labels:
@@ -1889,6 +1887,8 @@ items:
                 requests:
                   cpu: 1m
                   memory: 128Mi
+      updateStrategy:
+        type: RollingUpdate
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
