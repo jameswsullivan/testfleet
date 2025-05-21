@@ -1814,6 +1814,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0
                     -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
+                - name: GRAILS_SERVER_HOST
+                  value: mod-licenses
+                - name: GRAILS_SERVER_PORT
+                  value: '8080'
               envFrom:
                 - configMapRef:
                     name: db-connect
