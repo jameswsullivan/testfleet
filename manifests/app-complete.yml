@@ -65,7 +65,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -139,7 +139,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -210,7 +210,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -285,7 +285,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -370,7 +370,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -444,7 +444,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -480,12 +480,6 @@ items:
                 - name: REPLICATION_FACTOR
                   value: '1'
               envFrom:
-                - configMapRef:
-                    name: db-connect
-                    optional: true
-                - secretRef:
-                    name: db-connect
-                    optional: true
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
@@ -524,7 +518,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -595,7 +589,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -663,7 +657,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -748,7 +742,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -822,7 +816,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -890,7 +884,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -963,7 +957,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1042,7 +1036,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1128,7 +1122,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1209,7 +1203,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1280,7 +1274,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1357,7 +1351,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1428,7 +1422,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1502,7 +1496,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1573,7 +1567,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1644,7 +1638,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1726,7 +1720,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1943,7 +1937,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2014,7 +2008,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2085,7 +2079,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2156,7 +2150,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2227,7 +2221,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2310,7 +2304,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2381,7 +2375,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2452,7 +2446,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2523,7 +2517,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2594,7 +2588,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2665,7 +2659,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2736,7 +2730,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2808,7 +2802,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2873,7 +2867,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2944,7 +2938,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -3019,7 +3013,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -3093,7 +3087,7 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 1Gi
+                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
