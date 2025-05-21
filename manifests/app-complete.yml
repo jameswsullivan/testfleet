@@ -65,7 +65,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -139,7 +138,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -210,7 +208,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -285,7 +282,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -370,7 +366,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -444,7 +439,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -518,7 +512,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -589,7 +582,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -657,7 +649,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -742,7 +733,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -816,7 +806,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -884,7 +873,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -957,7 +945,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1036,7 +1023,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1122,7 +1108,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1203,7 +1188,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1274,7 +1258,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1351,7 +1334,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1422,7 +1404,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1496,7 +1477,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1567,7 +1547,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1638,7 +1617,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1720,7 +1698,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1793,7 +1770,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1864,7 +1840,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -1937,7 +1912,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2008,7 +1982,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2079,7 +2052,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2150,7 +2122,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2221,7 +2192,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2304,7 +2274,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2375,7 +2344,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2446,7 +2414,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2517,7 +2484,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2588,7 +2554,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2659,7 +2624,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2730,7 +2694,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2802,7 +2765,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2867,7 +2829,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -2938,7 +2899,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -3013,7 +2973,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
@@ -3087,7 +3046,6 @@ items:
               resources:
                 limits:
                   cpu: 500m
-                  memory: 4Gi
                 requests:
                   cpu: 1m
                   memory: 128Mi
