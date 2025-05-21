@@ -1789,62 +1789,133 @@ items:
                   memory: 64Mi
       updateStrategy:
         type: RollingUpdate
-  - apiVersion: apps/v1
-    kind: StatefulSet
-    metadata:
-      name: mod-licenses
-      namespace: folio-modules
-    spec:
-      podManagementPolicy: OrderedReady
-      replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
-      serviceName: mod-licenses
-      template:
-        metadata:
-          labels:
-            app: mod-licenses
-            workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
-          namespace: folio-modules
-        spec:
-          containers:
-            - env:
-                - name: JAVA_OPTIONS
-                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0
-                    -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
-                - name: GRAILS_SERVER_HOST
-                  value: mod-licenses
-                - name: GRAILS_SERVER_PORT
-                  value: '8080'
-              envFrom:
-                - configMapRef:
-                    name: db-connect
-                    optional: true
-                - secretRef:
-                    name: db-connect
-                    optional: true
-                - configMapRef:
-                    name: folio-modules-global
-                    optional: true
-              image: folioci/mod-licenses:6.3.0-SNAPSHOT.285
-              imagePullPolicy: Always
-              imagePullSecrets:
-                - name: docker
-              name: mod-licenses
-              ports:
-                - containerPort: 8080
-                  name: 8080-tcp-0
-                  protocol: TCP
-              resources:
-                limits:
-                  cpu: 500m
-                requests:
-                  cpu: 1m
-                  memory: 64Mi
-      updateStrategy:
-        type: RollingUpdate
+- apiVersion: apps/v1
+  kind: StatefulSet
+  metadata:
+    annotations:
+      field.cattle.io/creatorId: 'null'
+    labels:
+      cattle.io/creator: norman
+      workload.user.cattle.io/workloadselector: mod-licenses-6-3-0-snapshot-285
+    name: mod-licenses-6-3-0-snapshot-285
+    namespace: folio-modules
+  spec:
+    podManagementPolicy: OrderedReady
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        workload.user.cattle.io/workloadselector: mod-licenses-6-3-0-snapshot-285
+    serviceName: mod-licenses
+    template:
+      metadata:
+        labels:
+          app: mod-licenses
+          workload: folio_module
+          workload.user.cattle.io/workloadselector: mod-licenses-6-3-0-snapshot-285
+      spec:
+        containers:
+        - env:
+          - name: GRAILS_SERVER_HOST
+            value: mod-licenses
+          - name: GRAILS_SERVER_PORT
+            value: '8080'
+          - name: JAVA_OPTIONS
+            value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0 -XX:+PrintFlagsFinal
+              -Dlog4j2.formatMsgNoLookups=true
+          - name: MODULE_NAME
+            value: mod-licenses
+          - name: MODULE_VERSION
+            value: 6.3.0-SNAPSHOT.285
+          envFrom:
+          - configMapRef:
+              name: db-connect
+              optional: false
+          - secretRef:
+              name: db-connect
+              optional: false
+          image: folioci/mod-licenses:6.3.0-SNAPSHOT.285
+          imagePullPolicy: Always
+          name: mod-licenses
+          ports:
+          - containerPort: 8080
+            name: primary
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 4Gi
+            requests:
+              cpu: 200m
+              memory: 512Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            procMount: Default
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+          stdin: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          tty: true
+        - env:
+          - name: JAVA_OPTIONS
+            value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true -Dmodule.name=mod-licenses
+              -Dmodule.version=6.3.0-SNAPSHOT.285 -Dsidecar.name=mod-licenses-sidecar
+              -Dmodule.id=mod-licenses-6.3.0-SNAPSHOT.285 -Dmodule.url=http://mod-licenses.folio-modules.svc:8080
+              -Dsidecar.url=http://mod-licenses.folio-modules.svc
+          - name: MODULE_URL
+            value: http://mod-licenses.folio-modules.svc:8080
+          - name: MODULE_ID
+            value: mod-licenses-6.3.0-SNAPSHOT.285
+          - name: SIDECAR_URL
+            value: http://mod-licenses.folio-modules.svc
+          - name: MOD_USERS_BL
+            value: http://mod-users-bl.folio-modules.svc
+          envFrom:
+          - configMapRef:
+              name: mgr-connect
+              optional: false
+          - configMapRef:
+              name: vault-connect
+              optional: false
+          - configMapRef:
+              name: keycloak-connect
+              optional: false
+          - configMapRef:
+              name: kafka-connect
+              optional: false
+          - secretRef:
+              name: vault-connect
+              optional: false
+          image: folioci/folio-module-sidecar:latest
+          imagePullPolicy: Always
+          name: mod-licenses-sidecar
+          ports:
+          - containerPort: 19002
+            name: sidecar
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 200m
+              memory: 512Mi
+            requests:
+              cpu: 1m
+              memory: 64Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            procMount: Default
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+          stdin: true
+          tty: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+    updateStrategy:
+      type: RollingUpdate
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
