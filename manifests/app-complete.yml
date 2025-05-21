@@ -27,6 +27,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-graphql
+                - name: MODULE_VERSION
+                  value: 1.13.1000374
               envFrom:
                 - configMapRef:
                     name: folio-modules-global
@@ -95,6 +99,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-quick-marc
+                - name: MODULE_VERSION
+                  value: 7.1.0-SNAPSHOT.322
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -149,7 +157,6 @@ items:
       name: mod-inventory-storage
       namespace: folio-modules
     spec:
-      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -167,6 +174,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-inventory-storage
+                - name: MODULE_VERSION
+                  value: 29.1.0-SNAPSHOT.1134
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -223,7 +234,6 @@ items:
       name: mod-circulation-storage
       namespace: folio-modules
     spec:
-      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -319,6 +329,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-search
+                - name: MODULE_VERSION
+                  value: 5.1.0-SNAPSHOT.699
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -403,6 +417,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dorg.folio.metadata.inventory.storage.type=okapi
                     -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-inventory
+                - name: MODULE_VERSION
+                  value: 21.2.0-SNAPSHOT.872
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -477,6 +495,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-circulation
+                - name: MODULE_VERSION
+                  value: 24.5.0-SNAPSHOT.1307
                 - name: SCHEDULED_ANONYMIZATION_NUMBER_OF_LOANS_TO_CHECK
                   value: '50000'
                 - name: ENABLE_FLOATING_COLLECTIONS
@@ -551,6 +573,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-feesfines
+                - name: MODULE_VERSION
+                  value: 19.4.0-SNAPSHOT.246
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -602,7 +628,6 @@ items:
       name: mod-patron-blocks
       namespace: folio-modules
     spec:
-      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -620,6 +645,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-patron-blocks
+                - name: MODULE_VERSION
+                  value: 1.13.0-SNAPSHOT.108
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -693,6 +722,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-entities-links
+                - name: MODULE_VERSION
+                  value: 4.1.0-SNAPSHOT.336
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -776,6 +809,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-source-record-manager
+                - name: MODULE_VERSION
+                  value: 3.11.0-SNAPSHOT.1023
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -830,7 +867,6 @@ items:
       name: mod-di-converter-storage
       namespace: folio-modules
     spec:
-      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -849,6 +885,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
                     -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-di-converter-storage
+                - name: MODULE_VERSION
+                  value: 2.5.0-SNAPSHOT.74
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -922,6 +962,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-patron
+                - name: MODULE_VERSION
+                  value: 6.4.0-SNAPSHOT.168
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -995,6 +1039,10 @@ items:
               env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-data-export
+                - name: MODULE_VERSION
+                  value: 5.3.0-SNAPSHOT.471
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1072,6 +1120,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-data-export-spring
+                - name: MODULE_VERSION
+                  value: 3.6.0-SNAPSHOT.303
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1159,6 +1211,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -XX:MetaspaceSize=384m -XX:MaxMetaspaceSize=512m
                     -Xmx2048m -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-data-export-worker
+                - name: MODULE_VERSION
+                  value: 3.5.0-SNAPSHOT.614
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1239,6 +1295,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-rtac
+                - name: MODULE_VERSION
+                  value: 3.9.0-SNAPSHOT.108
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1310,6 +1370,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-remote-storage
+                - name: MODULE_VERSION
+                  value: 3.5.0-SNAPSHOT.227
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1387,6 +1451,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-calendar
+                - name: MODULE_VERSION
+                  value: 3.4.0-SNAPSHOT.181
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1458,6 +1526,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-audit
+                - name: MODULE_VERSION
+                  value: 3.0.0-SNAPSHOT.221
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1532,6 +1604,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-courses
+                - name: MODULE_VERSION
+                  value: 1.4.12-SNAPSHOT.168
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1583,7 +1659,6 @@ items:
       name: mod-source-record-storage
       namespace: folio-modules
     spec:
-      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -1602,6 +1677,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dsrs.record.matching.fallback-query.enable=true
                     -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-source-record-storage
+                - name: MODULE_VERSION
+                  value: 5.11.0-SNAPSHOT.682
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1679,6 +1758,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
                     -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-data-import
+                - name: MODULE_VERSION
+                  value: 3.4.0-SNAPSHOT.332
                 - name: data.import.storage.type
                   value: LOCAL_STORAGE
                 - name: data.import.storage.path
@@ -1739,7 +1822,6 @@ items:
       name: mod-agreements
       namespace: folio-modules
     spec:
-      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -1795,7 +1877,6 @@ items:
       name: mod-licenses
       namespace: folio-modules
     spec:
-      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -1814,6 +1895,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0
                     -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-licenses
+                - name: MODULE_VERSION
+                  value: 6.3.0-SNAPSHOT.285
                 - name: GRAILS_SERVER_HOST
                   value: mod-licenses
                 - name: GRAILS_SERVER_PORT
@@ -1875,6 +1960,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-email
+                - name: MODULE_VERSION
+                  value: 1.20.0-SNAPSHOT.93
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1946,6 +2035,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-event-config
+                - name: MODULE_VERSION
+                  value: 2.10.0-SNAPSHOT.72
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2017,6 +2110,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-notify
+                - name: MODULE_VERSION
+                  value: 3.5.0-SNAPSHOT.139
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2088,6 +2185,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-sender
+                - name: MODULE_VERSION
+                  value: 1.14.1
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2159,6 +2260,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-template-engine
+                - name: MODULE_VERSION
+                  value: 1.23.0-SNAPSHOT.103
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2230,6 +2335,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-pubsub
+                - name: MODULE_VERSION
+                  value: 2.17.0-SNAPSHOT.260
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2313,6 +2422,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-gobi
+                - name: MODULE_VERSION
+                  value: 3.1.0-SNAPSHOT.253
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2384,6 +2497,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-copycat
+                - name: MODULE_VERSION
+                  value: 1.8.0
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2455,6 +2572,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-kb-ebsco-java
+                - name: MODULE_VERSION
+                  value: 6.1.0-SNAPSHOT.465
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2526,6 +2647,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-ncip
+                - name: MODULE_VERSION
+                  value: 1.16.0-SNAPSHOT.109
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2597,6 +2722,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-inventory-update
+                - name: MODULE_VERSION
+                  value: 4.1.1-SNAPSHOT.141
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2668,6 +2797,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-user-import
+                - name: MODULE_VERSION
+                  value: 3.11.0-SNAPSHOT.108
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2740,6 +2873,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0
                     -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-service-interaction
+                - name: MODULE_VERSION
+                  value: 4.3.0-SNAPSHOT.142
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2811,6 +2948,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-ebsconet
+                - name: MODULE_VERSION
+                  value: 2.5.0-SNAPSHOT.89
               envFrom:
                 - configMapRef:
                     name: folio-modules-global
@@ -2876,6 +3017,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-batch-print
+                - name: MODULE_VERSION
+                  value: 1.3.1-SNAPSHOT.15
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2948,6 +3093,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0
                     -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-serials-management
+                - name: MODULE_VERSION
+                  value: 2.1.0-SNAPSHOT.159
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3022,6 +3171,10 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-record-specifications
+                - name: MODULE_VERSION
+                  value: 2.1.0-SNAPSHOT.99
               envFrom:
                 - configMapRef:
                     name: db-connect
