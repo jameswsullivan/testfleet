@@ -1701,7 +1701,7 @@ items:
                 requests:
                   cpu: 1m
                   memory: 128Mi
-- apiVersion: apps/v1
+  - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       annotations:
