@@ -1812,7 +1812,7 @@ items:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0
+                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0
                     -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
