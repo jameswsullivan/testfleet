@@ -19,13 +19,14 @@ items:
         metadata:
           labels:
             app: mod-graphql
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-graphql
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: folio-modules-global
@@ -67,7 +68,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -86,13 +87,14 @@ items:
         metadata:
           labels:
             app: mod-quick-marc
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-quick-marc
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -140,13 +142,14 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       name: mod-inventory-storage
       namespace: folio-modules
     spec:
+      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -156,13 +159,14 @@ items:
         metadata:
           labels:
             app: mod-inventory-storage
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-inventory-storage
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -210,7 +214,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
       updateStrategy:
         type: RollingUpdate
   - apiVersion: apps/v1
@@ -219,6 +223,7 @@ items:
       name: mod-circulation-storage
       namespace: folio-modules
     spec:
+      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -228,13 +233,14 @@ items:
         metadata:
           labels:
             app: mod-circulation-storage
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-circulation-storage
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
                 - name: REPLICATION_FACTOR
                   value: '1'
               envFrom:
@@ -284,7 +290,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
       updateStrategy:
         type: RollingUpdate
   - apiVersion: apps/v1
@@ -305,13 +311,14 @@ items:
         metadata:
           labels:
             app: mod-search
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-search
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -368,7 +375,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -387,6 +394,7 @@ items:
         metadata:
           labels:
             app: mod-inventory
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory
           namespace: folio-modules
         spec:
@@ -394,6 +402,7 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dorg.folio.metadata.inventory.storage.type=okapi
+                    -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -441,7 +450,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -460,13 +469,14 @@ items:
         metadata:
           labels:
             app: mod-circulation
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-circulation
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
                 - name: SCHEDULED_ANONYMIZATION_NUMBER_OF_LOANS_TO_CHECK
                   value: '50000'
                 - name: ENABLE_FLOATING_COLLECTIONS
@@ -514,7 +524,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -533,13 +543,14 @@ items:
         metadata:
           labels:
             app: mod-feesfines
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-feesfines
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -584,13 +595,14 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       name: mod-patron-blocks
       namespace: folio-modules
     spec:
+      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -600,13 +612,14 @@ items:
         metadata:
           labels:
             app: mod-patron-blocks
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-patron-blocks
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -651,7 +664,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
       updateStrategy:
         type: RollingUpdate
   - apiVersion: apps/v1
@@ -672,13 +685,14 @@ items:
         metadata:
           labels:
             app: mod-entities-links
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-entities-links
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -735,7 +749,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -754,13 +768,14 @@ items:
         metadata:
           labels:
             app: mod-source-record-manager
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-source-record-manager
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -808,13 +823,14 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       name: mod-di-converter-storage
       namespace: folio-modules
     spec:
+      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -824,6 +840,7 @@ items:
         metadata:
           labels:
             app: mod-di-converter-storage
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-di-converter-storage
           namespace: folio-modules
         spec:
@@ -831,6 +848,7 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
+                    -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -875,7 +893,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
       updateStrategy:
         type: RollingUpdate
   - apiVersion: apps/v1
@@ -896,13 +914,14 @@ items:
         metadata:
           labels:
             app: mod-patron
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-patron
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -947,7 +966,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -966,6 +985,7 @@ items:
         metadata:
           labels:
             app: mod-data-export
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export
           namespace: folio-modules
         spec:
@@ -974,7 +994,7 @@ items:
                 - -Dbucket.name=folio-data-export
               env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1025,7 +1045,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -1044,13 +1064,14 @@ items:
         metadata:
           labels:
             app: mod-data-export-spring
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-spring
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1110,7 +1131,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -1129,6 +1150,7 @@ items:
         metadata:
           labels:
             app: mod-data-export-worker
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-worker
           namespace: folio-modules
         spec:
@@ -1136,7 +1158,7 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -XX:MetaspaceSize=384m -XX:MaxMetaspaceSize=512m
-                    -Xmx2048m
+                    -Xmx2048m -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1190,7 +1212,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -1209,13 +1231,14 @@ items:
         metadata:
           labels:
             app: mod-rtac
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1260,7 +1283,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -1279,13 +1302,14 @@ items:
         metadata:
           labels:
             app: mod-remote-storage
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-remote-storage
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1336,7 +1360,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -1355,13 +1379,14 @@ items:
         metadata:
           labels:
             app: mod-calendar
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1406,7 +1431,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -1425,13 +1450,14 @@ items:
         metadata:
           labels:
             app: mod-audit
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-audit
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1479,7 +1505,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -1498,13 +1524,14 @@ items:
         metadata:
           labels:
             app: mod-courses
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-courses
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1549,13 +1576,14 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       name: mod-source-record-storage
       namespace: folio-modules
     spec:
+      podManagementPolicy: OrderedReady
       replicas: 1
       selector:
         matchLabels:
@@ -1565,6 +1593,7 @@ items:
         metadata:
           labels:
             app: mod-source-record-storage
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-source-record-storage
           namespace: folio-modules
         spec:
@@ -1572,6 +1601,7 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dsrs.record.matching.fallback-query.enable=true
+                    -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1619,7 +1649,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
       updateStrategy:
         type: RollingUpdate
   - apiVersion: apps/v1
@@ -1640,6 +1670,7 @@ items:
         metadata:
           labels:
             app: mod-data-import
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-import
           namespace: folio-modules
         spec:
@@ -1647,6 +1678,7 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Djava.util.logging.config.file=vertx-default-jul-logging.properties
+                    -Dlog4j2.formatMsgNoLookups=true
                 - name: data.import.storage.type
                   value: LOCAL_STORAGE
                 - name: data.import.storage.path
@@ -1700,157 +1732,36 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      annotations:
-        field.cattle.io/creatorId: 'null'
-      labels:
-        cattle.io/creator: norman
-        workload.user.cattle.io/workloadselector: mod-agreements-7-3-0-snapshot-762
-      name: mod-agreements-7-3-0-snapshot-762
+      name: mod-agreements
       namespace: folio-modules
     spec:
       podManagementPolicy: OrderedReady
       replicas: 1
-      revisionHistoryLimit: 10
       selector:
         matchLabels:
-          workload.user.cattle.io/workloadselector: mod-agreements-7-3-0-snapshot-762
+          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-agreements
       serviceName: mod-agreements
       template:
         metadata:
           labels:
             app: mod-agreements
             workload: folio_module
-            workload.user.cattle.io/workloadselector: mod-agreements-7-3-0-snapshot-762
-        spec:
-          containers:
-          - env:
-            - name: GRAILS_SERVER_HOST
-              value: mod-agreements
-            - name: GRAILS_SERVER_PORT
-              value: '8080'
-            - name: JAVA_OPTIONS
-              value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0 -XX:+PrintFlagsFinal
-                -Dlog4j2.formatMsgNoLookups=true
-            - name: MODULE_NAME
-              value: mod-agreements
-            - name: MODULE_VERSION
-              value: 7.3.0-SNAPSHOT.762
-            envFrom:
-            - configMapRef:
-                name: db-connect
-                optional: false
-            - secretRef:
-                name: db-connect
-                optional: false
-            image: folioci/mod-agreements:7.3.0-SNAPSHOT.762
-            imagePullPolicy: Always
-            name: mod-agreements
-            ports:
-            - containerPort: 8080
-              name: primary
-              protocol: TCP
-            resources:
-              limits:
-                cpu: 500m
-                memory: 3Gi
-              requests:
-                cpu: 200m
-                memory: 512Mi
-            securityContext:
-              allowPrivilegeEscalation: false
-              privileged: false
-              procMount: Default
-              readOnlyRootFilesystem: false
-              runAsNonRoot: false
-            stdin: true
-            terminationMessagePath: /dev/termination-log
-            terminationMessagePolicy: File
-            tty: true
-          - env:
-            - name: JAVA_OPTIONS
-              value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true -Dmodule.name=mod-agreements
-                -Dmodule.version=7.3.0-SNAPSHOT.762 -Dsidecar.name=mod-agreements-sidecar
-                -Dmodule.id=mod-agreements-7.3.0-SNAPSHOT.762 -Dmodule.url=http://mod-agreements.folio-modules.svc:8080
-                -Dsidecar.url=http://mod-agreements.folio-modules.svc
-            - name: MODULE_URL
-              value: http://mod-agreements.folio-modules.svc:8080
-            - name: MODULE_ID
-              value: mod-agreements-7.3.0-SNAPSHOT.762
-            - name: SIDECAR_URL
-              value: http://mod-agreements.folio-modules.svc
-            - name: MOD_USERS_BL
-              value: http://mod-users-bl.folio-modules.svc
-            envFrom:
-            - configMapRef:
-                name: mgr-connect
-                optional: false
-            - configMapRef:
-                name: vault-connect
-                optional: false
-            - configMapRef:
-                name: keycloak-connect
-                optional: false
-            - configMapRef:
-                name: kafka-connect
-                optional: false
-            - secretRef:
-                name: vault-connect
-                optional: false
-            image: folioci/folio-module-sidecar:latest
-            imagePullPolicy: Always
-            name: mod-agreements-sidecar
-            ports:
-            - containerPort: 19002
-              name: sidecar
-              protocol: TCP
-            resources:
-              limits:
-                cpu: 200m
-                memory: 512Mi
-              requests:
-                cpu: 1m
-                memory: 64Mi
-            securityContext:
-              allowPrivilegeEscalation: false
-              privileged: false
-              procMount: Default
-              readOnlyRootFilesystem: false
-              runAsNonRoot: false
-            stdin: true
-            tty: true
-          dnsPolicy: ClusterFirst
-          restartPolicy: Always
-          schedulerName: default-scheduler
-          securityContext: {}
-      updateStrategy:
-        type: RollingUpdate
-  - apiVersion: apps/v1
-    kind: StatefulSet
-    metadata:
-      name: mod-licenses
-      namespace: folio-modules
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
-      serviceName: mod-licenses
-      template:
-        metadata:
-          labels:
-            app: mod-licenses
-            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
+            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-agreements
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0
-                    -XX:+PrintFlagsFinal
+                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=50.0
+                    -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
+                - name: GRAILS_SERVER_HOST
+                  value: mod-agreements
+                - name: GRAILS_SERVER_PORT
+                  value: '8080'
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1861,41 +1772,73 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-licenses:6.2.2
+              image: folioci/mod-agreements:7.3.0-SNAPSHOT.765
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 180
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
-              name: mod-licenses
+              name: mod-agreements
               ports:
                 - containerPort: 8080
                   name: 8080-tcp-0
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
+      updateStrategy:
+        type: RollingUpdate
+  - apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      name: mod-licenses
+      namespace: folio-modules
+    spec:
+      podManagementPolicy: OrderedReady
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
+      serviceName: mod-licenses
+      template:
+        metadata:
+          labels:
+            app: mod-licenses
+            workload: folio_module
+            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0
+                    -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-licenses:6.3.0-SNAPSHOT.285
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              name: mod-licenses
+              ports:
+                - containerPort: 8080
+                  name: 8080-tcp-0
+                  protocol: TCP
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
       updateStrategy:
         type: RollingUpdate
   - apiVersion: apps/v1
@@ -1916,13 +1859,14 @@ items:
         metadata:
           labels:
             app: mod-email
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-email
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1967,7 +1911,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -1986,13 +1930,14 @@ items:
         metadata:
           labels:
             app: mod-event-config
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-event-config
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2037,7 +1982,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2056,13 +2001,14 @@ items:
         metadata:
           labels:
             app: mod-notify
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-notify
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2107,7 +2053,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2126,13 +2072,14 @@ items:
         metadata:
           labels:
             app: mod-sender
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-sender
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2177,7 +2124,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2196,13 +2143,14 @@ items:
         metadata:
           labels:
             app: mod-template-engine
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-template-engine
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2247,7 +2195,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2266,13 +2214,14 @@ items:
         metadata:
           labels:
             app: mod-pubsub
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-pubsub
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2329,7 +2278,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2348,13 +2297,14 @@ items:
         metadata:
           labels:
             app: mod-gobi
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2399,7 +2349,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2418,13 +2368,14 @@ items:
         metadata:
           labels:
             app: mod-copycat
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-copycat
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2469,7 +2420,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2488,13 +2439,14 @@ items:
         metadata:
           labels:
             app: mod-kb-ebsco-java
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-kb-ebsco-java
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2539,7 +2491,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2558,13 +2510,14 @@ items:
         metadata:
           labels:
             app: mod-ncip
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ncip
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2609,7 +2562,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2628,13 +2581,14 @@ items:
         metadata:
           labels:
             app: mod-inventory-update
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory-update
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2679,7 +2633,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2698,13 +2652,14 @@ items:
         metadata:
           labels:
             app: mod-user-import
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-user-import
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2749,7 +2704,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2768,6 +2723,7 @@ items:
         metadata:
           labels:
             app: mod-service-interaction
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-service-interaction
           namespace: folio-modules
         spec:
@@ -2775,7 +2731,7 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0
-                    -XX:+PrintFlagsFinal
+                    -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2820,7 +2776,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2839,13 +2795,14 @@ items:
         metadata:
           labels:
             app: mod-ebsconet
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: folio-modules-global
@@ -2884,7 +2841,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2903,13 +2860,14 @@ items:
         metadata:
           labels:
             app: mod-batch-print
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-batch-print
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2954,7 +2912,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -2973,6 +2931,7 @@ items:
         metadata:
           labels:
             app: mod-serials-management
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-serials-management
           namespace: folio-modules
         spec:
@@ -2980,7 +2939,7 @@ items:
             - env:
                 - name: JAVA_OPTIONS
                   value: -server -XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0
-                    -XX:+PrintFlagsFinal
+                    -XX:+PrintFlagsFinal -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3028,7 +2987,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -3047,13 +3006,14 @@ items:
         metadata:
           labels:
             app: mod-record-specifications
+            workload: folio_module
             workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-record-specifications
           namespace: folio-modules
         spec:
           containers:
             - env:
                 - name: JAVA_OPTIONS
-                  value: -XX:MaxRAMPercentage=80.0
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -3101,4 +3061,4 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 128Mi
+                  memory: 64Mi
