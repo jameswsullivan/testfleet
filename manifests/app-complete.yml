@@ -2485,7 +2485,7 @@ items:
                   cpu: 500m
                 requests:
                   cpu: 1m
-                  memory: 64Mi
+                  memory: 256Mi
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
