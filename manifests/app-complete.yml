@@ -146,8 +146,6 @@ items:
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-inventory-storage
       name: mod-inventory-storage
       namespace: folio-modules
     spec:
@@ -221,8 +219,6 @@ items:
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-circulation-storage
       name: mod-circulation-storage
       namespace: folio-modules
     spec:
@@ -485,6 +481,12 @@ items:
                   value: '1'
               envFrom:
                 - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
                     name: folio-modules-global
                     optional: true
                 - configMapRef:
@@ -600,8 +602,6 @@ items:
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-patron-blocks
       name: mod-patron-blocks
       namespace: folio-modules
     spec:
@@ -829,8 +829,6 @@ items:
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-di-converter-storage
       name: mod-di-converter-storage
       namespace: folio-modules
     spec:
@@ -1582,8 +1580,6 @@ items:
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-source-record-storage
       name: mod-source-record-storage
       namespace: folio-modules
     spec:
@@ -1737,8 +1733,6 @@ items:
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-agreements
       name: mod-agreements
       namespace: folio-modules
     spec:
@@ -1814,8 +1808,6 @@ items:
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
       name: mod-licenses
       namespace: folio-modules
     spec:
