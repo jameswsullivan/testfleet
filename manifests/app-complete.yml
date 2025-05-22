@@ -322,6 +322,75 @@ items:
                 requests:
                   cpu: 1m
                   memory: 64Mi
+            - env:
+                - name: MOD_USERS_BL_URL
+                  value: http://mod-users-bl.folio-modules.svc
+                - name: JAVA_OPTIONS
+                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
+                    -Dmodule.name=mod-inventory-storage -Dmodule.version=29.1.0-SNAPSHOT.1134
+                    -Dsidecar.name=mod-inventory-storage-sidecar -Dmodule.id=mod-inventory-storage-29.1.0-SNAPSHOT.1134
+                    -Dmodule.url=http://mod-inventory-storage.folio-modules.svc:8080
+                    -Dsidecar.url=http://mod-inventory-storage.folio-modules.svc
+                - name: MODULE_URL
+                  value: http://mod-inventory-storage.folio-modules.svc:8080
+                - name: MODULE_ID
+                  value: mod-inventory-storage-{verson:}
+                - name: SIDECAR_URL
+                  value: http://mod-inventory-storage.folio-modules.svc
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: vault-connect
+                    optional: true
+                - secretRef:
+                    name: vault-connect
+                    optional: true
+              image: folioci/folio-module-sidecar:latest
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-inventory-storage-sidecar
+              ports:
+                - containerPort: 19002
+                  name: sidecar
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
       updateStrategy:
         type: RollingUpdate
   - apiVersion: apps/v1
@@ -380,6 +449,75 @@ items:
               ports:
                 - containerPort: 8081
                   name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
+            - env:
+                - name: MOD_USERS_BL_URL
+                  value: http://mod-users-bl.folio-modules.svc
+                - name: JAVA_OPTIONS
+                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
+                    -Dmodule.name=mod-circulation-storage -Dmodule.version=17.5.0-SNAPSHOT.438
+                    -Dsidecar.name=mod-circulation-storage-sidecar -Dmodule.id=mod-circulation-storage-17.5.0-SNAPSHOT.438
+                    -Dmodule.url=http://mod-circulation-storage.folio-modules.svc:8080
+                    -Dsidecar.url=http://mod-circulation-storage.folio-modules.svc
+                - name: MODULE_URL
+                  value: http://mod-circulation-storage.folio-modules.svc:8080
+                - name: MODULE_ID
+                  value: mod-circulation-storage-{verson:}
+                - name: SIDECAR_URL
+                  value: http://mod-circulation-storage.folio-modules.svc
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: vault-connect
+                    optional: true
+                - secretRef:
+                    name: vault-connect
+                    optional: true
+              image: folioci/folio-module-sidecar:latest
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-circulation-storage-sidecar
+              ports:
+                - containerPort: 19002
+                  name: sidecar
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -982,6 +1120,74 @@ items:
                 requests:
                   cpu: 1m
                   memory: 64Mi
+            - env:
+                - name: MOD_USERS_BL_URL
+                  value: http://mod-users-bl.folio-modules.svc
+                - name: JAVA_OPTIONS
+                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
+                    -Dmodule.name=mod-patron-blocks -Dmodule.version=1.13.0-SNAPSHOT.108
+                    -Dsidecar.name=mod-patron-blocks-sidecar -Dmodule.id=mod-patron-blocks-1.13.0-SNAPSHOT.108
+                    -Dmodule.url=http://mod-patron-blocks.folio-modules.svc:8080 -Dsidecar.url=http://mod-patron-blocks.folio-modules.svc
+                - name: MODULE_URL
+                  value: http://mod-patron-blocks.folio-modules.svc:8080
+                - name: MODULE_ID
+                  value: mod-patron-blocks-{verson:}
+                - name: SIDECAR_URL
+                  value: http://mod-patron-blocks.folio-modules.svc
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: vault-connect
+                    optional: true
+                - secretRef:
+                    name: vault-connect
+                    optional: true
+              image: folioci/folio-module-sidecar:latest
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-patron-blocks-sidecar
+              ports:
+                - containerPort: 19002
+                  name: sidecar
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
       updateStrategy:
         type: RollingUpdate
   - apiVersion: apps/v1
@@ -1343,6 +1549,75 @@ items:
               ports:
                 - containerPort: 8081
                   name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
+            - env:
+                - name: MOD_USERS_BL_URL
+                  value: http://mod-users-bl.folio-modules.svc
+                - name: JAVA_OPTIONS
+                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
+                    -Dmodule.name=mod-di-converter-storage -Dmodule.version=2.5.0-SNAPSHOT.74
+                    -Dsidecar.name=mod-di-converter-storage-sidecar -Dmodule.id=mod-di-converter-storage-2.5.0-SNAPSHOT.74
+                    -Dmodule.url=http://mod-di-converter-storage.folio-modules.svc:8080
+                    -Dsidecar.url=http://mod-di-converter-storage.folio-modules.svc
+                - name: MODULE_URL
+                  value: http://mod-di-converter-storage.folio-modules.svc:8080
+                - name: MODULE_ID
+                  value: mod-di-converter-storage-{verson:}
+                - name: SIDECAR_URL
+                  value: http://mod-di-converter-storage.folio-modules.svc
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: vault-connect
+                    optional: true
+                - secretRef:
+                    name: vault-connect
+                    optional: true
+              image: folioci/folio-module-sidecar:latest
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-di-converter-storage-sidecar
+              ports:
+                - containerPort: 19002
+                  name: sidecar
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 3
@@ -2770,6 +3045,75 @@ items:
                 requests:
                   cpu: 1m
                   memory: 64Mi
+            - env:
+                - name: MOD_USERS_BL_URL
+                  value: http://mod-users-bl.folio-modules.svc
+                - name: JAVA_OPTIONS
+                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
+                    -Dmodule.name=mod-source-record-storage -Dmodule.version=5.11.0-SNAPSHOT.682
+                    -Dsidecar.name=mod-source-record-storage-sidecar -Dmodule.id=mod-source-record-storage-5.11.0-SNAPSHOT.682
+                    -Dmodule.url=http://mod-source-record-storage.folio-modules.svc:8080
+                    -Dsidecar.url=http://mod-source-record-storage.folio-modules.svc
+                - name: MODULE_URL
+                  value: http://mod-source-record-storage.folio-modules.svc:8080
+                - name: MODULE_ID
+                  value: mod-source-record-storage-{verson:}
+                - name: SIDECAR_URL
+                  value: http://mod-source-record-storage.folio-modules.svc
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: vault-connect
+                    optional: true
+                - secretRef:
+                    name: vault-connect
+                    optional: true
+              image: folioci/folio-module-sidecar:latest
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-source-record-storage-sidecar
+              ports:
+                - containerPort: 19002
+                  name: sidecar
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
       updateStrategy:
         type: RollingUpdate
   - apiVersion: apps/v1
@@ -2978,6 +3322,54 @@ items:
                 requests:
                   cpu: 1m
                   memory: 64Mi
+            - env:
+                - name: MOD_USERS_BL_URL
+                  value: http://mod-users-bl.folio-modules.svc
+                - name: JAVA_OPTIONS
+                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
+                    -Dmodule.name=mod-agreements -Dmodule.version=7.3.0-SNAPSHOT.765
+                    -Dsidecar.name=mod-agreements-sidecar -Dmodule.id=mod-agreements-7.3.0-SNAPSHOT.765
+                    -Dmodule.url=http://mod-agreements.folio-modules.svc:8080 -Dsidecar.url=http://mod-agreements.folio-modules.svc
+                - name: MODULE_URL
+                  value: http://mod-agreements.folio-modules.svc:8080
+                - name: MODULE_ID
+                  value: mod-agreements-{verson:}
+                - name: SIDECAR_URL
+                  value: http://mod-agreements.folio-modules.svc
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: vault-connect
+                    optional: true
+                - secretRef:
+                    name: vault-connect
+                    optional: true
+              image: folioci/folio-module-sidecar:latest
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              name: mod-agreements-sidecar
+              ports:
+                - containerPort: 19002
+                  name: sidecar
+                  protocol: TCP
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
       updateStrategy:
         type: RollingUpdate
   - apiVersion: apps/v1
@@ -3034,6 +3426,54 @@ items:
               ports:
                 - containerPort: 8080
                   name: 8080-tcp-0
+                  protocol: TCP
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
+            - env:
+                - name: MOD_USERS_BL_URL
+                  value: http://mod-users-bl.folio-modules.svc
+                - name: JAVA_OPTIONS
+                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
+                    -Dmodule.name=mod-licenses -Dmodule.version=6.3.0-SNAPSHOT.285
+                    -Dsidecar.name=mod-licenses-sidecar -Dmodule.id=mod-licenses-6.3.0-SNAPSHOT.285
+                    -Dmodule.url=http://mod-licenses.folio-modules.svc:8080 -Dsidecar.url=http://mod-licenses.folio-modules.svc
+                - name: MODULE_URL
+                  value: http://mod-licenses.folio-modules.svc:8080
+                - name: MODULE_ID
+                  value: mod-licenses-{verson:}
+                - name: SIDECAR_URL
+                  value: http://mod-licenses.folio-modules.svc
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: vault-connect
+                    optional: true
+                - secretRef:
+                    name: vault-connect
+                    optional: true
+              image: folioci/folio-module-sidecar:latest
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              name: mod-licenses-sidecar
+              ports:
+                - containerPort: 19002
+                  name: sidecar
                   protocol: TCP
               resources:
                 limits:
