@@ -64,7 +64,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-graphql.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-graphql-{verson:}
+                  value: mod-graphql-1.13.1000374
                 - name: SIDECAR_URL
                   value: http://mod-graphql.folio-modules.svc
               envFrom:
@@ -190,7 +190,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-quick-marc.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-quick-marc-{verson:}
+                  value: mod-quick-marc-7.1.0-SNAPSHOT.322
                 - name: SIDECAR_URL
                   value: http://mod-quick-marc.folio-modules.svc
               envFrom:
@@ -334,7 +334,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-inventory-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-inventory-storage-{verson:}
+                  value: mod-inventory-storage-29.1.0-SNAPSHOT.1134
                 - name: SIDECAR_URL
                   value: http://mod-inventory-storage.folio-modules.svc
               envFrom:
@@ -478,7 +478,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-circulation-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-circulation-storage-{verson:}
+                  value: mod-circulation-storage-17.5.0-SNAPSHOT.438
                 - name: SIDECAR_URL
                   value: http://mod-circulation-storage.folio-modules.svc
               envFrom:
@@ -635,7 +635,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-search.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-search-{verson:}
+                  value: mod-search-5.1.0-SNAPSHOT.699
                 - name: SIDECAR_URL
                   value: http://mod-search.folio-modules.svc
               envFrom:
@@ -762,7 +762,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-inventory.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-inventory-{verson:}
+                  value: mod-inventory-21.2.0-SNAPSHOT.872
                 - name: SIDECAR_URL
                   value: http://mod-inventory.folio-modules.svc
               envFrom:
@@ -868,7 +868,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-circulation.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-circulation-{verson:}
+                  value: mod-circulation-24.5.0-SNAPSHOT.1307
                 - name: SIDECAR_URL
                   value: http://mod-circulation.folio-modules.svc
               envFrom:
@@ -991,7 +991,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-feesfines.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-feesfines-{verson:}
+                  value: mod-feesfines-19.4.0-SNAPSHOT.246
                 - name: SIDECAR_URL
                   value: http://mod-feesfines.folio-modules.svc
               envFrom:
@@ -1131,7 +1131,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-patron-blocks.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-patron-blocks-{verson:}
+                  value: mod-patron-blocks-1.13.0-SNAPSHOT.108
                 - name: SIDECAR_URL
                   value: http://mod-patron-blocks.folio-modules.svc
               envFrom:
@@ -1289,7 +1289,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-entities-links.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-entities-links-{verson:}
+                  value: mod-entities-links-4.1.0-SNAPSHOT.336
                 - name: SIDECAR_URL
                   value: http://mod-entities-links.folio-modules.svc
               envFrom:
@@ -1436,7 +1436,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-source-record-manager.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-source-record-manager-{verson:}
+                  value: mod-source-record-manager-3.11.0-SNAPSHOT.1023
                 - name: SIDECAR_URL
                   value: http://mod-source-record-manager.folio-modules.svc
               envFrom:
@@ -1578,7 +1578,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-di-converter-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-di-converter-storage-{verson:}
+                  value: mod-di-converter-storage-2.5.0-SNAPSHOT.74
                 - name: SIDECAR_URL
                   value: http://mod-di-converter-storage.folio-modules.svc
               envFrom:
@@ -1723,7 +1723,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-patron.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-patron-{verson:}
+                  value: mod-patron-6.4.0-SNAPSHOT.168
                 - name: SIDECAR_URL
                   value: http://mod-patron.folio-modules.svc
               envFrom:
@@ -1874,7 +1874,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-data-export.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-data-export-{verson:}
+                  value: mod-data-export-5.3.0-SNAPSHOT.471
                 - name: SIDECAR_URL
                   value: http://mod-data-export.folio-modules.svc
               envFrom:
@@ -2033,7 +2033,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-data-export-spring.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-data-export-spring-{verson:}
+                  value: mod-data-export-spring-3.6.0-SNAPSHOT.303
                 - name: SIDECAR_URL
                   value: http://mod-data-export-spring.folio-modules.svc
               envFrom:
@@ -2187,7 +2187,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-data-export-worker.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-data-export-worker-{verson:}
+                  value: mod-data-export-worker-3.5.0-SNAPSHOT.614
                 - name: SIDECAR_URL
                   value: http://mod-data-export-worker.folio-modules.svc
               envFrom:
@@ -2330,7 +2330,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-rtac.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-rtac-{verson:}
+                  value: mod-rtac-3.9.0-SNAPSHOT.108
                 - name: SIDECAR_URL
                   value: http://mod-rtac.folio-modules.svc
               envFrom:
@@ -2480,7 +2480,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-remote-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-remote-storage-{verson:}
+                  value: mod-remote-storage-3.5.0-SNAPSHOT.227
                 - name: SIDECAR_URL
                   value: http://mod-remote-storage.folio-modules.svc
               envFrom:
@@ -2623,7 +2623,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-calendar.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-calendar-{verson:}
+                  value: mod-calendar-3.4.0-SNAPSHOT.181
                 - name: SIDECAR_URL
                   value: http://mod-calendar.folio-modules.svc
               envFrom:
@@ -2769,7 +2769,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-audit.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-audit-{verson:}
+                  value: mod-audit-3.0.0-SNAPSHOT.221
                 - name: SIDECAR_URL
                   value: http://mod-audit.folio-modules.svc
               envFrom:
@@ -2912,7 +2912,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-courses.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-courses-{verson:}
+                  value: mod-courses-1.4.12-SNAPSHOT.168
                 - name: SIDECAR_URL
                   value: http://mod-courses.folio-modules.svc
               envFrom:
@@ -2972,6 +2972,8 @@ items:
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-source-record-storage
       name: mod-source-record-storage
       namespace: folio-modules
     spec:
@@ -3057,7 +3059,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-source-record-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-source-record-storage-{verson:}
+                  value: mod-source-record-storage-5.11.0-SNAPSHOT.682
                 - name: SIDECAR_URL
                   value: http://mod-source-record-storage.folio-modules.svc
               envFrom:
@@ -3212,7 +3214,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-data-import.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-data-import-{verson:}
+                  value: mod-data-import-3.4.0-SNAPSHOT.332
                 - name: SIDECAR_URL
                   value: http://mod-data-import.folio-modules.svc
               envFrom:
@@ -3272,6 +3274,8 @@ items:
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-agreements
       name: mod-agreements
       namespace: folio-modules
     spec:
@@ -3333,7 +3337,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-agreements.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-agreements-{verson:}
+                  value: mod-agreements-7.3.0-SNAPSHOT.765
                 - name: SIDECAR_URL
                   value: http://mod-agreements.folio-modules.svc
               envFrom:
@@ -3375,6 +3379,8 @@ items:
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
       name: mod-licenses
       namespace: folio-modules
     spec:
@@ -3444,7 +3450,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-licenses.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-licenses-{verson:}
+                  value: mod-licenses-6.3.0-SNAPSHOT.285
                 - name: SIDECAR_URL
                   value: http://mod-licenses.folio-modules.svc
               envFrom:
@@ -3569,7 +3575,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-email.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-email-{verson:}
+                  value: mod-email-1.20.0-SNAPSHOT.93
                 - name: SIDECAR_URL
                   value: http://mod-email.folio-modules.svc
               envFrom:
@@ -3712,7 +3718,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-event-config.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-event-config-{verson:}
+                  value: mod-event-config-2.10.0-SNAPSHOT.72
                 - name: SIDECAR_URL
                   value: http://mod-event-config.folio-modules.svc
               envFrom:
@@ -3855,7 +3861,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-notify.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-notify-{verson:}
+                  value: mod-notify-3.5.0-SNAPSHOT.139
                 - name: SIDECAR_URL
                   value: http://mod-notify.folio-modules.svc
               envFrom:
@@ -3998,7 +4004,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-sender.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-sender-{verson:}
+                  value: mod-sender-1.14.1
                 - name: SIDECAR_URL
                   value: http://mod-sender.folio-modules.svc
               envFrom:
@@ -4142,7 +4148,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-template-engine.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-template-engine-{verson:}
+                  value: mod-template-engine-1.23.0-SNAPSHOT.103
                 - name: SIDECAR_URL
                   value: http://mod-template-engine.folio-modules.svc
               envFrom:
@@ -4297,7 +4303,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-pubsub.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-pubsub-{verson:}
+                  value: mod-pubsub-2.17.0-SNAPSHOT.260
                 - name: SIDECAR_URL
                   value: http://mod-pubsub.folio-modules.svc
               envFrom:
@@ -4440,7 +4446,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-gobi.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-gobi-{verson:}
+                  value: mod-gobi-3.1.0-SNAPSHOT.253
                 - name: SIDECAR_URL
                   value: http://mod-gobi.folio-modules.svc
               envFrom:
@@ -4583,7 +4589,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-copycat.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-copycat-{verson:}
+                  value: mod-copycat-1.8.0
                 - name: SIDECAR_URL
                   value: http://mod-copycat.folio-modules.svc
               envFrom:
@@ -4726,7 +4732,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-kb-ebsco-java.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-kb-ebsco-java-{verson:}
+                  value: mod-kb-ebsco-java-6.1.0-SNAPSHOT.465
                 - name: SIDECAR_URL
                   value: http://mod-kb-ebsco-java.folio-modules.svc
               envFrom:
@@ -4869,7 +4875,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-ncip.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-ncip-{verson:}
+                  value: mod-ncip-1.16.0-SNAPSHOT.109
                 - name: SIDECAR_URL
                   value: http://mod-ncip.folio-modules.svc
               envFrom:
@@ -4993,7 +4999,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-inventory-update.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-inventory-update-{verson:}
+                  value: mod-inventory-update-4.1.1-SNAPSHOT.141
                 - name: SIDECAR_URL
                   value: http://mod-inventory-update.folio-modules.svc
               envFrom:
@@ -5116,7 +5122,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-user-import.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-user-import-{verson:}
+                  value: mod-user-import-3.11.0-SNAPSHOT.108
                 - name: SIDECAR_URL
                   value: http://mod-user-import.folio-modules.svc
               envFrom:
@@ -5241,7 +5247,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-service-interaction.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-service-interaction-{verson:}
+                  value: mod-service-interaction-4.3.0-SNAPSHOT.142
                 - name: SIDECAR_URL
                   value: http://mod-service-interaction.folio-modules.svc
               envFrom:
@@ -5358,7 +5364,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-ebsconet.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-ebsconet-{verson:}
+                  value: mod-ebsconet-2.5.0-SNAPSHOT.89
                 - name: SIDECAR_URL
                   value: http://mod-ebsconet.folio-modules.svc
               envFrom:
@@ -5501,7 +5507,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-batch-print.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-batch-print-{verson:}
+                  value: mod-batch-print-1.3.1-SNAPSHOT.15
                 - name: SIDECAR_URL
                   value: http://mod-batch-print.folio-modules.svc
               envFrom:
@@ -5629,7 +5635,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-serials-management.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-serials-management-{verson:}
+                  value: mod-serials-management-2.1.0-SNAPSHOT.159
                 - name: SIDECAR_URL
                   value: http://mod-serials-management.folio-modules.svc
               envFrom:
@@ -5756,7 +5762,7 @@ items:
                 - name: MODULE_URL
                   value: http://mod-record-specifications.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-record-specifications-{verson:}
+                  value: mod-record-specifications-2.1.0-SNAPSHOT.99
                 - name: SIDECAR_URL
                   value: http://mod-record-specifications.folio-modules.svc
               envFrom:
