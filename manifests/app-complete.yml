@@ -9,8 +9,6 @@ items:
       name: mod-graphql
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -133,8 +131,6 @@ items:
       name: mod-quick-marc
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -303,8 +299,6 @@ items:
       name: mod-inventory-storage
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -475,8 +469,6 @@ items:
       name: mod-circulation-storage
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -645,8 +637,6 @@ items:
       name: mod-search
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -824,8 +814,6 @@ items:
       name: mod-inventory
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -955,8 +943,6 @@ items:
       name: mod-circulation
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -1085,8 +1071,6 @@ items:
       name: mod-feesfines
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -1252,8 +1236,6 @@ items:
       name: mod-patron-blocks
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -1420,8 +1402,6 @@ items:
       name: mod-entities-links
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -1600,8 +1580,6 @@ items:
       name: mod-source-record-manager
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -1771,8 +1749,6 @@ items:
       name: mod-di-converter-storage
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -1941,8 +1917,6 @@ items:
       name: mod-patron
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -2108,8 +2082,6 @@ items:
       name: mod-data-export
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -2283,8 +2255,6 @@ items:
       name: mod-data-export-spring
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -2466,8 +2436,6 @@ items:
       name: mod-data-export-worker
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -2644,8 +2612,6 @@ items:
       name: mod-rtac
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -2811,8 +2777,6 @@ items:
       name: mod-remote-storage
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -2985,8 +2949,6 @@ items:
       name: mod-calendar
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -3152,8 +3114,6 @@ items:
       name: mod-audit
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -3322,8 +3282,6 @@ items:
       name: mod-courses
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -3489,8 +3447,6 @@ items:
       name: mod-source-record-storage
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -3662,8 +3618,6 @@ items:
       name: mod-data-import
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -3839,8 +3793,6 @@ items:
       name: mod-agreements
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -3968,8 +3920,6 @@ items:
       name: mod-licenses
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -4105,8 +4055,6 @@ items:
       name: mod-email
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -4272,8 +4220,6 @@ items:
       name: mod-event-config
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -4439,8 +4385,6 @@ items:
       name: mod-notify
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -4606,8 +4550,6 @@ items:
       name: mod-sender
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -4773,8 +4715,6 @@ items:
       name: mod-template-engine
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -4941,8 +4881,6 @@ items:
       name: mod-pubsub
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -5120,8 +5058,6 @@ items:
       name: mod-gobi
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -5287,8 +5223,6 @@ items:
       name: mod-copycat
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -5454,8 +5388,6 @@ items:
       name: mod-kb-ebsco-java
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -5621,8 +5553,6 @@ items:
       name: mod-ncip
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -5788,8 +5718,6 @@ items:
       name: mod-inventory-update
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -5916,8 +5844,6 @@ items:
       name: mod-user-import
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -6083,8 +6009,6 @@ items:
       name: mod-service-interaction
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -6212,8 +6136,6 @@ items:
       name: mod-ebsconet
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -6373,8 +6295,6 @@ items:
       name: mod-batch-print
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -6540,8 +6460,6 @@ items:
       name: mod-serials-management
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
@@ -6672,8 +6590,6 @@ items:
       name: mod-record-specifications
       namespace: folio-modules
     spec:
-      minReadySeconds: 0
-      progressDeadlineSeconds: 1200
       replicas: 1
       selector:
         matchLabels:
