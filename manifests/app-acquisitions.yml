@@ -87,32 +87,10 @@ items:
                     -Dmodule.name=mod-organizations -Dmodule.version=2.2.0-SNAPSHOT.69
                     -Dsidecar.name=mod-organizations-sidecar -Dmodule.id=mod-organizations-2.2.0-SNAPSHOT.69
                     -Dmodule.url=http://mod-organizations.folio-modules.svc:8080 -Dsidecar.url=http://mod-organizations.folio-modules.svc
-                - name: KC_URI_VALIDATION_ENABLED
-                  value: 'false'
                 - name: MODULE_URL
                   value: http://mod-organizations.folio-modules.svc:8080
                 - name: MODULE_ID
                   value: mod-organizations-2.2.0-SNAPSHOT.69
-                - name: QUARKUS_HTTP_PORT
-                  value: '8082'
-                - name: QUARKUS_HTTP_LIMITS_MAX_INITIAL_LINE_LENGTH
-                  value: '8192'
-                - name: QUARKUS_REST_CLIENT_READ_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_CONNECT_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_SEND_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_HTTP_LIMITS_MAX_BODY_SIZE
-                  value: 10240K
-                - name: REQUEST_TIMEOUT
-                  value: '604800000'
-                - name: ROOT_LOG_LEVEL
-                  value: INFO
-                - name: SC_LOG_LEVEL
-                  value: INFO
-                - name: SIDECAR
-                  value: 'true'
                 - name: SIDECAR_URL
                   value: http://mod-organizations.folio-modules.svc
               envFrom:
@@ -126,7 +104,13 @@ items:
                     name: keycloak-connect
                     optional: true
                 - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
                     name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
                 - configMapRef:
                     name: vault-connect
@@ -252,32 +236,10 @@ items:
                     -Dsidecar.name=mod-organizations-storage-sidecar -Dmodule.id=mod-organizations-storage-5.0.0-SNAPSHOT.119
                     -Dmodule.url=http://mod-organizations-storage.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-organizations-storage.folio-modules.svc
-                - name: KC_URI_VALIDATION_ENABLED
-                  value: 'false'
                 - name: MODULE_URL
                   value: http://mod-organizations-storage.folio-modules.svc:8080
                 - name: MODULE_ID
                   value: mod-organizations-storage-5.0.0-SNAPSHOT.119
-                - name: QUARKUS_HTTP_PORT
-                  value: '8082'
-                - name: QUARKUS_HTTP_LIMITS_MAX_INITIAL_LINE_LENGTH
-                  value: '8192'
-                - name: QUARKUS_REST_CLIENT_READ_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_CONNECT_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_SEND_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_HTTP_LIMITS_MAX_BODY_SIZE
-                  value: 10240K
-                - name: REQUEST_TIMEOUT
-                  value: '604800000'
-                - name: ROOT_LOG_LEVEL
-                  value: INFO
-                - name: SC_LOG_LEVEL
-                  value: INFO
-                - name: SIDECAR
-                  value: 'true'
                 - name: SIDECAR_URL
                   value: http://mod-organizations-storage.folio-modules.svc
               envFrom:
@@ -291,7 +253,13 @@ items:
                     name: keycloak-connect
                     optional: true
                 - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
                     name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
                 - configMapRef:
                     name: vault-connect
@@ -422,32 +390,10 @@ items:
                     -Dmodule.name=mod-orders -Dmodule.version=13.1.0-SNAPSHOT.1025
                     -Dsidecar.name=mod-orders-sidecar -Dmodule.id=mod-orders-13.1.0-SNAPSHOT.1025
                     -Dmodule.url=http://mod-orders.folio-modules.svc:8080 -Dsidecar.url=http://mod-orders.folio-modules.svc
-                - name: KC_URI_VALIDATION_ENABLED
-                  value: 'false'
                 - name: MODULE_URL
                   value: http://mod-orders.folio-modules.svc:8080
                 - name: MODULE_ID
                   value: mod-orders-13.1.0-SNAPSHOT.1025
-                - name: QUARKUS_HTTP_PORT
-                  value: '8082'
-                - name: QUARKUS_HTTP_LIMITS_MAX_INITIAL_LINE_LENGTH
-                  value: '8192'
-                - name: QUARKUS_REST_CLIENT_READ_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_CONNECT_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_SEND_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_HTTP_LIMITS_MAX_BODY_SIZE
-                  value: 10240K
-                - name: REQUEST_TIMEOUT
-                  value: '604800000'
-                - name: ROOT_LOG_LEVEL
-                  value: INFO
-                - name: SC_LOG_LEVEL
-                  value: INFO
-                - name: SIDECAR
-                  value: 'true'
                 - name: SIDECAR_URL
                   value: http://mod-orders.folio-modules.svc
               envFrom:
@@ -461,7 +407,13 @@ items:
                     name: keycloak-connect
                     optional: true
                 - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
                     name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
                 - configMapRef:
                     name: vault-connect
@@ -590,32 +542,10 @@ items:
                     -Dsidecar.name=mod-orders-storage-sidecar -Dmodule.id=mod-orders-storage-14.0.0-SNAPSHOT.428
                     -Dmodule.url=http://mod-orders-storage.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-orders-storage.folio-modules.svc
-                - name: KC_URI_VALIDATION_ENABLED
-                  value: 'false'
                 - name: MODULE_URL
                   value: http://mod-orders-storage.folio-modules.svc:8080
                 - name: MODULE_ID
                   value: mod-orders-storage-14.0.0-SNAPSHOT.428
-                - name: QUARKUS_HTTP_PORT
-                  value: '8082'
-                - name: QUARKUS_HTTP_LIMITS_MAX_INITIAL_LINE_LENGTH
-                  value: '8192'
-                - name: QUARKUS_REST_CLIENT_READ_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_CONNECT_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_SEND_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_HTTP_LIMITS_MAX_BODY_SIZE
-                  value: 10240K
-                - name: REQUEST_TIMEOUT
-                  value: '604800000'
-                - name: ROOT_LOG_LEVEL
-                  value: INFO
-                - name: SC_LOG_LEVEL
-                  value: INFO
-                - name: SIDECAR
-                  value: 'true'
                 - name: SIDECAR_URL
                   value: http://mod-orders-storage.folio-modules.svc
               envFrom:
@@ -629,7 +559,13 @@ items:
                     name: keycloak-connect
                     optional: true
                 - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
                     name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
                 - configMapRef:
                     name: vault-connect
@@ -754,32 +690,10 @@ items:
                     -Dmodule.name=mod-invoice -Dmodule.version=6.1.0-SNAPSHOT.472
                     -Dsidecar.name=mod-invoice-sidecar -Dmodule.id=mod-invoice-6.1.0-SNAPSHOT.472
                     -Dmodule.url=http://mod-invoice.folio-modules.svc:8080 -Dsidecar.url=http://mod-invoice.folio-modules.svc
-                - name: KC_URI_VALIDATION_ENABLED
-                  value: 'false'
                 - name: MODULE_URL
                   value: http://mod-invoice.folio-modules.svc:8080
                 - name: MODULE_ID
                   value: mod-invoice-6.1.0-SNAPSHOT.472
-                - name: QUARKUS_HTTP_PORT
-                  value: '8082'
-                - name: QUARKUS_HTTP_LIMITS_MAX_INITIAL_LINE_LENGTH
-                  value: '8192'
-                - name: QUARKUS_REST_CLIENT_READ_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_CONNECT_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_SEND_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_HTTP_LIMITS_MAX_BODY_SIZE
-                  value: 10240K
-                - name: REQUEST_TIMEOUT
-                  value: '604800000'
-                - name: ROOT_LOG_LEVEL
-                  value: INFO
-                - name: SC_LOG_LEVEL
-                  value: INFO
-                - name: SIDECAR
-                  value: 'true'
                 - name: SIDECAR_URL
                   value: http://mod-invoice.folio-modules.svc
               envFrom:
@@ -793,7 +707,13 @@ items:
                     name: keycloak-connect
                     optional: true
                 - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
                     name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
                 - configMapRef:
                     name: vault-connect
@@ -919,32 +839,10 @@ items:
                     -Dsidecar.name=mod-invoice-storage-sidecar -Dmodule.id=mod-invoice-storage-6.1.0-SNAPSHOT.172
                     -Dmodule.url=http://mod-invoice-storage.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-invoice-storage.folio-modules.svc
-                - name: KC_URI_VALIDATION_ENABLED
-                  value: 'false'
                 - name: MODULE_URL
                   value: http://mod-invoice-storage.folio-modules.svc:8080
                 - name: MODULE_ID
                   value: mod-invoice-storage-6.1.0-SNAPSHOT.172
-                - name: QUARKUS_HTTP_PORT
-                  value: '8082'
-                - name: QUARKUS_HTTP_LIMITS_MAX_INITIAL_LINE_LENGTH
-                  value: '8192'
-                - name: QUARKUS_REST_CLIENT_READ_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_CONNECT_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_SEND_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_HTTP_LIMITS_MAX_BODY_SIZE
-                  value: 10240K
-                - name: REQUEST_TIMEOUT
-                  value: '604800000'
-                - name: ROOT_LOG_LEVEL
-                  value: INFO
-                - name: SC_LOG_LEVEL
-                  value: INFO
-                - name: SIDECAR
-                  value: 'true'
                 - name: SIDECAR_URL
                   value: http://mod-invoice-storage.folio-modules.svc
               envFrom:
@@ -958,7 +856,13 @@ items:
                     name: keycloak-connect
                     optional: true
                 - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
                     name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
                 - configMapRef:
                     name: vault-connect
@@ -1086,32 +990,10 @@ items:
                     -Dmodule.name=mod-finance -Dmodule.version=5.2.0-SNAPSHOT.289
                     -Dsidecar.name=mod-finance-sidecar -Dmodule.id=mod-finance-5.2.0-SNAPSHOT.289
                     -Dmodule.url=http://mod-finance.folio-modules.svc:8080 -Dsidecar.url=http://mod-finance.folio-modules.svc
-                - name: KC_URI_VALIDATION_ENABLED
-                  value: 'false'
                 - name: MODULE_URL
                   value: http://mod-finance.folio-modules.svc:8080
                 - name: MODULE_ID
                   value: mod-finance-5.2.0-SNAPSHOT.289
-                - name: QUARKUS_HTTP_PORT
-                  value: '8082'
-                - name: QUARKUS_HTTP_LIMITS_MAX_INITIAL_LINE_LENGTH
-                  value: '8192'
-                - name: QUARKUS_REST_CLIENT_READ_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_CONNECT_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_SEND_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_HTTP_LIMITS_MAX_BODY_SIZE
-                  value: 10240K
-                - name: REQUEST_TIMEOUT
-                  value: '604800000'
-                - name: ROOT_LOG_LEVEL
-                  value: INFO
-                - name: SC_LOG_LEVEL
-                  value: INFO
-                - name: SIDECAR
-                  value: 'true'
                 - name: SIDECAR_URL
                   value: http://mod-finance.folio-modules.svc
               envFrom:
@@ -1125,7 +1007,13 @@ items:
                     name: keycloak-connect
                     optional: true
                 - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
                     name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
                 - configMapRef:
                     name: vault-connect
@@ -1251,32 +1139,10 @@ items:
                     -Dsidecar.name=mod-finance-storage-sidecar -Dmodule.id=mod-finance-storage-8.9.0-SNAPSHOT.406
                     -Dmodule.url=http://mod-finance-storage.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-finance-storage.folio-modules.svc
-                - name: KC_URI_VALIDATION_ENABLED
-                  value: 'false'
                 - name: MODULE_URL
                   value: http://mod-finance-storage.folio-modules.svc:8080
                 - name: MODULE_ID
                   value: mod-finance-storage-8.9.0-SNAPSHOT.406
-                - name: QUARKUS_HTTP_PORT
-                  value: '8082'
-                - name: QUARKUS_HTTP_LIMITS_MAX_INITIAL_LINE_LENGTH
-                  value: '8192'
-                - name: QUARKUS_REST_CLIENT_READ_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_CONNECT_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_REST_CLIENT_SEND_TIMEOUT
-                  value: '180000'
-                - name: QUARKUS_HTTP_LIMITS_MAX_BODY_SIZE
-                  value: 10240K
-                - name: REQUEST_TIMEOUT
-                  value: '604800000'
-                - name: ROOT_LOG_LEVEL
-                  value: INFO
-                - name: SC_LOG_LEVEL
-                  value: INFO
-                - name: SIDECAR
-                  value: 'true'
                 - name: SIDECAR_URL
                   value: http://mod-finance-storage.folio-modules.svc
               envFrom:
@@ -1290,7 +1156,13 @@ items:
                     name: keycloak-connect
                     optional: true
                 - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
                     name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
                 - configMapRef:
                     name: vault-connect
