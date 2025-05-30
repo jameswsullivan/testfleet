@@ -110,13 +110,13 @@ items:
                     name: mgr-connect
                     optional: true
                 - configMapRef:
-                    name: sidecar-global
-                    optional: true
-                - configMapRef:
                     name: vault-connect
                     optional: true
                 - secretRef:
                     name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
               image: folioci/folio-module-sidecar:latest
               imagePullPolicy: Always
@@ -259,13 +259,13 @@ items:
                     name: mgr-connect
                     optional: true
                 - configMapRef:
-                    name: sidecar-global
-                    optional: true
-                - configMapRef:
                     name: vault-connect
                     optional: true
                 - secretRef:
                     name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
               image: folioci/folio-module-sidecar:latest
               imagePullPolicy: Always
@@ -413,13 +413,13 @@ items:
                     name: mgr-connect
                     optional: true
                 - configMapRef:
-                    name: sidecar-global
-                    optional: true
-                - configMapRef:
                     name: vault-connect
                     optional: true
                 - secretRef:
                     name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
               image: folioci/folio-module-sidecar:latest
               imagePullPolicy: Always
@@ -565,13 +565,13 @@ items:
                     name: mgr-connect
                     optional: true
                 - configMapRef:
-                    name: sidecar-global
-                    optional: true
-                - configMapRef:
                     name: vault-connect
                     optional: true
                 - secretRef:
                     name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
               image: folioci/folio-module-sidecar:latest
               imagePullPolicy: Always
@@ -713,13 +713,13 @@ items:
                     name: mgr-connect
                     optional: true
                 - configMapRef:
-                    name: sidecar-global
-                    optional: true
-                - configMapRef:
                     name: vault-connect
                     optional: true
                 - secretRef:
                     name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
               image: folioci/folio-module-sidecar:latest
               imagePullPolicy: Always
@@ -862,13 +862,13 @@ items:
                     name: mgr-connect
                     optional: true
                 - configMapRef:
-                    name: sidecar-global
-                    optional: true
-                - configMapRef:
                     name: vault-connect
                     optional: true
                 - secretRef:
                     name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
               image: folioci/folio-module-sidecar:latest
               imagePullPolicy: Always
@@ -1013,13 +1013,13 @@ items:
                     name: mgr-connect
                     optional: true
                 - configMapRef:
-                    name: sidecar-global
-                    optional: true
-                - configMapRef:
                     name: vault-connect
                     optional: true
                 - secretRef:
                     name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
               image: folioci/folio-module-sidecar:latest
               imagePullPolicy: Always
@@ -1162,13 +1162,13 @@ items:
                     name: mgr-connect
                     optional: true
                 - configMapRef:
-                    name: sidecar-global
-                    optional: true
-                - configMapRef:
                     name: vault-connect
                     optional: true
                 - secretRef:
                     name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
                     optional: true
               image: folioci/folio-module-sidecar:latest
               imagePullPolicy: Always
