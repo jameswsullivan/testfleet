@@ -59,10 +59,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-graphql -Dmodule.version=1.13.1000374 -Dsidecar.name=mod-graphql-sidecar
-                    -Dmodule.id=mod-graphql-1.13.1000374 -Dmodule.url=http://mod-graphql.folio-modules.svc:8080
+                    -Dmodule.id=mod-graphql-1.13.1000374 -Dmodule.url=http://mod-graphql.folio-modules.svc:3001
                     -Dsidecar.url=http://mod-graphql.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-graphql.folio-modules.svc:8080
+                  value: http://mod-graphql.folio-modules.svc:3001
                 - name: MODULE_ID
                   value: mod-graphql-1.13.1000374
                 - name: SIDECAR_URL
@@ -192,9 +192,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-quick-marc -Dmodule.version=7.1.0-SNAPSHOT.322
                     -Dsidecar.name=mod-quick-marc-sidecar -Dmodule.id=mod-quick-marc-7.1.0-SNAPSHOT.322
-                    -Dmodule.url=http://mod-quick-marc.folio-modules.svc:8080 -Dsidecar.url=http://mod-quick-marc.folio-modules.svc
+                    -Dmodule.url=http://mod-quick-marc.folio-modules.svc:8081 -Dsidecar.url=http://mod-quick-marc.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-quick-marc.folio-modules.svc:8080
+                  value: http://mod-quick-marc.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-quick-marc-7.1.0-SNAPSHOT.322
                 - name: SIDECAR_URL
@@ -343,10 +343,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-inventory-storage -Dmodule.version=29.1.0-SNAPSHOT.1134
                     -Dsidecar.name=mod-inventory-storage-sidecar -Dmodule.id=mod-inventory-storage-29.1.0-SNAPSHOT.1134
-                    -Dmodule.url=http://mod-inventory-storage.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-inventory-storage.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-inventory-storage.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-inventory-storage.folio-modules.svc:8080
+                  value: http://mod-inventory-storage.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-inventory-storage-29.1.0-SNAPSHOT.1134
                 - name: SIDECAR_URL
@@ -495,10 +495,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-circulation-storage -Dmodule.version=17.5.0-SNAPSHOT.438
                     -Dsidecar.name=mod-circulation-storage-sidecar -Dmodule.id=mod-circulation-storage-17.5.0-SNAPSHOT.438
-                    -Dmodule.url=http://mod-circulation-storage.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-circulation-storage.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-circulation-storage.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-circulation-storage.folio-modules.svc:8080
+                  value: http://mod-circulation-storage.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-circulation-storage-17.5.0-SNAPSHOT.438
                 - name: SIDECAR_URL
@@ -658,10 +658,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-search -Dmodule.version=5.1.0-SNAPSHOT.699 -Dsidecar.name=mod-search-sidecar
-                    -Dmodule.id=mod-search-5.1.0-SNAPSHOT.699 -Dmodule.url=http://mod-search.folio-modules.svc:8080
+                    -Dmodule.id=mod-search-5.1.0-SNAPSHOT.699 -Dmodule.url=http://mod-search.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-search.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-search.folio-modules.svc:8080
+                  value: http://mod-search.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-search-5.1.0-SNAPSHOT.699
                 - name: SIDECAR_URL
@@ -792,9 +792,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-inventory -Dmodule.version=21.2.0-SNAPSHOT.872
                     -Dsidecar.name=mod-inventory-sidecar -Dmodule.id=mod-inventory-21.2.0-SNAPSHOT.872
-                    -Dmodule.url=http://mod-inventory.folio-modules.svc:8080 -Dsidecar.url=http://mod-inventory.folio-modules.svc
+                    -Dmodule.url=http://mod-inventory.folio-modules.svc:9403 -Dsidecar.url=http://mod-inventory.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-inventory.folio-modules.svc:8080
+                  value: http://mod-inventory.folio-modules.svc:9403
                 - name: MODULE_ID
                   value: mod-inventory-21.2.0-SNAPSHOT.872
                 - name: SIDECAR_URL
@@ -904,9 +904,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-circulation -Dmodule.version=24.5.0-SNAPSHOT.1307
                     -Dsidecar.name=mod-circulation-sidecar -Dmodule.id=mod-circulation-24.5.0-SNAPSHOT.1307
-                    -Dmodule.url=http://mod-circulation.folio-modules.svc:8080 -Dsidecar.url=http://mod-circulation.folio-modules.svc
+                    -Dmodule.url=http://mod-circulation.folio-modules.svc:9801 -Dsidecar.url=http://mod-circulation.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-circulation.folio-modules.svc:8080
+                  value: http://mod-circulation.folio-modules.svc:9801
                 - name: MODULE_ID
                   value: mod-circulation-24.5.0-SNAPSHOT.1307
                 - name: SIDECAR_URL
@@ -1033,9 +1033,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-feesfines -Dmodule.version=19.4.0-SNAPSHOT.246
                     -Dsidecar.name=mod-feesfines-sidecar -Dmodule.id=mod-feesfines-19.4.0-SNAPSHOT.246
-                    -Dmodule.url=http://mod-feesfines.folio-modules.svc:8080 -Dsidecar.url=http://mod-feesfines.folio-modules.svc
+                    -Dmodule.url=http://mod-feesfines.folio-modules.svc:8081 -Dsidecar.url=http://mod-feesfines.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-feesfines.folio-modules.svc:8080
+                  value: http://mod-feesfines.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-feesfines-19.4.0-SNAPSHOT.246
                 - name: SIDECAR_URL
@@ -1181,9 +1181,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-patron-blocks -Dmodule.version=1.13.0-SNAPSHOT.108
                     -Dsidecar.name=mod-patron-blocks-sidecar -Dmodule.id=mod-patron-blocks-1.13.0-SNAPSHOT.108
-                    -Dmodule.url=http://mod-patron-blocks.folio-modules.svc:8080 -Dsidecar.url=http://mod-patron-blocks.folio-modules.svc
+                    -Dmodule.url=http://mod-patron-blocks.folio-modules.svc:8081 -Dsidecar.url=http://mod-patron-blocks.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-patron-blocks.folio-modules.svc:8080
+                  value: http://mod-patron-blocks.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-patron-blocks-1.13.0-SNAPSHOT.108
                 - name: SIDECAR_URL
@@ -1344,10 +1344,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-entities-links -Dmodule.version=4.1.0-SNAPSHOT.336
                     -Dsidecar.name=mod-entities-links-sidecar -Dmodule.id=mod-entities-links-4.1.0-SNAPSHOT.336
-                    -Dmodule.url=http://mod-entities-links.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-entities-links.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-entities-links.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-entities-links.folio-modules.svc:8080
+                  value: http://mod-entities-links.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-entities-links-4.1.0-SNAPSHOT.336
                 - name: SIDECAR_URL
@@ -1497,10 +1497,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-source-record-manager -Dmodule.version=3.11.0-SNAPSHOT.1023
                     -Dsidecar.name=mod-source-record-manager-sidecar -Dmodule.id=mod-source-record-manager-3.11.0-SNAPSHOT.1023
-                    -Dmodule.url=http://mod-source-record-manager.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-source-record-manager.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-source-record-manager.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-source-record-manager.folio-modules.svc:8080
+                  value: http://mod-source-record-manager.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-source-record-manager-3.11.0-SNAPSHOT.1023
                 - name: SIDECAR_URL
@@ -1647,10 +1647,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-di-converter-storage -Dmodule.version=2.5.0-SNAPSHOT.74
                     -Dsidecar.name=mod-di-converter-storage-sidecar -Dmodule.id=mod-di-converter-storage-2.5.0-SNAPSHOT.74
-                    -Dmodule.url=http://mod-di-converter-storage.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-di-converter-storage.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-di-converter-storage.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-di-converter-storage.folio-modules.svc:8080
+                  value: http://mod-di-converter-storage.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-di-converter-storage-2.5.0-SNAPSHOT.74
                 - name: SIDECAR_URL
@@ -1798,10 +1798,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-patron -Dmodule.version=6.4.0-SNAPSHOT.168 -Dsidecar.name=mod-patron-sidecar
-                    -Dmodule.id=mod-patron-6.4.0-SNAPSHOT.168 -Dmodule.url=http://mod-patron.folio-modules.svc:8080
+                    -Dmodule.id=mod-patron-6.4.0-SNAPSHOT.168 -Dmodule.url=http://mod-patron.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-patron.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-patron.folio-modules.svc:8080
+                  value: http://mod-patron.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-patron-6.4.0-SNAPSHOT.168
                 - name: SIDECAR_URL
@@ -1956,9 +1956,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-data-export -Dmodule.version=5.3.0-SNAPSHOT.471
                     -Dsidecar.name=mod-data-export-sidecar -Dmodule.id=mod-data-export-5.3.0-SNAPSHOT.471
-                    -Dmodule.url=http://mod-data-export.folio-modules.svc:8080 -Dsidecar.url=http://mod-data-export.folio-modules.svc
+                    -Dmodule.url=http://mod-data-export.folio-modules.svc:8081 -Dsidecar.url=http://mod-data-export.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-data-export.folio-modules.svc:8080
+                  value: http://mod-data-export.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-data-export-5.3.0-SNAPSHOT.471
                 - name: SIDECAR_URL
@@ -2120,10 +2120,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-data-export-spring -Dmodule.version=3.6.0-SNAPSHOT.303
                     -Dsidecar.name=mod-data-export-spring-sidecar -Dmodule.id=mod-data-export-spring-3.6.0-SNAPSHOT.303
-                    -Dmodule.url=http://mod-data-export-spring.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-data-export-spring.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-data-export-spring.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-data-export-spring.folio-modules.svc:8080
+                  value: http://mod-data-export-spring.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-data-export-spring-3.6.0-SNAPSHOT.303
                 - name: SIDECAR_URL
@@ -2280,10 +2280,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-data-export-worker -Dmodule.version=3.5.0-SNAPSHOT.614
                     -Dsidecar.name=mod-data-export-worker-sidecar -Dmodule.id=mod-data-export-worker-3.5.0-SNAPSHOT.614
-                    -Dmodule.url=http://mod-data-export-worker.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-data-export-worker.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-data-export-worker.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-data-export-worker.folio-modules.svc:8080
+                  value: http://mod-data-export-worker.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-data-export-worker-3.5.0-SNAPSHOT.614
                 - name: SIDECAR_URL
@@ -2429,10 +2429,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-rtac -Dmodule.version=3.9.0-SNAPSHOT.108 -Dsidecar.name=mod-rtac-sidecar
-                    -Dmodule.id=mod-rtac-3.9.0-SNAPSHOT.108 -Dmodule.url=http://mod-rtac.folio-modules.svc:8080
+                    -Dmodule.id=mod-rtac-3.9.0-SNAPSHOT.108 -Dmodule.url=http://mod-rtac.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-rtac.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-rtac.folio-modules.svc:8080
+                  value: http://mod-rtac.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-rtac-3.9.0-SNAPSHOT.108
                 - name: SIDECAR_URL
@@ -2585,10 +2585,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-remote-storage -Dmodule.version=3.5.0-SNAPSHOT.227
                     -Dsidecar.name=mod-remote-storage-sidecar -Dmodule.id=mod-remote-storage-3.5.0-SNAPSHOT.227
-                    -Dmodule.url=http://mod-remote-storage.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-remote-storage.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-remote-storage.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-remote-storage.folio-modules.svc:8080
+                  value: http://mod-remote-storage.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-remote-storage-3.5.0-SNAPSHOT.227
                 - name: SIDECAR_URL
@@ -2735,9 +2735,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-calendar -Dmodule.version=3.4.0-SNAPSHOT.181
                     -Dsidecar.name=mod-calendar-sidecar -Dmodule.id=mod-calendar-3.4.0-SNAPSHOT.181
-                    -Dmodule.url=http://mod-calendar.folio-modules.svc:8080 -Dsidecar.url=http://mod-calendar.folio-modules.svc
+                    -Dmodule.url=http://mod-calendar.folio-modules.svc:8081 -Dsidecar.url=http://mod-calendar.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-calendar.folio-modules.svc:8080
+                  value: http://mod-calendar.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-calendar-3.4.0-SNAPSHOT.181
                 - name: SIDECAR_URL
@@ -2886,10 +2886,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-audit -Dmodule.version=3.0.0-SNAPSHOT.221 -Dsidecar.name=mod-audit-sidecar
-                    -Dmodule.id=mod-audit-3.0.0-SNAPSHOT.221 -Dmodule.url=http://mod-audit.folio-modules.svc:8080
+                    -Dmodule.id=mod-audit-3.0.0-SNAPSHOT.221 -Dmodule.url=http://mod-audit.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-audit.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-audit.folio-modules.svc:8080
+                  value: http://mod-audit.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-audit-3.0.0-SNAPSHOT.221
                 - name: SIDECAR_URL
@@ -3036,9 +3036,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-courses -Dmodule.version=1.4.12-SNAPSHOT.168
                     -Dsidecar.name=mod-courses-sidecar -Dmodule.id=mod-courses-1.4.12-SNAPSHOT.168
-                    -Dmodule.url=http://mod-courses.folio-modules.svc:8080 -Dsidecar.url=http://mod-courses.folio-modules.svc
+                    -Dmodule.url=http://mod-courses.folio-modules.svc:8081 -Dsidecar.url=http://mod-courses.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-courses.folio-modules.svc:8080
+                  value: http://mod-courses.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-courses-1.4.12-SNAPSHOT.168
                 - name: SIDECAR_URL
@@ -3188,10 +3188,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-source-record-storage -Dmodule.version=5.11.0-SNAPSHOT.682
                     -Dsidecar.name=mod-source-record-storage-sidecar -Dmodule.id=mod-source-record-storage-5.11.0-SNAPSHOT.682
-                    -Dmodule.url=http://mod-source-record-storage.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-source-record-storage.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-source-record-storage.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-source-record-storage.folio-modules.svc:8080
+                  value: http://mod-source-record-storage.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-source-record-storage-5.11.0-SNAPSHOT.682
                 - name: SIDECAR_URL
@@ -3350,9 +3350,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-data-import -Dmodule.version=3.4.0-SNAPSHOT.332
                     -Dsidecar.name=mod-data-import-sidecar -Dmodule.id=mod-data-import-3.4.0-SNAPSHOT.332
-                    -Dmodule.url=http://mod-data-import.folio-modules.svc:8080 -Dsidecar.url=http://mod-data-import.folio-modules.svc
+                    -Dmodule.url=http://mod-data-import.folio-modules.svc:8081 -Dsidecar.url=http://mod-data-import.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-data-import.folio-modules.svc:8080
+                  value: http://mod-data-import.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-data-import-3.4.0-SNAPSHOT.332
                 - name: SIDECAR_URL
@@ -3728,10 +3728,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-email -Dmodule.version=1.20.0-SNAPSHOT.93 -Dsidecar.name=mod-email-sidecar
-                    -Dmodule.id=mod-email-1.20.0-SNAPSHOT.93 -Dmodule.url=http://mod-email.folio-modules.svc:8080
+                    -Dmodule.id=mod-email-1.20.0-SNAPSHOT.93 -Dmodule.url=http://mod-email.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-email.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-email.folio-modules.svc:8080
+                  value: http://mod-email.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-email-1.20.0-SNAPSHOT.93
                 - name: SIDECAR_URL
@@ -3878,9 +3878,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-event-config -Dmodule.version=2.10.0-SNAPSHOT.72
                     -Dsidecar.name=mod-event-config-sidecar -Dmodule.id=mod-event-config-2.10.0-SNAPSHOT.72
-                    -Dmodule.url=http://mod-event-config.folio-modules.svc:8080 -Dsidecar.url=http://mod-event-config.folio-modules.svc
+                    -Dmodule.url=http://mod-event-config.folio-modules.svc:8081 -Dsidecar.url=http://mod-event-config.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-event-config.folio-modules.svc:8080
+                  value: http://mod-event-config.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-event-config-2.10.0-SNAPSHOT.72
                 - name: SIDECAR_URL
@@ -4026,10 +4026,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-notify -Dmodule.version=3.5.0-SNAPSHOT.139 -Dsidecar.name=mod-notify-sidecar
-                    -Dmodule.id=mod-notify-3.5.0-SNAPSHOT.139 -Dmodule.url=http://mod-notify.folio-modules.svc:8080
+                    -Dmodule.id=mod-notify-3.5.0-SNAPSHOT.139 -Dmodule.url=http://mod-notify.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-notify.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-notify.folio-modules.svc:8080
+                  value: http://mod-notify.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-notify-3.5.0-SNAPSHOT.139
                 - name: SIDECAR_URL
@@ -4175,10 +4175,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-sender -Dmodule.version=1.14.1 -Dsidecar.name=mod-sender-sidecar
-                    -Dmodule.id=mod-sender-1.14.1 -Dmodule.url=http://mod-sender.folio-modules.svc:8080
+                    -Dmodule.id=mod-sender-1.14.1 -Dmodule.url=http://mod-sender.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-sender.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-sender.folio-modules.svc:8080
+                  value: http://mod-sender.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-sender-1.14.1
                 - name: SIDECAR_URL
@@ -4325,10 +4325,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-template-engine -Dmodule.version=1.23.0-SNAPSHOT.103
                     -Dsidecar.name=mod-template-engine-sidecar -Dmodule.id=mod-template-engine-1.23.0-SNAPSHOT.103
-                    -Dmodule.url=http://mod-template-engine.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-template-engine.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-template-engine.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-template-engine.folio-modules.svc:8080
+                  value: http://mod-template-engine.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-template-engine-1.23.0-SNAPSHOT.103
                 - name: SIDECAR_URL
@@ -4487,9 +4487,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-pubsub -Dmodule.version=2.17.0-SNAPSHOT.260
                     -Dsidecar.name=mod-pubsub-sidecar -Dmodule.id=mod-pubsub-2.17.0-SNAPSHOT.260
-                    -Dmodule.url=http://mod-pubsub.folio-modules.svc:8080 -Dsidecar.url=http://mod-pubsub.folio-modules.svc
+                    -Dmodule.url=http://mod-pubsub.folio-modules.svc:8081 -Dsidecar.url=http://mod-pubsub.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-pubsub.folio-modules.svc:8080
+                  value: http://mod-pubsub.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-pubsub-2.17.0-SNAPSHOT.260
                 - name: SIDECAR_URL
@@ -4635,10 +4635,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-gobi -Dmodule.version=3.1.0-SNAPSHOT.253 -Dsidecar.name=mod-gobi-sidecar
-                    -Dmodule.id=mod-gobi-3.1.0-SNAPSHOT.253 -Dmodule.url=http://mod-gobi.folio-modules.svc:8080
+                    -Dmodule.id=mod-gobi-3.1.0-SNAPSHOT.253 -Dmodule.url=http://mod-gobi.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-gobi.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-gobi.folio-modules.svc:8080
+                  value: http://mod-gobi.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-gobi-3.1.0-SNAPSHOT.253
                 - name: SIDECAR_URL
@@ -4784,10 +4784,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-copycat -Dmodule.version=1.8.0 -Dsidecar.name=mod-copycat-sidecar
-                    -Dmodule.id=mod-copycat-1.8.0 -Dmodule.url=http://mod-copycat.folio-modules.svc:8080
+                    -Dmodule.id=mod-copycat-1.8.0 -Dmodule.url=http://mod-copycat.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-copycat.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-copycat.folio-modules.svc:8080
+                  value: http://mod-copycat.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-copycat-1.8.0
                 - name: SIDECAR_URL
@@ -4934,9 +4934,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-kb-ebsco-java -Dmodule.version=6.1.0-SNAPSHOT.465
                     -Dsidecar.name=mod-kb-ebsco-java-sidecar -Dmodule.id=mod-kb-ebsco-java-6.1.0-SNAPSHOT.465
-                    -Dmodule.url=http://mod-kb-ebsco-java.folio-modules.svc:8080 -Dsidecar.url=http://mod-kb-ebsco-java.folio-modules.svc
+                    -Dmodule.url=http://mod-kb-ebsco-java.folio-modules.svc:8081 -Dsidecar.url=http://mod-kb-ebsco-java.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-kb-ebsco-java.folio-modules.svc:8080
+                  value: http://mod-kb-ebsco-java.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-kb-ebsco-java-6.1.0-SNAPSHOT.465
                 - name: SIDECAR_URL
@@ -5082,10 +5082,10 @@ items:
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-ncip -Dmodule.version=1.16.0-SNAPSHOT.109 -Dsidecar.name=mod-ncip-sidecar
-                    -Dmodule.id=mod-ncip-1.16.0-SNAPSHOT.109 -Dmodule.url=http://mod-ncip.folio-modules.svc:8080
+                    -Dmodule.id=mod-ncip-1.16.0-SNAPSHOT.109 -Dmodule.url=http://mod-ncip.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-ncip.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-ncip.folio-modules.svc:8080
+                  value: http://mod-ncip.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-ncip-1.16.0-SNAPSHOT.109
                 - name: SIDECAR_URL
@@ -5342,9 +5342,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-user-import -Dmodule.version=3.11.0-SNAPSHOT.108
                     -Dsidecar.name=mod-user-import-sidecar -Dmodule.id=mod-user-import-3.11.0-SNAPSHOT.108
-                    -Dmodule.url=http://mod-user-import.folio-modules.svc:8080 -Dsidecar.url=http://mod-user-import.folio-modules.svc
+                    -Dmodule.url=http://mod-user-import.folio-modules.svc:8081 -Dsidecar.url=http://mod-user-import.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-user-import.folio-modules.svc:8080
+                  value: http://mod-user-import.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-user-import-3.11.0-SNAPSHOT.108
                 - name: SIDECAR_URL
@@ -5596,9 +5596,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-ebsconet -Dmodule.version=2.5.0-SNAPSHOT.89
                     -Dsidecar.name=mod-ebsconet-sidecar -Dmodule.id=mod-ebsconet-2.5.0-SNAPSHOT.89
-                    -Dmodule.url=http://mod-ebsconet.folio-modules.svc:8080 -Dsidecar.url=http://mod-ebsconet.folio-modules.svc
+                    -Dmodule.url=http://mod-ebsconet.folio-modules.svc:8081 -Dsidecar.url=http://mod-ebsconet.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-ebsconet.folio-modules.svc:8080
+                  value: http://mod-ebsconet.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-ebsconet-2.5.0-SNAPSHOT.89
                 - name: SIDECAR_URL
@@ -5745,9 +5745,9 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-batch-print -Dmodule.version=1.3.1-SNAPSHOT.15
                     -Dsidecar.name=mod-batch-print-sidecar -Dmodule.id=mod-batch-print-1.3.1-SNAPSHOT.15
-                    -Dmodule.url=http://mod-batch-print.folio-modules.svc:8080 -Dsidecar.url=http://mod-batch-print.folio-modules.svc
+                    -Dmodule.url=http://mod-batch-print.folio-modules.svc:8081 -Dsidecar.url=http://mod-batch-print.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-batch-print.folio-modules.svc:8080
+                  value: http://mod-batch-print.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-batch-print-1.3.1-SNAPSHOT.15
                 - name: SIDECAR_URL
@@ -6011,10 +6011,10 @@ items:
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
                     -Dmodule.name=mod-record-specifications -Dmodule.version=2.1.0-SNAPSHOT.99
                     -Dsidecar.name=mod-record-specifications-sidecar -Dmodule.id=mod-record-specifications-2.1.0-SNAPSHOT.99
-                    -Dmodule.url=http://mod-record-specifications.folio-modules.svc:8080
+                    -Dmodule.url=http://mod-record-specifications.folio-modules.svc:8081
                     -Dsidecar.url=http://mod-record-specifications.folio-modules.svc
                 - name: MODULE_URL
-                  value: http://mod-record-specifications.folio-modules.svc:8080
+                  value: http://mod-record-specifications.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-record-specifications-2.1.0-SNAPSHOT.99
                 - name: SIDECAR_URL
