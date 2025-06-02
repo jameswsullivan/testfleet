@@ -136,7 +136,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-quick-marc
                 - name: MODULE_VERSION
-                  value: 7.1.0-SNAPSHOT.323
+                  value: 7.1.0-SNAPSHOT.322
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -150,7 +150,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-quick-marc:7.1.0-SNAPSHOT.323
+              image: folioci/mod-quick-marc:7.1.0-SNAPSHOT.322
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -190,13 +190,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-quick-marc -Dmodule.version=7.1.0-SNAPSHOT.323
-                    -Dsidecar.name=mod-quick-marc-sidecar -Dmodule.id=mod-quick-marc-7.1.0-SNAPSHOT.323
+                    -Dmodule.name=mod-quick-marc -Dmodule.version=7.1.0-SNAPSHOT.322
+                    -Dsidecar.name=mod-quick-marc-sidecar -Dmodule.id=mod-quick-marc-7.1.0-SNAPSHOT.322
                     -Dmodule.url=http://mod-quick-marc.folio-modules.svc:8080 -Dsidecar.url=http://mod-quick-marc.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-quick-marc.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-quick-marc-7.1.0-SNAPSHOT.323
+                  value: mod-quick-marc-7.1.0-SNAPSHOT.322
                 - name: SIDECAR_URL
                   value: http://mod-quick-marc.folio-modules.svc
               envFrom:
@@ -287,7 +287,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-inventory-storage
                 - name: MODULE_VERSION
-                  value: 29.1.0-SNAPSHOT.1146
+                  value: 29.1.0-SNAPSHOT.1134
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -301,7 +301,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-inventory-storage:29.1.0-SNAPSHOT.1146
+              image: folioci/mod-inventory-storage:29.1.0-SNAPSHOT.1134
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -341,14 +341,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-inventory-storage -Dmodule.version=29.1.0-SNAPSHOT.1146
-                    -Dsidecar.name=mod-inventory-storage-sidecar -Dmodule.id=mod-inventory-storage-29.1.0-SNAPSHOT.1146
+                    -Dmodule.name=mod-inventory-storage -Dmodule.version=29.1.0-SNAPSHOT.1134
+                    -Dsidecar.name=mod-inventory-storage-sidecar -Dmodule.id=mod-inventory-storage-29.1.0-SNAPSHOT.1134
                     -Dmodule.url=http://mod-inventory-storage.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-inventory-storage.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-inventory-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-inventory-storage-29.1.0-SNAPSHOT.1146
+                  value: mod-inventory-storage-29.1.0-SNAPSHOT.1134
                 - name: SIDECAR_URL
                   value: http://mod-inventory-storage.folio-modules.svc
               envFrom:
@@ -453,7 +453,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-circulation-storage:17.5.0-SNAPSHOT.440
+              image: folioci/mod-circulation-storage:17.5.0-SNAPSHOT.438
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -493,14 +493,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-circulation-storage -Dmodule.version=17.5.0-SNAPSHOT.440
-                    -Dsidecar.name=mod-circulation-storage-sidecar -Dmodule.id=mod-circulation-storage-17.5.0-SNAPSHOT.440
+                    -Dmodule.name=mod-circulation-storage -Dmodule.version=17.5.0-SNAPSHOT.438
+                    -Dsidecar.name=mod-circulation-storage-sidecar -Dmodule.id=mod-circulation-storage-17.5.0-SNAPSHOT.438
                     -Dmodule.url=http://mod-circulation-storage.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-circulation-storage.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-circulation-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-circulation-storage-17.5.0-SNAPSHOT.440
+                  value: mod-circulation-storage-17.5.0-SNAPSHOT.438
                 - name: SIDECAR_URL
                   value: http://mod-circulation-storage.folio-modules.svc
               envFrom:
@@ -594,7 +594,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-search
                 - name: MODULE_VERSION
-                  value: 5.1.0-SNAPSHOT.708
+                  value: 5.1.0-SNAPSHOT.699
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -617,7 +617,7 @@ items:
                 - secretRef:
                     name: mod-search
                     optional: true
-              image: folioci/mod-search:5.1.0-SNAPSHOT.708
+              image: folioci/mod-search:5.1.0-SNAPSHOT.699
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -657,13 +657,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-search -Dmodule.version=5.1.0-SNAPSHOT.708 -Dsidecar.name=mod-search-sidecar
-                    -Dmodule.id=mod-search-5.1.0-SNAPSHOT.708 -Dmodule.url=http://mod-search.folio-modules.svc:8080
+                    -Dmodule.name=mod-search -Dmodule.version=5.1.0-SNAPSHOT.699 -Dsidecar.name=mod-search-sidecar
+                    -Dmodule.id=mod-search-5.1.0-SNAPSHOT.699 -Dmodule.url=http://mod-search.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-search.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-search.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-search-5.1.0-SNAPSHOT.708
+                  value: mod-search-5.1.0-SNAPSHOT.699
                 - name: SIDECAR_URL
                   value: http://mod-search.folio-modules.svc
               envFrom:
@@ -756,7 +756,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-inventory
                 - name: MODULE_VERSION
-                  value: 21.2.0-SNAPSHOT.875
+                  value: 21.2.0-SNAPSHOT.872
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -770,7 +770,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-inventory:21.2.0-SNAPSHOT.875
+              image: folioci/mod-inventory:21.2.0-SNAPSHOT.872
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -790,13 +790,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-inventory -Dmodule.version=21.2.0-SNAPSHOT.875
-                    -Dsidecar.name=mod-inventory-sidecar -Dmodule.id=mod-inventory-21.2.0-SNAPSHOT.875
+                    -Dmodule.name=mod-inventory -Dmodule.version=21.2.0-SNAPSHOT.872
+                    -Dsidecar.name=mod-inventory-sidecar -Dmodule.id=mod-inventory-21.2.0-SNAPSHOT.872
                     -Dmodule.url=http://mod-inventory.folio-modules.svc:8080 -Dsidecar.url=http://mod-inventory.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-inventory.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-inventory-21.2.0-SNAPSHOT.875
+                  value: mod-inventory-21.2.0-SNAPSHOT.872
                 - name: SIDECAR_URL
                   value: http://mod-inventory.folio-modules.svc
               envFrom:
@@ -868,7 +868,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-circulation
                 - name: MODULE_VERSION
-                  value: 24.5.0-SNAPSHOT.1312
+                  value: 24.5.0-SNAPSHOT.1307
                 - name: SCHEDULED_ANONYMIZATION_NUMBER_OF_LOANS_TO_CHECK
                   value: '50000'
                 - name: ENABLE_FLOATING_COLLECTIONS
@@ -882,7 +882,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-circulation:24.5.0-SNAPSHOT.1312
+              image: folioci/mod-circulation:24.5.0-SNAPSHOT.1307
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -902,13 +902,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-circulation -Dmodule.version=24.5.0-SNAPSHOT.1312
-                    -Dsidecar.name=mod-circulation-sidecar -Dmodule.id=mod-circulation-24.5.0-SNAPSHOT.1312
+                    -Dmodule.name=mod-circulation -Dmodule.version=24.5.0-SNAPSHOT.1307
+                    -Dsidecar.name=mod-circulation-sidecar -Dmodule.id=mod-circulation-24.5.0-SNAPSHOT.1307
                     -Dmodule.url=http://mod-circulation.folio-modules.svc:8080 -Dsidecar.url=http://mod-circulation.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-circulation.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-circulation-24.5.0-SNAPSHOT.1312
+                  value: mod-circulation-24.5.0-SNAPSHOT.1307
                 - name: SIDECAR_URL
                   value: http://mod-circulation.folio-modules.svc
               envFrom:
@@ -980,7 +980,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-feesfines
                 - name: MODULE_VERSION
-                  value: 19.4.0-SNAPSHOT.247
+                  value: 19.4.0-SNAPSHOT.246
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -991,7 +991,7 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-feesfines:19.4.0-SNAPSHOT.247
+              image: folioci/mod-feesfines:19.4.0-SNAPSHOT.246
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -1031,13 +1031,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-feesfines -Dmodule.version=19.4.0-SNAPSHOT.247
-                    -Dsidecar.name=mod-feesfines-sidecar -Dmodule.id=mod-feesfines-19.4.0-SNAPSHOT.247
+                    -Dmodule.name=mod-feesfines -Dmodule.version=19.4.0-SNAPSHOT.246
+                    -Dsidecar.name=mod-feesfines-sidecar -Dmodule.id=mod-feesfines-19.4.0-SNAPSHOT.246
                     -Dmodule.url=http://mod-feesfines.folio-modules.svc:8080 -Dsidecar.url=http://mod-feesfines.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-feesfines.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-feesfines-19.4.0-SNAPSHOT.247
+                  value: mod-feesfines-19.4.0-SNAPSHOT.246
                 - name: SIDECAR_URL
                   value: http://mod-feesfines.folio-modules.svc
               envFrom:
@@ -1279,7 +1279,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-entities-links
                 - name: MODULE_VERSION
-                  value: 4.1.0-SNAPSHOT.337
+                  value: 4.1.0-SNAPSHOT.336
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1302,7 +1302,7 @@ items:
                 - secretRef:
                     name: mod-entities-links
                     optional: true
-              image: folioci/mod-entities-links:4.1.0-SNAPSHOT.337
+              image: folioci/mod-entities-links:4.1.0-SNAPSHOT.336
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -1342,14 +1342,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-entities-links -Dmodule.version=4.1.0-SNAPSHOT.337
-                    -Dsidecar.name=mod-entities-links-sidecar -Dmodule.id=mod-entities-links-4.1.0-SNAPSHOT.337
+                    -Dmodule.name=mod-entities-links -Dmodule.version=4.1.0-SNAPSHOT.336
+                    -Dsidecar.name=mod-entities-links-sidecar -Dmodule.id=mod-entities-links-4.1.0-SNAPSHOT.336
                     -Dmodule.url=http://mod-entities-links.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-entities-links.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-entities-links.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-entities-links-4.1.0-SNAPSHOT.337
+                  value: mod-entities-links-4.1.0-SNAPSHOT.336
                 - name: SIDECAR_URL
                   value: http://mod-entities-links.folio-modules.svc
               envFrom:
@@ -1441,7 +1441,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-source-record-manager
                 - name: MODULE_VERSION
-                  value: 3.11.0-SNAPSHOT.1027
+                  value: 3.11.0-SNAPSHOT.1023
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -1455,7 +1455,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-source-record-manager:3.11.0-SNAPSHOT.1027
+              image: folioci/mod-source-record-manager:3.11.0-SNAPSHOT.1023
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -1495,14 +1495,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-source-record-manager -Dmodule.version=3.11.0-SNAPSHOT.1027
-                    -Dsidecar.name=mod-source-record-manager-sidecar -Dmodule.id=mod-source-record-manager-3.11.0-SNAPSHOT.1027
+                    -Dmodule.name=mod-source-record-manager -Dmodule.version=3.11.0-SNAPSHOT.1023
+                    -Dsidecar.name=mod-source-record-manager-sidecar -Dmodule.id=mod-source-record-manager-3.11.0-SNAPSHOT.1023
                     -Dmodule.url=http://mod-source-record-manager.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-source-record-manager.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-source-record-manager.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-source-record-manager-3.11.0-SNAPSHOT.1027
+                  value: mod-source-record-manager-3.11.0-SNAPSHOT.1023
                 - name: SIDECAR_URL
                   value: http://mod-source-record-manager.folio-modules.svc
               envFrom:
@@ -2052,7 +2052,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-data-export-spring
                 - name: MODULE_VERSION
-                  value: 3.6.0-SNAPSHOT.305
+                  value: 3.6.0-SNAPSHOT.303
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2078,7 +2078,7 @@ items:
                 - secretRef:
                     name: mod-data-export-spring
                     optional: true
-              image: folioci/mod-data-export-spring:3.6.0-SNAPSHOT.305
+              image: folioci/mod-data-export-spring:3.6.0-SNAPSHOT.303
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -2118,14 +2118,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-data-export-spring -Dmodule.version=3.6.0-SNAPSHOT.305
-                    -Dsidecar.name=mod-data-export-spring-sidecar -Dmodule.id=mod-data-export-spring-3.6.0-SNAPSHOT.305
+                    -Dmodule.name=mod-data-export-spring -Dmodule.version=3.6.0-SNAPSHOT.303
+                    -Dsidecar.name=mod-data-export-spring-sidecar -Dmodule.id=mod-data-export-spring-3.6.0-SNAPSHOT.303
                     -Dmodule.url=http://mod-data-export-spring.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-data-export-spring.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-data-export-spring.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-data-export-spring-3.6.0-SNAPSHOT.305
+                  value: mod-data-export-spring-3.6.0-SNAPSHOT.303
                 - name: SIDECAR_URL
                   value: http://mod-data-export-spring.folio-modules.svc
               envFrom:
@@ -2218,7 +2218,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-data-export-worker
                 - name: MODULE_VERSION
-                  value: 3.5.0-SNAPSHOT.618
+                  value: 3.5.0-SNAPSHOT.614
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2238,7 +2238,7 @@ items:
                 - secretRef:
                     name: minio-connect
                     optional: true
-              image: folioci/mod-data-export-worker:3.5.0-SNAPSHOT.618
+              image: folioci/mod-data-export-worker:3.5.0-SNAPSHOT.614
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -2278,14 +2278,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-data-export-worker -Dmodule.version=3.5.0-SNAPSHOT.618
-                    -Dsidecar.name=mod-data-export-worker-sidecar -Dmodule.id=mod-data-export-worker-3.5.0-SNAPSHOT.618
+                    -Dmodule.name=mod-data-export-worker -Dmodule.version=3.5.0-SNAPSHOT.614
+                    -Dsidecar.name=mod-data-export-worker-sidecar -Dmodule.id=mod-data-export-worker-3.5.0-SNAPSHOT.614
                     -Dmodule.url=http://mod-data-export-worker.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-data-export-worker.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-data-export-worker.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-data-export-worker-3.5.0-SNAPSHOT.618
+                  value: mod-data-export-worker-3.5.0-SNAPSHOT.614
                 - name: SIDECAR_URL
                   value: http://mod-data-export-worker.folio-modules.svc
               envFrom:
@@ -2352,6 +2352,155 @@ items:
     kind: Deployment
     metadata:
       labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
+      name: mod-rtac
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-rtac
+            workload: folio_module
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-rtac
+                - name: MODULE_VERSION
+                  value: 3.9.0-SNAPSHOT.108
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-rtac:3.9.0-SNAPSHOT.108
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-rtac
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
+            - env:
+                - name: MOD_USERS_BL_URL
+                  value: http://mod-users-bl.folio-modules.svc
+                - name: JAVA_OPTIONS
+                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
+                    -Dmodule.name=mod-rtac -Dmodule.version=3.9.0-SNAPSHOT.108 -Dsidecar.name=mod-rtac-sidecar
+                    -Dmodule.id=mod-rtac-3.9.0-SNAPSHOT.108 -Dmodule.url=http://mod-rtac.folio-modules.svc:8080
+                    -Dsidecar.url=http://mod-rtac.folio-modules.svc
+                - name: MODULE_URL
+                  value: http://mod-rtac.folio-modules.svc:8080
+                - name: MODULE_ID
+                  value: mod-rtac-3.9.0-SNAPSHOT.108
+                - name: SIDECAR_URL
+                  value: http://mod-rtac.folio-modules.svc
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: vault-connect
+                    optional: true
+                - secretRef:
+                    name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
+                    optional: true
+              image: folioci/folio-module-sidecar:latest
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-rtac-sidecar
+              ports:
+                - containerPort: 19002
+                  name: sidecar
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
         workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-remote-storage
       name: mod-remote-storage
       namespace: folio-modules
@@ -2377,7 +2526,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-remote-storage
                 - name: MODULE_VERSION
-                  value: 3.5.0-SNAPSHOT.230
+                  value: 3.5.0-SNAPSHOT.227
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2394,7 +2543,7 @@ items:
                 - secretRef:
                     name: mod-remote-storage
                     optional: true
-              image: folioci/mod-remote-storage:3.5.0-SNAPSHOT.230
+              image: folioci/mod-remote-storage:3.5.0-SNAPSHOT.227
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -2434,14 +2583,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-remote-storage -Dmodule.version=3.5.0-SNAPSHOT.230
-                    -Dsidecar.name=mod-remote-storage-sidecar -Dmodule.id=mod-remote-storage-3.5.0-SNAPSHOT.230
+                    -Dmodule.name=mod-remote-storage -Dmodule.version=3.5.0-SNAPSHOT.227
+                    -Dsidecar.name=mod-remote-storage-sidecar -Dmodule.id=mod-remote-storage-3.5.0-SNAPSHOT.227
                     -Dmodule.url=http://mod-remote-storage.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-remote-storage.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-remote-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-remote-storage-3.5.0-SNAPSHOT.230
+                  value: mod-remote-storage-3.5.0-SNAPSHOT.227
                 - name: SIDECAR_URL
                   value: http://mod-remote-storage.folio-modules.svc
               envFrom:
@@ -2533,7 +2682,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-calendar
                 - name: MODULE_VERSION
-                  value: 3.4.0-SNAPSHOT.182
+                  value: 3.4.0-SNAPSHOT.181
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2544,7 +2693,7 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-calendar:3.4.0-SNAPSHOT.182
+              image: folioci/mod-calendar:3.4.0-SNAPSHOT.181
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -2584,13 +2733,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-calendar -Dmodule.version=3.4.0-SNAPSHOT.182
-                    -Dsidecar.name=mod-calendar-sidecar -Dmodule.id=mod-calendar-3.4.0-SNAPSHOT.182
+                    -Dmodule.name=mod-calendar -Dmodule.version=3.4.0-SNAPSHOT.181
+                    -Dsidecar.name=mod-calendar-sidecar -Dmodule.id=mod-calendar-3.4.0-SNAPSHOT.181
                     -Dmodule.url=http://mod-calendar.folio-modules.svc:8080 -Dsidecar.url=http://mod-calendar.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-calendar.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-calendar-3.4.0-SNAPSHOT.182
+                  value: mod-calendar-3.4.0-SNAPSHOT.181
                 - name: SIDECAR_URL
                   value: http://mod-calendar.folio-modules.svc
               envFrom:
@@ -2834,7 +2983,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-courses
                 - name: MODULE_VERSION
-                  value: 1.5.0-SNAPSHOT.169
+                  value: 1.4.12-SNAPSHOT.168
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2845,7 +2994,7 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-courses:1.5.0-SNAPSHOT.169
+              image: folioci/mod-courses:1.4.12-SNAPSHOT.168
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -2885,13 +3034,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-courses -Dmodule.version=1.5.0-SNAPSHOT.169
-                    -Dsidecar.name=mod-courses-sidecar -Dmodule.id=mod-courses-1.5.0-SNAPSHOT.169
+                    -Dmodule.name=mod-courses -Dmodule.version=1.4.12-SNAPSHOT.168
+                    -Dsidecar.name=mod-courses-sidecar -Dmodule.id=mod-courses-1.4.12-SNAPSHOT.168
                     -Dmodule.url=http://mod-courses.folio-modules.svc:8080 -Dsidecar.url=http://mod-courses.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-courses.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-courses-1.5.0-SNAPSHOT.169
+                  value: mod-courses-1.4.12-SNAPSHOT.168
                 - name: SIDECAR_URL
                   value: http://mod-courses.folio-modules.svc
               envFrom:
@@ -2983,7 +3132,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-source-record-storage
                 - name: MODULE_VERSION
-                  value: 5.11.0-SNAPSHOT.696
+                  value: 5.11.0-SNAPSHOT.682
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -2997,7 +3146,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-source-record-storage:5.11.0-SNAPSHOT.696
+              image: folioci/mod-source-record-storage:5.11.0-SNAPSHOT.682
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -3037,14 +3186,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-source-record-storage -Dmodule.version=5.11.0-SNAPSHOT.696
-                    -Dsidecar.name=mod-source-record-storage-sidecar -Dmodule.id=mod-source-record-storage-5.11.0-SNAPSHOT.696
+                    -Dmodule.name=mod-source-record-storage -Dmodule.version=5.11.0-SNAPSHOT.682
+                    -Dsidecar.name=mod-source-record-storage-sidecar -Dmodule.id=mod-source-record-storage-5.11.0-SNAPSHOT.682
                     -Dmodule.url=http://mod-source-record-storage.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-source-record-storage.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-source-record-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-source-record-storage-5.11.0-SNAPSHOT.696
+                  value: mod-source-record-storage-5.11.0-SNAPSHOT.682
                 - name: SIDECAR_URL
                   value: http://mod-source-record-storage.folio-modules.svc
               envFrom:
@@ -3139,7 +3288,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-data-import
                 - name: MODULE_VERSION
-                  value: 3.4.0-SNAPSHOT.333
+                  value: 3.4.0-SNAPSHOT.332
                 - name: data.import.storage.type
                   value: LOCAL_STORAGE
                 - name: data.import.storage.path
@@ -3159,7 +3308,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-data-import:3.4.0-SNAPSHOT.333
+              image: folioci/mod-data-import:3.4.0-SNAPSHOT.332
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -3199,13 +3348,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-data-import -Dmodule.version=3.4.0-SNAPSHOT.333
-                    -Dsidecar.name=mod-data-import-sidecar -Dmodule.id=mod-data-import-3.4.0-SNAPSHOT.333
+                    -Dmodule.name=mod-data-import -Dmodule.version=3.4.0-SNAPSHOT.332
+                    -Dsidecar.name=mod-data-import-sidecar -Dmodule.id=mod-data-import-3.4.0-SNAPSHOT.332
                     -Dmodule.url=http://mod-data-import.folio-modules.svc:8080 -Dsidecar.url=http://mod-data-import.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-data-import.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-data-import-3.4.0-SNAPSHOT.333
+                  value: mod-data-import-3.4.0-SNAPSHOT.332
                 - name: SIDECAR_URL
                   value: http://mod-data-import.folio-modules.svc
               envFrom:
@@ -3308,7 +3457,7 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-agreements:7.3.0-SNAPSHOT.769
+              image: folioci/mod-agreements:7.3.0-SNAPSHOT.765
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -3328,13 +3477,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-agreements -Dmodule.version=7.3.0-SNAPSHOT.769
-                    -Dsidecar.name=mod-agreements-sidecar -Dmodule.id=mod-agreements-7.3.0-SNAPSHOT.769
+                    -Dmodule.name=mod-agreements -Dmodule.version=7.3.0-SNAPSHOT.765
+                    -Dsidecar.name=mod-agreements-sidecar -Dmodule.id=mod-agreements-7.3.0-SNAPSHOT.765
                     -Dmodule.url=http://mod-agreements.folio-modules.svc:8080 -Dsidecar.url=http://mod-agreements.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-agreements.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-agreements-7.3.0-SNAPSHOT.769
+                  value: mod-agreements-7.3.0-SNAPSHOT.765
                 - name: SIDECAR_URL
                   value: http://mod-agreements.folio-modules.svc
               envFrom:
@@ -4273,7 +4422,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-pubsub
                 - name: MODULE_VERSION
-                  value: 2.17.0-SNAPSHOT.262
+                  value: 2.17.0-SNAPSHOT.260
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -4296,7 +4445,7 @@ items:
                 - secretRef:
                     name: mod-pubsub
                     optional: true
-              image: folioci/mod-pubsub:2.17.0-SNAPSHOT.262
+              image: folioci/mod-pubsub:2.17.0-SNAPSHOT.260
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -4336,13 +4485,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-pubsub -Dmodule.version=2.17.0-SNAPSHOT.262
-                    -Dsidecar.name=mod-pubsub-sidecar -Dmodule.id=mod-pubsub-2.17.0-SNAPSHOT.262
+                    -Dmodule.name=mod-pubsub -Dmodule.version=2.17.0-SNAPSHOT.260
+                    -Dsidecar.name=mod-pubsub-sidecar -Dmodule.id=mod-pubsub-2.17.0-SNAPSHOT.260
                     -Dmodule.url=http://mod-pubsub.folio-modules.svc:8080 -Dsidecar.url=http://mod-pubsub.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-pubsub.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-pubsub-2.17.0-SNAPSHOT.262
+                  value: mod-pubsub-2.17.0-SNAPSHOT.260
                 - name: SIDECAR_URL
                   value: http://mod-pubsub.folio-modules.svc
               envFrom:
@@ -4385,6 +4534,155 @@ items:
                 successThreshold: 1
                 timeoutSeconds: 5
               name: mod-pubsub-sidecar
+              ports:
+                - containerPort: 19002
+                  name: sidecar
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
+      name: mod-gobi
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-gobi
+            workload: folio_module
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-gobi
+                - name: MODULE_VERSION
+                  value: 3.1.0-SNAPSHOT.253
+              envFrom:
+                - configMapRef:
+                    name: db-connect
+                    optional: true
+                - secretRef:
+                    name: db-connect
+                    optional: true
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-gobi:3.1.0-SNAPSHOT.253
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-gobi
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
+            - env:
+                - name: MOD_USERS_BL_URL
+                  value: http://mod-users-bl.folio-modules.svc
+                - name: JAVA_OPTIONS
+                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
+                    -Dmodule.name=mod-gobi -Dmodule.version=3.1.0-SNAPSHOT.253 -Dsidecar.name=mod-gobi-sidecar
+                    -Dmodule.id=mod-gobi-3.1.0-SNAPSHOT.253 -Dmodule.url=http://mod-gobi.folio-modules.svc:8080
+                    -Dsidecar.url=http://mod-gobi.folio-modules.svc
+                - name: MODULE_URL
+                  value: http://mod-gobi.folio-modules.svc:8080
+                - name: MODULE_ID
+                  value: mod-gobi-3.1.0-SNAPSHOT.253
+                - name: SIDECAR_URL
+                  value: http://mod-gobi.folio-modules.svc
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: vault-connect
+                    optional: true
+                - secretRef:
+                    name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
+                    optional: true
+              image: folioci/folio-module-sidecar:latest
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-gobi-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
@@ -4583,7 +4881,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-kb-ebsco-java
                 - name: MODULE_VERSION
-                  value: 6.1.0-SNAPSHOT.468
+                  value: 6.1.0-SNAPSHOT.465
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -4594,7 +4892,7 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-kb-ebsco-java:6.1.0-SNAPSHOT.468
+              image: folioci/mod-kb-ebsco-java:6.1.0-SNAPSHOT.465
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -4634,13 +4932,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-kb-ebsco-java -Dmodule.version=6.1.0-SNAPSHOT.468
-                    -Dsidecar.name=mod-kb-ebsco-java-sidecar -Dmodule.id=mod-kb-ebsco-java-6.1.0-SNAPSHOT.468
+                    -Dmodule.name=mod-kb-ebsco-java -Dmodule.version=6.1.0-SNAPSHOT.465
+                    -Dsidecar.name=mod-kb-ebsco-java-sidecar -Dmodule.id=mod-kb-ebsco-java-6.1.0-SNAPSHOT.465
                     -Dmodule.url=http://mod-kb-ebsco-java.folio-modules.svc:8080 -Dsidecar.url=http://mod-kb-ebsco-java.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-kb-ebsco-java.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-kb-ebsco-java-6.1.0-SNAPSHOT.468
+                  value: mod-kb-ebsco-java-6.1.0-SNAPSHOT.465
                 - name: SIDECAR_URL
                   value: http://mod-kb-ebsco-java.folio-modules.svc
               envFrom:
@@ -4732,7 +5030,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-ncip
                 - name: MODULE_VERSION
-                  value: 1.16.0-SNAPSHOT.110
+                  value: 1.16.0-SNAPSHOT.109
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -4743,7 +5041,7 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-ncip:1.16.0-SNAPSHOT.110
+              image: folioci/mod-ncip:1.16.0-SNAPSHOT.109
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -4783,13 +5081,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-ncip -Dmodule.version=1.16.0-SNAPSHOT.110 -Dsidecar.name=mod-ncip-sidecar
-                    -Dmodule.id=mod-ncip-1.16.0-SNAPSHOT.110 -Dmodule.url=http://mod-ncip.folio-modules.svc:8080
+                    -Dmodule.name=mod-ncip -Dmodule.version=1.16.0-SNAPSHOT.109 -Dsidecar.name=mod-ncip-sidecar
+                    -Dmodule.id=mod-ncip-1.16.0-SNAPSHOT.109 -Dmodule.url=http://mod-ncip.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-ncip.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-ncip.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-ncip-1.16.0-SNAPSHOT.110
+                  value: mod-ncip-1.16.0-SNAPSHOT.109
                 - name: SIDECAR_URL
                   value: http://mod-ncip.folio-modules.svc
               envFrom:
@@ -4991,7 +5289,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-user-import
                 - name: MODULE_VERSION
-                  value: 3.11.0-SNAPSHOT.110
+                  value: 3.11.0-SNAPSHOT.108
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -5002,7 +5300,7 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-user-import:3.11.0-SNAPSHOT.110
+              image: folioci/mod-user-import:3.11.0-SNAPSHOT.108
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -5042,13 +5340,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-user-import -Dmodule.version=3.11.0-SNAPSHOT.110
-                    -Dsidecar.name=mod-user-import-sidecar -Dmodule.id=mod-user-import-3.11.0-SNAPSHOT.110
+                    -Dmodule.name=mod-user-import -Dmodule.version=3.11.0-SNAPSHOT.108
+                    -Dsidecar.name=mod-user-import-sidecar -Dmodule.id=mod-user-import-3.11.0-SNAPSHOT.108
                     -Dmodule.url=http://mod-user-import.folio-modules.svc:8080 -Dsidecar.url=http://mod-user-import.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-user-import.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-user-import-3.11.0-SNAPSHOT.110
+                  value: mod-user-import-3.11.0-SNAPSHOT.108
                 - name: SIDECAR_URL
                   value: http://mod-user-import.folio-modules.svc
               envFrom:
@@ -5141,7 +5439,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-service-interaction
                 - name: MODULE_VERSION
-                  value: 4.3.0-SNAPSHOT.143
+                  value: 4.3.0-SNAPSHOT.142
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -5152,7 +5450,7 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-service-interaction:4.3.0-SNAPSHOT.143
+              image: folioci/mod-service-interaction:4.3.0-SNAPSHOT.142
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -5172,14 +5470,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-service-interaction -Dmodule.version=4.3.0-SNAPSHOT.143
-                    -Dsidecar.name=mod-service-interaction-sidecar -Dmodule.id=mod-service-interaction-4.3.0-SNAPSHOT.143
+                    -Dmodule.name=mod-service-interaction -Dmodule.version=4.3.0-SNAPSHOT.142
+                    -Dsidecar.name=mod-service-interaction-sidecar -Dmodule.id=mod-service-interaction-4.3.0-SNAPSHOT.142
                     -Dmodule.url=http://mod-service-interaction.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-service-interaction.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-service-interaction.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-service-interaction-4.3.0-SNAPSHOT.143
+                  value: mod-service-interaction-4.3.0-SNAPSHOT.142
                 - name: SIDECAR_URL
                   value: http://mod-service-interaction.folio-modules.svc
               envFrom:
@@ -5226,6 +5524,149 @@ items:
     kind: Deployment
     metadata:
       labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
+      name: mod-ebsconet
+      namespace: folio-modules
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: mod-ebsconet
+            workload: folio_module
+            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
+          namespace: folio-modules
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-ebsconet
+                - name: MODULE_VERSION
+                  value: 2.5.0-SNAPSHOT.89
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+              image: folioci/mod-ebsconet:2.5.0-SNAPSHOT.89
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-ebsconet
+              ports:
+                - containerPort: 8081
+                  name: 8081-tcp-0
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
+            - env:
+                - name: MOD_USERS_BL_URL
+                  value: http://mod-users-bl.folio-modules.svc
+                - name: JAVA_OPTIONS
+                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
+                    -Dmodule.name=mod-ebsconet -Dmodule.version=2.5.0-SNAPSHOT.89
+                    -Dsidecar.name=mod-ebsconet-sidecar -Dmodule.id=mod-ebsconet-2.5.0-SNAPSHOT.89
+                    -Dmodule.url=http://mod-ebsconet.folio-modules.svc:8080 -Dsidecar.url=http://mod-ebsconet.folio-modules.svc
+                - name: MODULE_URL
+                  value: http://mod-ebsconet.folio-modules.svc:8080
+                - name: MODULE_ID
+                  value: mod-ebsconet-2.5.0-SNAPSHOT.89
+                - name: SIDECAR_URL
+                  value: http://mod-ebsconet.folio-modules.svc
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
+                    name: keycloak-connect
+                    optional: true
+                - configMapRef:
+                    name: kong-connect
+                    optional: true
+                - configMapRef:
+                    name: mgr-connect
+                    optional: true
+                - configMapRef:
+                    name: vault-connect
+                    optional: true
+                - secretRef:
+                    name: vault-connect
+                    optional: true
+                - configMapRef:
+                    name: sidecar-global
+                    optional: true
+              image: folioci/folio-module-sidecar:latest
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              name: mod-ebsconet-sidecar
+              ports:
+                - containerPort: 19002
+                  name: sidecar
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
         workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-batch-print
       name: mod-batch-print
       namespace: folio-modules
@@ -5251,7 +5692,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-batch-print
                 - name: MODULE_VERSION
-                  value: 1.3.1-SNAPSHOT.16
+                  value: 1.3.1-SNAPSHOT.15
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -5262,7 +5703,7 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-batch-print:1.3.1-SNAPSHOT.16
+              image: folioci/mod-batch-print:1.3.1-SNAPSHOT.15
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -5302,13 +5743,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-batch-print -Dmodule.version=1.3.1-SNAPSHOT.16
-                    -Dsidecar.name=mod-batch-print-sidecar -Dmodule.id=mod-batch-print-1.3.1-SNAPSHOT.16
+                    -Dmodule.name=mod-batch-print -Dmodule.version=1.3.1-SNAPSHOT.15
+                    -Dsidecar.name=mod-batch-print-sidecar -Dmodule.id=mod-batch-print-1.3.1-SNAPSHOT.15
                     -Dmodule.url=http://mod-batch-print.folio-modules.svc:8080 -Dsidecar.url=http://mod-batch-print.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-batch-print.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-batch-print-1.3.1-SNAPSHOT.16
+                  value: mod-batch-print-1.3.1-SNAPSHOT.15
                 - name: SIDECAR_URL
                   value: http://mod-batch-print.folio-modules.svc
               envFrom:

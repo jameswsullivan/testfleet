@@ -333,7 +333,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-orders
                 - name: MODULE_VERSION
-                  value: 13.1.0-SNAPSHOT.1031
+                  value: 13.1.0-SNAPSHOT.1025
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -347,7 +347,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-orders:13.1.0-SNAPSHOT.1031
+              image: folioci/mod-orders:13.1.0-SNAPSHOT.1025
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -387,13 +387,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-orders -Dmodule.version=13.1.0-SNAPSHOT.1031
-                    -Dsidecar.name=mod-orders-sidecar -Dmodule.id=mod-orders-13.1.0-SNAPSHOT.1031
+                    -Dmodule.name=mod-orders -Dmodule.version=13.1.0-SNAPSHOT.1025
+                    -Dsidecar.name=mod-orders-sidecar -Dmodule.id=mod-orders-13.1.0-SNAPSHOT.1025
                     -Dmodule.url=http://mod-orders.folio-modules.svc:8080 -Dsidecar.url=http://mod-orders.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-orders.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-orders-13.1.0-SNAPSHOT.1031
+                  value: mod-orders-13.1.0-SNAPSHOT.1025
                 - name: SIDECAR_URL
                   value: http://mod-orders.folio-modules.svc
               envFrom:
@@ -484,7 +484,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-orders-storage
                 - name: MODULE_VERSION
-                  value: 14.0.0-SNAPSHOT.431
+                  value: 14.0.0-SNAPSHOT.428
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -498,7 +498,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-orders-storage:14.0.0-SNAPSHOT.431
+              image: folioci/mod-orders-storage:14.0.0-SNAPSHOT.428
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -538,14 +538,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-orders-storage -Dmodule.version=14.0.0-SNAPSHOT.431
-                    -Dsidecar.name=mod-orders-storage-sidecar -Dmodule.id=mod-orders-storage-14.0.0-SNAPSHOT.431
+                    -Dmodule.name=mod-orders-storage -Dmodule.version=14.0.0-SNAPSHOT.428
+                    -Dsidecar.name=mod-orders-storage-sidecar -Dmodule.id=mod-orders-storage-14.0.0-SNAPSHOT.428
                     -Dmodule.url=http://mod-orders-storage.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-orders-storage.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-orders-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-orders-storage-14.0.0-SNAPSHOT.431
+                  value: mod-orders-storage-14.0.0-SNAPSHOT.428
                 - name: SIDECAR_URL
                   value: http://mod-orders-storage.folio-modules.svc
               envFrom:
@@ -639,7 +639,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-invoice
                 - name: MODULE_VERSION
-                  value: 6.1.0-SNAPSHOT.473
+                  value: 6.1.0-SNAPSHOT.472
               envFrom:
                 - configMapRef:
                     name: folio-modules-global
@@ -647,7 +647,7 @@ items:
                 - configMapRef:
                     name: kafka-connect
                     optional: true
-              image: folioci/mod-invoice:6.1.0-SNAPSHOT.473
+              image: folioci/mod-invoice:6.1.0-SNAPSHOT.472
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -687,13 +687,13 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-invoice -Dmodule.version=6.1.0-SNAPSHOT.473
-                    -Dsidecar.name=mod-invoice-sidecar -Dmodule.id=mod-invoice-6.1.0-SNAPSHOT.473
+                    -Dmodule.name=mod-invoice -Dmodule.version=6.1.0-SNAPSHOT.472
+                    -Dsidecar.name=mod-invoice-sidecar -Dmodule.id=mod-invoice-6.1.0-SNAPSHOT.472
                     -Dmodule.url=http://mod-invoice.folio-modules.svc:8080 -Dsidecar.url=http://mod-invoice.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-invoice.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-invoice-6.1.0-SNAPSHOT.473
+                  value: mod-invoice-6.1.0-SNAPSHOT.472
                 - name: SIDECAR_URL
                   value: http://mod-invoice.folio-modules.svc
               envFrom:
@@ -784,7 +784,7 @@ items:
                 - name: MODULE_NAME
                   value: mod-invoice-storage
                 - name: MODULE_VERSION
-                  value: 6.1.0-SNAPSHOT.173
+                  value: 6.1.0-SNAPSHOT.172
               envFrom:
                 - configMapRef:
                     name: db-connect
@@ -795,7 +795,7 @@ items:
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-              image: folioci/mod-invoice-storage:6.1.0-SNAPSHOT.173
+              image: folioci/mod-invoice-storage:6.1.0-SNAPSHOT.172
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
@@ -835,14 +835,14 @@ items:
                   value: http://mod-users-bl.folio-modules.svc
                 - name: JAVA_OPTIONS
                   value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-invoice-storage -Dmodule.version=6.1.0-SNAPSHOT.173
-                    -Dsidecar.name=mod-invoice-storage-sidecar -Dmodule.id=mod-invoice-storage-6.1.0-SNAPSHOT.173
+                    -Dmodule.name=mod-invoice-storage -Dmodule.version=6.1.0-SNAPSHOT.172
+                    -Dsidecar.name=mod-invoice-storage-sidecar -Dmodule.id=mod-invoice-storage-6.1.0-SNAPSHOT.172
                     -Dmodule.url=http://mod-invoice-storage.folio-modules.svc:8080
                     -Dsidecar.url=http://mod-invoice-storage.folio-modules.svc
                 - name: MODULE_URL
                   value: http://mod-invoice-storage.folio-modules.svc:8080
                 - name: MODULE_ID
-                  value: mod-invoice-storage-6.1.0-SNAPSHOT.173
+                  value: mod-invoice-storage-6.1.0-SNAPSHOT.172
                 - name: SIDECAR_URL
                   value: http://mod-invoice-storage.folio-modules.svc
               envFrom:
