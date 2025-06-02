@@ -43,6 +43,9 @@ items:
                     name: folio-modules-global
                     optional: true
                 - configMapRef:
+                    name: kafka-connect
+                    optional: true
+                - configMapRef:
                     name: kong-connect
                     optional: true
               image: folioci/mod-oa:3.3.0-SNAPSHOT.190
