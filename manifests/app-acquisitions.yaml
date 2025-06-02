@@ -126,7 +126,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -141,7 +141,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -275,7 +275,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -290,7 +290,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -429,7 +429,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -444,7 +444,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -581,7 +581,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -596,7 +596,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -729,7 +729,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -744,7 +744,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -878,7 +878,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -893,7 +893,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1029,7 +1029,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1044,7 +1044,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1178,7 +1178,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1193,7 +1193,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60

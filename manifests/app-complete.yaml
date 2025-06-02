@@ -96,11 +96,31 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               name: mod-graphql-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -232,7 +252,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -247,7 +267,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -384,7 +404,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -399,7 +419,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -536,7 +556,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -551,7 +571,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -699,7 +719,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -714,7 +734,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -828,11 +848,31 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               name: mod-inventory-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -940,11 +980,31 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               name: mod-circulation-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1073,7 +1133,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1088,7 +1148,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1221,7 +1281,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1236,7 +1296,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1385,7 +1445,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1400,7 +1460,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1538,7 +1598,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1553,7 +1613,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1688,7 +1748,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1703,7 +1763,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1839,7 +1899,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1854,7 +1914,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -1996,7 +2056,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2011,7 +2071,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2161,7 +2221,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2176,7 +2236,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2321,7 +2381,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2336,7 +2396,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2470,7 +2530,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2485,7 +2545,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2626,7 +2686,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2641,7 +2701,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2775,7 +2835,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2790,7 +2850,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2927,7 +2987,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -2942,7 +3002,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -3076,7 +3136,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -3091,7 +3151,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -3229,7 +3289,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -3244,7 +3304,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -3390,7 +3450,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -3405,7 +3465,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -3515,11 +3575,31 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               name: mod-agreements-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -3634,11 +3714,31 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               name: mod-licenses-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -3769,7 +3869,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -3784,7 +3884,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -3918,7 +4018,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -3933,7 +4033,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4067,7 +4167,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4082,7 +4182,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4216,7 +4316,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4231,7 +4331,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4366,7 +4466,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4381,7 +4481,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4527,7 +4627,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4542,7 +4642,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4676,7 +4776,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4691,7 +4791,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4825,7 +4925,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4840,7 +4940,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4974,7 +5074,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -4989,7 +5089,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -5123,7 +5223,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -5138,7 +5238,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -5249,11 +5349,31 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               name: mod-inventory-update-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -5382,7 +5502,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -5397,7 +5517,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -5509,11 +5629,31 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               name: mod-service-interaction-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -5636,7 +5776,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -5651,7 +5791,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -5785,7 +5925,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -5800,7 +5940,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -5915,11 +6055,31 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
+              livenessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               name: mod-serials-management-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 3
+                httpGet:
+                  path: /admin/health
+                  port: 19002
+                  scheme: HTTP
+                initialDelaySeconds: 45
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -6052,7 +6212,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
@@ -6067,7 +6227,7 @@ items:
                 failureThreshold: 3
                 httpGet:
                   path: /admin/health
-                  port: 8081
+                  port: 19002
                   scheme: HTTP
                 initialDelaySeconds: 45
                 periodSeconds: 60
