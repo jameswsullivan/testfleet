@@ -48,31 +48,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-organizations
               ports:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -200,31 +180,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-organizations-storage
               ports:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -354,31 +314,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-orders
               ports:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -509,31 +449,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-orders-storage
               ports:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -657,31 +577,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-invoice
               ports:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -809,31 +709,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-invoice-storage
               ports:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -960,31 +840,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-finance
               ports:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1112,31 +972,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-finance-storage
               ports:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 5
-                httpGet:
-                  path: /admin/health
-                  port: 8081
-                  scheme: HTTP
-                initialDelaySeconds: 150
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
