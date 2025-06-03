@@ -49,12 +49,12 @@ items:
               imagePullSecrets:
                 - name: docker
               livenessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
                   scheme: HTTP
-                initialDelaySeconds: 45
+                initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
                 timeoutSeconds: 5
@@ -64,7 +64,7 @@ items:
                   name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
@@ -72,7 +72,7 @@ items:
                 initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
-                timeoutSeconds: '[READINESS_PROBE_TIMEOUT]'
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -201,12 +201,12 @@ items:
               imagePullSecrets:
                 - name: docker
               livenessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
                   scheme: HTTP
-                initialDelaySeconds: 45
+                initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
                 timeoutSeconds: 5
@@ -216,7 +216,7 @@ items:
                   name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
@@ -224,7 +224,7 @@ items:
                 initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
-                timeoutSeconds: '[READINESS_PROBE_TIMEOUT]'
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -355,12 +355,12 @@ items:
               imagePullSecrets:
                 - name: docker
               livenessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
                   scheme: HTTP
-                initialDelaySeconds: 45
+                initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
                 timeoutSeconds: 5
@@ -370,7 +370,7 @@ items:
                   name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
@@ -378,7 +378,7 @@ items:
                 initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
-                timeoutSeconds: '[READINESS_PROBE_TIMEOUT]'
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -510,12 +510,12 @@ items:
               imagePullSecrets:
                 - name: docker
               livenessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
                   scheme: HTTP
-                initialDelaySeconds: 45
+                initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
                 timeoutSeconds: 5
@@ -525,7 +525,7 @@ items:
                   name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
@@ -533,7 +533,7 @@ items:
                 initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
-                timeoutSeconds: '[READINESS_PROBE_TIMEOUT]'
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -658,12 +658,12 @@ items:
               imagePullSecrets:
                 - name: docker
               livenessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
                   scheme: HTTP
-                initialDelaySeconds: 45
+                initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
                 timeoutSeconds: 5
@@ -673,7 +673,7 @@ items:
                   name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
@@ -681,7 +681,7 @@ items:
                 initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
-                timeoutSeconds: '[READINESS_PROBE_TIMEOUT]'
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -810,12 +810,12 @@ items:
               imagePullSecrets:
                 - name: docker
               livenessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
                   scheme: HTTP
-                initialDelaySeconds: 45
+                initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
                 timeoutSeconds: 5
@@ -825,7 +825,7 @@ items:
                   name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
@@ -833,7 +833,7 @@ items:
                 initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
-                timeoutSeconds: '[READINESS_PROBE_TIMEOUT]'
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -961,12 +961,12 @@ items:
               imagePullSecrets:
                 - name: docker
               livenessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
                   scheme: HTTP
-                initialDelaySeconds: 45
+                initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
                 timeoutSeconds: 5
@@ -976,7 +976,7 @@ items:
                   name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
@@ -984,7 +984,7 @@ items:
                 initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
-                timeoutSeconds: '[READINESS_PROBE_TIMEOUT]'
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1113,12 +1113,12 @@ items:
               imagePullSecrets:
                 - name: docker
               livenessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
                   scheme: HTTP
-                initialDelaySeconds: 45
+                initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
                 timeoutSeconds: 5
@@ -1128,7 +1128,7 @@ items:
                   name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
-                failureThreshold: 4
+                failureThreshold: 5
                 httpGet:
                   path: /admin/health
                   port: 8081
@@ -1136,7 +1136,7 @@ items:
                 initialDelaySeconds: 300
                 periodSeconds: 60
                 successThreshold: 1
-                timeoutSeconds: '[READINESS_PROBE_TIMEOUT]'
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
