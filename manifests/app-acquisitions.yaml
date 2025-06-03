@@ -82,15 +82,18 @@ items:
             - env:
                 - name: MOD_USERS_BL_URL
                   value: http://mod-users-bl.folio-modules.svc
-                - name: JAVA_OPTIONS
-                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-organizations -Dmodule.version=2.2.0-SNAPSHOT.69
-                    -Dsidecar.name=mod-organizations-sidecar -Dmodule.id=mod-organizations-2.2.0-SNAPSHOT.69
-                    -Dmodule.url=http://mod-organizations.folio-modules.svc:8081 -Dsidecar.url=http://mod-organizations.folio-modules.svc
-                - name: MODULE_URL
-                  value: http://mod-organizations.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-organizations-2.2.0-SNAPSHOT.69
+                - name: MODULE_NAME
+                  value: mod-organizations
+                - name: MODULE_URL
+                  value: http://mod-organizations.folio-modules.svc:8081
+                - name: MODULE_VERSION
+                  value: 2.2.0-SNAPSHOT.69
+                - name: JAVA_OPTIONS
+                  value: -Dlog4j2.formatMsgNoLookups=true
+                - name: SIDECAR_NAME
+                  value: mod-organizations-sidecar
                 - name: SIDECAR_URL
                   value: http://mod-organizations.folio-modules.svc
               envFrom:
@@ -122,31 +125,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-organizations-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -230,16 +213,18 @@ items:
             - env:
                 - name: MOD_USERS_BL_URL
                   value: http://mod-users-bl.folio-modules.svc
-                - name: JAVA_OPTIONS
-                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-organizations-storage -Dmodule.version=5.0.0-SNAPSHOT.119
-                    -Dsidecar.name=mod-organizations-storage-sidecar -Dmodule.id=mod-organizations-storage-5.0.0-SNAPSHOT.119
-                    -Dmodule.url=http://mod-organizations-storage.folio-modules.svc:8081
-                    -Dsidecar.url=http://mod-organizations-storage.folio-modules.svc
-                - name: MODULE_URL
-                  value: http://mod-organizations-storage.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-organizations-storage-5.0.0-SNAPSHOT.119
+                - name: MODULE_NAME
+                  value: mod-organizations-storage
+                - name: MODULE_URL
+                  value: http://mod-organizations-storage.folio-modules.svc:8081
+                - name: MODULE_VERSION
+                  value: 5.0.0-SNAPSHOT.119
+                - name: JAVA_OPTIONS
+                  value: -Dlog4j2.formatMsgNoLookups=true
+                - name: SIDECAR_NAME
+                  value: mod-organizations-storage-sidecar
                 - name: SIDECAR_URL
                   value: http://mod-organizations-storage.folio-modules.svc
               envFrom:
@@ -271,31 +256,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-organizations-storage-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -385,15 +350,18 @@ items:
             - env:
                 - name: MOD_USERS_BL_URL
                   value: http://mod-users-bl.folio-modules.svc
-                - name: JAVA_OPTIONS
-                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-orders -Dmodule.version=13.1.0-SNAPSHOT.1025
-                    -Dsidecar.name=mod-orders-sidecar -Dmodule.id=mod-orders-13.1.0-SNAPSHOT.1025
-                    -Dmodule.url=http://mod-orders.folio-modules.svc:8081 -Dsidecar.url=http://mod-orders.folio-modules.svc
-                - name: MODULE_URL
-                  value: http://mod-orders.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-orders-13.1.0-SNAPSHOT.1025
+                - name: MODULE_NAME
+                  value: mod-orders
+                - name: MODULE_URL
+                  value: http://mod-orders.folio-modules.svc:8081
+                - name: MODULE_VERSION
+                  value: 13.1.0-SNAPSHOT.1025
+                - name: JAVA_OPTIONS
+                  value: -Dlog4j2.formatMsgNoLookups=true
+                - name: SIDECAR_NAME
+                  value: mod-orders-sidecar
                 - name: SIDECAR_URL
                   value: http://mod-orders.folio-modules.svc
               envFrom:
@@ -425,31 +393,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-orders-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -536,16 +484,18 @@ items:
             - env:
                 - name: MOD_USERS_BL_URL
                   value: http://mod-users-bl.folio-modules.svc
-                - name: JAVA_OPTIONS
-                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-orders-storage -Dmodule.version=14.0.0-SNAPSHOT.428
-                    -Dsidecar.name=mod-orders-storage-sidecar -Dmodule.id=mod-orders-storage-14.0.0-SNAPSHOT.428
-                    -Dmodule.url=http://mod-orders-storage.folio-modules.svc:8081
-                    -Dsidecar.url=http://mod-orders-storage.folio-modules.svc
-                - name: MODULE_URL
-                  value: http://mod-orders-storage.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-orders-storage-14.0.0-SNAPSHOT.428
+                - name: MODULE_NAME
+                  value: mod-orders-storage
+                - name: MODULE_URL
+                  value: http://mod-orders-storage.folio-modules.svc:8081
+                - name: MODULE_VERSION
+                  value: 14.0.0-SNAPSHOT.428
+                - name: JAVA_OPTIONS
+                  value: -Dlog4j2.formatMsgNoLookups=true
+                - name: SIDECAR_NAME
+                  value: mod-orders-storage-sidecar
                 - name: SIDECAR_URL
                   value: http://mod-orders-storage.folio-modules.svc
               envFrom:
@@ -577,31 +527,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-orders-storage-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -685,15 +615,18 @@ items:
             - env:
                 - name: MOD_USERS_BL_URL
                   value: http://mod-users-bl.folio-modules.svc
-                - name: JAVA_OPTIONS
-                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-invoice -Dmodule.version=6.1.0-SNAPSHOT.472
-                    -Dsidecar.name=mod-invoice-sidecar -Dmodule.id=mod-invoice-6.1.0-SNAPSHOT.472
-                    -Dmodule.url=http://mod-invoice.folio-modules.svc:8081 -Dsidecar.url=http://mod-invoice.folio-modules.svc
-                - name: MODULE_URL
-                  value: http://mod-invoice.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-invoice-6.1.0-SNAPSHOT.472
+                - name: MODULE_NAME
+                  value: mod-invoice
+                - name: MODULE_URL
+                  value: http://mod-invoice.folio-modules.svc:8081
+                - name: MODULE_VERSION
+                  value: 6.1.0-SNAPSHOT.472
+                - name: JAVA_OPTIONS
+                  value: -Dlog4j2.formatMsgNoLookups=true
+                - name: SIDECAR_NAME
+                  value: mod-invoice-sidecar
                 - name: SIDECAR_URL
                   value: http://mod-invoice.folio-modules.svc
               envFrom:
@@ -725,31 +658,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-invoice-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -833,16 +746,18 @@ items:
             - env:
                 - name: MOD_USERS_BL_URL
                   value: http://mod-users-bl.folio-modules.svc
-                - name: JAVA_OPTIONS
-                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-invoice-storage -Dmodule.version=6.1.0-SNAPSHOT.172
-                    -Dsidecar.name=mod-invoice-storage-sidecar -Dmodule.id=mod-invoice-storage-6.1.0-SNAPSHOT.172
-                    -Dmodule.url=http://mod-invoice-storage.folio-modules.svc:8081
-                    -Dsidecar.url=http://mod-invoice-storage.folio-modules.svc
-                - name: MODULE_URL
-                  value: http://mod-invoice-storage.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-invoice-storage-6.1.0-SNAPSHOT.172
+                - name: MODULE_NAME
+                  value: mod-invoice-storage
+                - name: MODULE_URL
+                  value: http://mod-invoice-storage.folio-modules.svc:8081
+                - name: MODULE_VERSION
+                  value: 6.1.0-SNAPSHOT.172
+                - name: JAVA_OPTIONS
+                  value: -Dlog4j2.formatMsgNoLookups=true
+                - name: SIDECAR_NAME
+                  value: mod-invoice-storage-sidecar
                 - name: SIDECAR_URL
                   value: http://mod-invoice-storage.folio-modules.svc
               envFrom:
@@ -874,31 +789,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-invoice-storage-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -985,15 +880,18 @@ items:
             - env:
                 - name: MOD_USERS_BL_URL
                   value: http://mod-users-bl.folio-modules.svc
-                - name: JAVA_OPTIONS
-                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-finance -Dmodule.version=5.2.0-SNAPSHOT.289
-                    -Dsidecar.name=mod-finance-sidecar -Dmodule.id=mod-finance-5.2.0-SNAPSHOT.289
-                    -Dmodule.url=http://mod-finance.folio-modules.svc:8081 -Dsidecar.url=http://mod-finance.folio-modules.svc
-                - name: MODULE_URL
-                  value: http://mod-finance.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-finance-5.2.0-SNAPSHOT.289
+                - name: MODULE_NAME
+                  value: mod-finance
+                - name: MODULE_URL
+                  value: http://mod-finance.folio-modules.svc:8081
+                - name: MODULE_VERSION
+                  value: 5.2.0-SNAPSHOT.289
+                - name: JAVA_OPTIONS
+                  value: -Dlog4j2.formatMsgNoLookups=true
+                - name: SIDECAR_NAME
+                  value: mod-finance-sidecar
                 - name: SIDECAR_URL
                   value: http://mod-finance.folio-modules.svc
               envFrom:
@@ -1025,31 +923,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-finance-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1133,16 +1011,18 @@ items:
             - env:
                 - name: MOD_USERS_BL_URL
                   value: http://mod-users-bl.folio-modules.svc
-                - name: JAVA_OPTIONS
-                  value: -Dquarkus.http.port=19002 -Dlog4j2.formatMsgNoLookups=true
-                    -Dmodule.name=mod-finance-storage -Dmodule.version=8.9.0-SNAPSHOT.406
-                    -Dsidecar.name=mod-finance-storage-sidecar -Dmodule.id=mod-finance-storage-8.9.0-SNAPSHOT.406
-                    -Dmodule.url=http://mod-finance-storage.folio-modules.svc:8081
-                    -Dsidecar.url=http://mod-finance-storage.folio-modules.svc
-                - name: MODULE_URL
-                  value: http://mod-finance-storage.folio-modules.svc:8081
                 - name: MODULE_ID
                   value: mod-finance-storage-8.9.0-SNAPSHOT.406
+                - name: MODULE_NAME
+                  value: mod-finance-storage
+                - name: MODULE_URL
+                  value: http://mod-finance-storage.folio-modules.svc:8081
+                - name: MODULE_VERSION
+                  value: 8.9.0-SNAPSHOT.406
+                - name: JAVA_OPTIONS
+                  value: -Dlog4j2.formatMsgNoLookups=true
+                - name: SIDECAR_NAME
+                  value: mod-finance-storage-sidecar
                 - name: SIDECAR_URL
                   value: http://mod-finance-storage.folio-modules.svc
               envFrom:
@@ -1174,31 +1054,11 @@ items:
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              livenessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               name: mod-finance-storage-sidecar
               ports:
                 - containerPort: 19002
                   name: sidecar
                   protocol: TCP
-              readinessProbe:
-                failureThreshold: 3
-                httpGet:
-                  path: /admin/health
-                  port: 19002
-                  scheme: HTTP
-                initialDelaySeconds: 45
-                periodSeconds: 60
-                successThreshold: 1
-                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
