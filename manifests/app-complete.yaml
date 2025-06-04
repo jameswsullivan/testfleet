@@ -4,15 +4,10 @@ items:
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-graphql
       name: mod-graphql
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-graphql
       strategy:
         type: RollingUpdate
       template:
@@ -20,7 +15,6 @@ items:
           labels:
             app: mod-graphql
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-graphql
           namespace: folio-modules
         spec:
           containers:
@@ -128,21 +122,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-graphql
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-quick-marc
       name: mod-quick-marc
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-quick-marc
       strategy:
         type: RollingUpdate
       template:
@@ -150,7 +137,6 @@ items:
           labels:
             app: mod-quick-marc
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-quick-marc
           namespace: folio-modules
         spec:
           containers:
@@ -183,6 +169,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -264,28 +260,20 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-quick-marc
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-inventory-storage
       name: mod-inventory-storage
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-inventory-storage
       serviceName: mod-inventory-storage
       template:
         metadata:
           labels:
             app: mod-inventory-storage
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-inventory-storage
           namespace: folio-modules
         spec:
           containers:
@@ -318,6 +306,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -397,28 +395,20 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-circulation-storage
       name: mod-circulation-storage
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-circulation-storage
       serviceName: mod-circulation-storage
       template:
         metadata:
           labels:
             app: mod-circulation-storage
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-circulation-storage
           namespace: folio-modules
         spec:
           containers:
@@ -449,6 +439,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -528,21 +528,14 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-circulation-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-search
       name: mod-search
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-search
       strategy:
         type: RollingUpdate
       template:
@@ -550,7 +543,6 @@ items:
           labels:
             app: mod-search
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-search
           namespace: folio-modules
         spec:
           containers:
@@ -592,6 +584,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -673,21 +675,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-search
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory
       name: mod-inventory
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory
       strategy:
         type: RollingUpdate
       template:
@@ -695,7 +690,6 @@ items:
           labels:
             app: mod-inventory
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory
           namespace: folio-modules
         spec:
           containers:
@@ -810,21 +804,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-circulation
       name: mod-circulation
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-circulation
       strategy:
         type: RollingUpdate
       template:
@@ -832,7 +819,6 @@ items:
           labels:
             app: mod-circulation
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-circulation
           namespace: folio-modules
         spec:
           containers:
@@ -946,21 +932,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-circulation
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-feesfines
       name: mod-feesfines
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-feesfines
       strategy:
         type: RollingUpdate
       template:
@@ -968,7 +947,6 @@ items:
           labels:
             app: mod-feesfines
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-feesfines
           namespace: folio-modules
         spec:
           containers:
@@ -998,6 +976,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1079,28 +1067,20 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-feesfines
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-patron-blocks
       name: mod-patron-blocks
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-patron-blocks
       serviceName: mod-patron-blocks
       template:
         metadata:
           labels:
             app: mod-patron-blocks
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-patron-blocks
           namespace: folio-modules
         spec:
           containers:
@@ -1130,6 +1110,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1209,21 +1199,14 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-patron-blocks
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-entities-links
       name: mod-entities-links
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-entities-links
       strategy:
         type: RollingUpdate
       template:
@@ -1231,7 +1214,6 @@ items:
           labels:
             app: mod-entities-links
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-entities-links
           namespace: folio-modules
         spec:
           containers:
@@ -1273,6 +1255,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1354,21 +1346,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-entities-links
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-source-record-manager
       name: mod-source-record-manager
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-source-record-manager
       strategy:
         type: RollingUpdate
       template:
@@ -1376,7 +1361,6 @@ items:
           labels:
             app: mod-source-record-manager
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-source-record-manager
           namespace: folio-modules
         spec:
           containers:
@@ -1409,6 +1393,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1490,28 +1484,20 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-source-record-manager
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-di-converter-storage
       name: mod-di-converter-storage
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-di-converter-storage
       serviceName: mod-di-converter-storage
       template:
         metadata:
           labels:
             app: mod-di-converter-storage
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-di-converter-storage
           namespace: folio-modules
         spec:
           containers:
@@ -1542,6 +1528,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1621,21 +1617,14 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-di-converter-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-patron
       name: mod-patron
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-patron
       strategy:
         type: RollingUpdate
       template:
@@ -1643,7 +1632,6 @@ items:
           labels:
             app: mod-patron
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-patron
           namespace: folio-modules
         spec:
           containers:
@@ -1673,6 +1661,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1754,21 +1752,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-patron
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export
       name: mod-data-export
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export
       strategy:
         type: RollingUpdate
       template:
@@ -1776,7 +1767,6 @@ items:
           labels:
             app: mod-data-export
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export
           namespace: folio-modules
         spec:
           containers:
@@ -1814,6 +1804,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -1895,21 +1895,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-spring
       name: mod-data-export-spring
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-spring
       strategy:
         type: RollingUpdate
       template:
@@ -1917,7 +1910,6 @@ items:
           labels:
             app: mod-data-export-spring
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-spring
           namespace: folio-modules
         spec:
           containers:
@@ -1962,6 +1954,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -2043,21 +2045,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-spring
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-worker
       name: mod-data-export-worker
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-worker
       strategy:
         type: RollingUpdate
       template:
@@ -2065,7 +2060,6 @@ items:
           labels:
             app: mod-data-export-worker
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-worker
           namespace: folio-modules
         spec:
           containers:
@@ -2105,6 +2099,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -2186,21 +2190,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-export-worker
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
       name: mod-rtac
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
       strategy:
         type: RollingUpdate
       template:
@@ -2208,7 +2205,6 @@ items:
           labels:
             app: mod-rtac
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
           namespace: folio-modules
         spec:
           containers:
@@ -2238,6 +2234,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -2319,21 +2325,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-rtac
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-remote-storage
       name: mod-remote-storage
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-remote-storage
       strategy:
         type: RollingUpdate
       template:
@@ -2341,7 +2340,6 @@ items:
           labels:
             app: mod-remote-storage
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-remote-storage
           namespace: folio-modules
         spec:
           containers:
@@ -2377,6 +2375,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -2458,21 +2466,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-remote-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
       name: mod-calendar
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
       strategy:
         type: RollingUpdate
       template:
@@ -2480,7 +2481,6 @@ items:
           labels:
             app: mod-calendar
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
           namespace: folio-modules
         spec:
           containers:
@@ -2510,6 +2510,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -2591,21 +2601,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-calendar
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-audit
       name: mod-audit
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-audit
       strategy:
         type: RollingUpdate
       template:
@@ -2613,7 +2616,6 @@ items:
           labels:
             app: mod-audit
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-audit
           namespace: folio-modules
         spec:
           containers:
@@ -2646,6 +2648,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -2727,21 +2739,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-audit
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-courses
       name: mod-courses
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-courses
       strategy:
         type: RollingUpdate
       template:
@@ -2749,7 +2754,6 @@ items:
           labels:
             app: mod-courses
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-courses
           namespace: folio-modules
         spec:
           containers:
@@ -2779,6 +2783,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -2860,28 +2874,20 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-courses
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-source-record-storage
       name: mod-source-record-storage
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-source-record-storage
       serviceName: mod-source-record-storage
       template:
         metadata:
           labels:
             app: mod-source-record-storage
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-source-record-storage
           namespace: folio-modules
         spec:
           containers:
@@ -2915,6 +2921,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -2994,21 +3010,14 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-source-record-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-import
       name: mod-data-import
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-import
       strategy:
         type: RollingUpdate
       template:
@@ -3016,7 +3025,6 @@ items:
           labels:
             app: mod-data-import
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-import
           namespace: folio-modules
         spec:
           containers:
@@ -3056,6 +3064,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -3137,28 +3155,20 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-data-import
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-agreements
       name: mod-agreements
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-agreements
       serviceName: mod-agreements
       template:
         metadata:
           labels:
             app: mod-agreements
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-agreements
           namespace: folio-modules
         spec:
           containers:
@@ -3268,28 +3278,20 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8080
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-agreements
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
       name: mod-licenses
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
       serviceName: mod-licenses
       template:
         metadata:
           labels:
             app: mod-licenses
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.statefulSet-folio-scratch-mod-licenses
           namespace: folio-modules
         spec:
           containers:
@@ -3407,21 +3409,14 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8080
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-licenses
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-email
       name: mod-email
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-email
       strategy:
         type: RollingUpdate
       template:
@@ -3429,7 +3424,6 @@ items:
           labels:
             app: mod-email
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-email
           namespace: folio-modules
         spec:
           containers:
@@ -3459,6 +3453,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -3540,21 +3544,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-email
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-event-config
       name: mod-event-config
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-event-config
       strategy:
         type: RollingUpdate
       template:
@@ -3562,7 +3559,6 @@ items:
           labels:
             app: mod-event-config
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-event-config
           namespace: folio-modules
         spec:
           containers:
@@ -3592,6 +3588,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -3673,21 +3679,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-event-config
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-notify
       name: mod-notify
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-notify
       strategy:
         type: RollingUpdate
       template:
@@ -3695,7 +3694,6 @@ items:
           labels:
             app: mod-notify
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-notify
           namespace: folio-modules
         spec:
           containers:
@@ -3725,6 +3723,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -3806,21 +3814,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-notify
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-sender
       name: mod-sender
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-sender
       strategy:
         type: RollingUpdate
       template:
@@ -3828,7 +3829,6 @@ items:
           labels:
             app: mod-sender
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-sender
           namespace: folio-modules
         spec:
           containers:
@@ -3858,6 +3858,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -3939,21 +3949,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-sender
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-template-engine
       name: mod-template-engine
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-template-engine
       strategy:
         type: RollingUpdate
       template:
@@ -3961,7 +3964,6 @@ items:
           labels:
             app: mod-template-engine
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-template-engine
           namespace: folio-modules
         spec:
           containers:
@@ -3991,6 +3993,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -4072,21 +4084,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-template-engine
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-pubsub
       name: mod-pubsub
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-pubsub
       strategy:
         type: RollingUpdate
       template:
@@ -4094,7 +4099,6 @@ items:
           labels:
             app: mod-pubsub
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-pubsub
           namespace: folio-modules
         spec:
           containers:
@@ -4136,6 +4140,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -4217,21 +4231,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-pubsub
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
       name: mod-gobi
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
       strategy:
         type: RollingUpdate
       template:
@@ -4239,7 +4246,6 @@ items:
           labels:
             app: mod-gobi
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
           namespace: folio-modules
         spec:
           containers:
@@ -4269,6 +4275,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -4350,21 +4366,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-gobi
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-copycat
       name: mod-copycat
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-copycat
       strategy:
         type: RollingUpdate
       template:
@@ -4372,7 +4381,6 @@ items:
           labels:
             app: mod-copycat
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-copycat
           namespace: folio-modules
         spec:
           containers:
@@ -4402,6 +4410,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -4483,21 +4501,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-copycat
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-kb-ebsco-java
       name: mod-kb-ebsco-java
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-kb-ebsco-java
       strategy:
         type: RollingUpdate
       template:
@@ -4505,7 +4516,6 @@ items:
           labels:
             app: mod-kb-ebsco-java
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-kb-ebsco-java
           namespace: folio-modules
         spec:
           containers:
@@ -4535,6 +4545,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -4616,21 +4636,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-kb-ebsco-java
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ncip
       name: mod-ncip
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ncip
       strategy:
         type: RollingUpdate
       template:
@@ -4638,7 +4651,6 @@ items:
           labels:
             app: mod-ncip
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ncip
           namespace: folio-modules
         spec:
           containers:
@@ -4668,6 +4680,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -4749,21 +4771,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ncip
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory-update
       name: mod-inventory-update
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory-update
       strategy:
         type: RollingUpdate
       template:
@@ -4771,7 +4786,6 @@ items:
           labels:
             app: mod-inventory-update
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory-update
           namespace: folio-modules
         spec:
           containers:
@@ -4882,21 +4896,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-inventory-update
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-user-import
       name: mod-user-import
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-user-import
       strategy:
         type: RollingUpdate
       template:
@@ -4904,7 +4911,6 @@ items:
           labels:
             app: mod-user-import
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-user-import
           namespace: folio-modules
         spec:
           containers:
@@ -4934,6 +4940,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -5015,21 +5031,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-user-import
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-service-interaction
       name: mod-service-interaction
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-service-interaction
       strategy:
         type: RollingUpdate
       template:
@@ -5037,7 +5046,6 @@ items:
           labels:
             app: mod-service-interaction
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-service-interaction
           namespace: folio-modules
         spec:
           containers:
@@ -5149,21 +5157,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-service-interaction
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
       name: mod-ebsconet
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
       strategy:
         type: RollingUpdate
       template:
@@ -5171,7 +5172,6 @@ items:
           labels:
             app: mod-ebsconet
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
           namespace: folio-modules
         spec:
           containers:
@@ -5195,6 +5195,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -5276,21 +5286,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-ebsconet
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-batch-print
       name: mod-batch-print
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-batch-print
       strategy:
         type: RollingUpdate
       template:
@@ -5298,7 +5301,6 @@ items:
           labels:
             app: mod-batch-print
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-batch-print
           namespace: folio-modules
         spec:
           containers:
@@ -5328,6 +5330,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -5409,21 +5421,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-batch-print
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-serials-management
       name: mod-serials-management
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-serials-management
       strategy:
         type: RollingUpdate
       template:
@@ -5431,7 +5436,6 @@ items:
           labels:
             app: mod-serials-management
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-serials-management
           namespace: folio-modules
         spec:
           containers:
@@ -5546,21 +5550,14 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-serials-management
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-record-specifications
       name: mod-record-specifications
       namespace: folio-modules
     spec:
       replicas: 1
-      selector:
-        matchLabels:
-          workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-record-specifications
       strategy:
         type: RollingUpdate
       template:
@@ -5568,7 +5565,6 @@ items:
           labels:
             app: mod-record-specifications
             workload: folio_module
-            workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-record-specifications
           namespace: folio-modules
         spec:
           containers:
@@ -5601,6 +5597,16 @@ items:
                 - containerPort: 8081
                   name: 8081-tcp-0
                   protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
               resources:
                 limits:
                   cpu: 500m
@@ -5682,6 +5688,4 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
-      selector:
-        workload.user.cattle.io/workloadselector: apps.deployment-folio-scratch-mod-record-specifications
       type: ClusterIP
