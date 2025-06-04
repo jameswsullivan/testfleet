@@ -105,3 +105,107 @@ items:
         app.kubernetes.io/version: 1.2.0-SNAPSHOT.98
         environment: TEST
       type: ClusterIP
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      labels:
+        app: app-poppy
+        app.kubernetes.io/instance: mod-camunda-1.2.0-SNAPSHOT.56
+        app.kubernetes.io/name: mod-camunda
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.2.0-SNAPSHOT.56
+        environment: TEST
+      name: mod-camunda
+      namespace: folio-test
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: app-poppy
+          app.kubernetes.io/instance: mod-camunda-1.2.0-SNAPSHOT.56
+          app.kubernetes.io/name: mod-camunda
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 1.2.0-SNAPSHOT.56
+          environment: TEST
+      strategy:
+        type: RollingUpdate
+      template:
+        metadata:
+          labels:
+            app: app-poppy
+            app.kubernetes.io/instance: mod-camunda-1.2.0-SNAPSHOT.56
+            app.kubernetes.io/name: mod-camunda
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 1.2.0-SNAPSHOT.56
+            environment: TEST
+          namespace: folio-test
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTIONS
+                  value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
+                - name: MODULE_NAME
+                  value: mod-camunda
+                - name: MODULE_VERSION
+                  value: 1.2.0-SNAPSHOT.56
+              envFrom:
+                - configMapRef:
+                    name: folio-modules-global
+                    optional: true
+                - configMapRef:
+                    name: mod-workflow
+                    optional: true
+              image: folioci/mod-camunda:1.2.0-SNAPSHOT.56
+              imagePullPolicy: Always
+              imagePullSecrets:
+                - name: docker
+              name: mod-camunda
+              ports:
+                - containerPort: 8081
+                  name: primary
+                  protocol: TCP
+              readinessProbe:
+                failureThreshold: 10
+                httpGet:
+                  path: /admin/health
+                  port: 8081
+                  scheme: HTTP
+                initialDelaySeconds: 200
+                periodSeconds: 60
+                successThreshold: 1
+                timeoutSeconds: 5
+              resources:
+                limits:
+                  cpu: 500m
+                requests:
+                  cpu: 1m
+                  memory: 64Mi
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        app: app-poppy
+        app.kubernetes.io/instance: mod-camunda-1.2.0-SNAPSHOT.56
+        app.kubernetes.io/name: mod-camunda
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.2.0-SNAPSHOT.56
+        environment: TEST
+      name: mod-camunda
+      namespace: folio-test
+    spec:
+      ipFamilies:
+        - IPv4
+      ipFamilyPolicy: SingleStack
+      ports:
+        - name: primary-mod-camunda
+          port: 8081
+          protocol: TCP
+          targetPort: 8081
+      selector:
+        app: app-poppy
+        app.kubernetes.io/instance: mod-camunda-1.2.0-SNAPSHOT.56
+        app.kubernetes.io/name: mod-camunda
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.2.0-SNAPSHOT.56
+        environment: TEST
+      type: ClusterIP
