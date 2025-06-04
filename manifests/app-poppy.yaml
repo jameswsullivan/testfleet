@@ -149,12 +149,9 @@ items:
                 - name: MODULE_VERSION
                   value: 19.2.1-SNAPSHOT.264
               envFrom:
-                - '[ENV_FROM_DB_CONNECT]'
-                - '[ENV_FROM_DB_SECRET]'
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-                - '[ENV_FROM_KAFKA_CONNECT]'
               image: folioci/mod-users:19.2.1-SNAPSHOT.264
               imagePullPolicy: Always
               imagePullSecrets:
@@ -162,7 +159,7 @@ items:
               name: mod-users
               ports:
                 - containerPort: 8081
-                  name: 8081-tcp-0
+                  name: primary
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 10
