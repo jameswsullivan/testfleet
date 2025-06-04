@@ -110,22 +110,22 @@ items:
     metadata:
       labels:
         app: app-poppy
-        app.kubernetes.io/instance: mod-camunda-1.2.0-SNAPSHOT.56
-        app.kubernetes.io/name: mod-camunda
+        app.kubernetes.io/instance: mod-users-19.2.1-SNAPSHOT.264
+        app.kubernetes.io/name: mod-users
         app.kubernetes.io/part-of: FOLIO
-        app.kubernetes.io/version: 1.2.0-SNAPSHOT.56
+        app.kubernetes.io/version: 19.2.1-SNAPSHOT.264
         environment: TEST
-      name: mod-camunda
+      name: mod-users
       namespace: folio-test
     spec:
       replicas: 1
       selector:
         matchLabels:
           app: app-poppy
-          app.kubernetes.io/instance: mod-camunda-1.2.0-SNAPSHOT.56
-          app.kubernetes.io/name: mod-camunda
+          app.kubernetes.io/instance: mod-users-19.2.1-SNAPSHOT.264
+          app.kubernetes.io/name: mod-users
           app.kubernetes.io/part-of: FOLIO
-          app.kubernetes.io/version: 1.2.0-SNAPSHOT.56
+          app.kubernetes.io/version: 19.2.1-SNAPSHOT.264
           environment: TEST
       strategy:
         type: RollingUpdate
@@ -133,10 +133,10 @@ items:
         metadata:
           labels:
             app: app-poppy
-            app.kubernetes.io/instance: mod-camunda-1.2.0-SNAPSHOT.56
-            app.kubernetes.io/name: mod-camunda
+            app.kubernetes.io/instance: mod-users-19.2.1-SNAPSHOT.264
+            app.kubernetes.io/name: mod-users
             app.kubernetes.io/part-of: FOLIO
-            app.kubernetes.io/version: 1.2.0-SNAPSHOT.56
+            app.kubernetes.io/version: 19.2.1-SNAPSHOT.264
             environment: TEST
           namespace: folio-test
         spec:
@@ -145,24 +145,24 @@ items:
                 - name: JAVA_OPTIONS
                   value: -XX:MaxRAMPercentage=80.0 -Dlog4j2.formatMsgNoLookups=true
                 - name: MODULE_NAME
-                  value: mod-camunda
+                  value: mod-users
                 - name: MODULE_VERSION
-                  value: 1.2.0-SNAPSHOT.56
+                  value: 19.2.1-SNAPSHOT.264
               envFrom:
+                - '[ENV_FROM_DB_CONNECT]'
+                - '[ENV_FROM_DB_SECRET]'
                 - configMapRef:
                     name: folio-modules-global
                     optional: true
-                - configMapRef:
-                    name: mod-camunda
-                    optional: true
-              image: folioci/mod-camunda:1.2.0-SNAPSHOT.56
+                - '[ENV_FROM_KAFKA_CONNECT]'
+              image: folioci/mod-users:19.2.1-SNAPSHOT.264
               imagePullPolicy: Always
               imagePullSecrets:
                 - name: docker
-              name: mod-camunda
+              name: mod-users
               ports:
                 - containerPort: 8081
-                  name: primary
+                  name: 8081-tcp-0
                   protocol: TCP
               readinessProbe:
                 failureThreshold: 10
@@ -185,27 +185,27 @@ items:
     metadata:
       labels:
         app: app-poppy
-        app.kubernetes.io/instance: mod-camunda-1.2.0-SNAPSHOT.56
-        app.kubernetes.io/name: mod-camunda
+        app.kubernetes.io/instance: mod-users-19.2.1-SNAPSHOT.264
+        app.kubernetes.io/name: mod-users
         app.kubernetes.io/part-of: FOLIO
-        app.kubernetes.io/version: 1.2.0-SNAPSHOT.56
+        app.kubernetes.io/version: 19.2.1-SNAPSHOT.264
         environment: TEST
-      name: mod-camunda
+      name: mod-users
       namespace: folio-test
     spec:
       ipFamilies:
         - IPv4
       ipFamilyPolicy: SingleStack
       ports:
-        - name: primary-mod-camunda
+        - name: primary-mod-users
           port: 8081
           protocol: TCP
           targetPort: 8081
       selector:
         app: app-poppy
-        app.kubernetes.io/instance: mod-camunda-1.2.0-SNAPSHOT.56
-        app.kubernetes.io/name: mod-camunda
+        app.kubernetes.io/instance: mod-users-19.2.1-SNAPSHOT.264
+        app.kubernetes.io/name: mod-users
         app.kubernetes.io/part-of: FOLIO
-        app.kubernetes.io/version: 1.2.0-SNAPSHOT.56
+        app.kubernetes.io/version: 19.2.1-SNAPSHOT.264
         environment: TEST
       type: ClusterIP
