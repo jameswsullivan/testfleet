@@ -16,13 +16,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-graphql
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-graphql
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-graphql
           namespace: folio-modules
         spec:
           containers:
@@ -155,13 +157,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-quick-marc
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-quick-marc
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-quick-marc
           namespace: folio-modules
         spec:
           containers:
@@ -310,12 +314,14 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-inventory-storage
       serviceName: mod-inventory-storage
       template:
         metadata:
           labels:
-            app: mod-inventory-storage
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-inventory-storage
           namespace: folio-modules
         spec:
           containers:
@@ -462,12 +468,14 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-circulation-storage
       serviceName: mod-circulation-storage
       template:
         metadata:
           labels:
-            app: mod-circulation-storage
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-circulation-storage
           namespace: folio-modules
         spec:
           containers:
@@ -612,13 +620,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-search
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-search
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-search
           namespace: folio-modules
         spec:
           containers:
@@ -776,13 +786,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-inventory
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-inventory
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-inventory
           namespace: folio-modules
         spec:
           containers:
@@ -922,13 +934,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-circulation
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-circulation
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-circulation
           namespace: folio-modules
         spec:
           containers:
@@ -1067,13 +1081,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-feesfines
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-feesfines
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-feesfines
           namespace: folio-modules
         spec:
           containers:
@@ -1219,12 +1235,14 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-patron-blocks
       serviceName: mod-patron-blocks
       template:
         metadata:
           labels:
-            app: mod-patron-blocks
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-patron-blocks
           namespace: folio-modules
         spec:
           containers:
@@ -1368,13 +1386,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-entities-links
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-entities-links
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-entities-links
           namespace: folio-modules
         spec:
           containers:
@@ -1532,13 +1552,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-source-record-manager
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-source-record-manager
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-source-record-manager
           namespace: folio-modules
         spec:
           containers:
@@ -1687,12 +1709,14 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-di-converter-storage
       serviceName: mod-di-converter-storage
       template:
         metadata:
           labels:
-            app: mod-di-converter-storage
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-di-converter-storage
           namespace: folio-modules
         spec:
           containers:
@@ -1837,13 +1861,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-patron
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-patron
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-patron
           namespace: folio-modules
         spec:
           containers:
@@ -1989,13 +2015,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-data-export
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-data-export
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-data-export
           namespace: folio-modules
         spec:
           containers:
@@ -2149,13 +2177,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-data-export-spring
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-data-export-spring
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-data-export-spring
           namespace: folio-modules
         spec:
           containers:
@@ -2316,13 +2346,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-data-export-worker
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-data-export-worker
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-data-export-worker
           namespace: folio-modules
         spec:
           containers:
@@ -2478,13 +2510,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-rtac
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-rtac
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-rtac
           namespace: folio-modules
         spec:
           containers:
@@ -2630,13 +2664,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-remote-storage
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-remote-storage
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-remote-storage
           namespace: folio-modules
         spec:
           containers:
@@ -2788,13 +2824,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-calendar
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-calendar
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-calendar
           namespace: folio-modules
         spec:
           containers:
@@ -2940,13 +2978,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-audit
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-audit
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-audit
           namespace: folio-modules
         spec:
           containers:
@@ -3095,13 +3135,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-courses
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-courses
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-courses
           namespace: folio-modules
         spec:
           containers:
@@ -3247,12 +3289,14 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-source-record-storage
       serviceName: mod-source-record-storage
       template:
         metadata:
           labels:
-            app: mod-source-record-storage
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-source-record-storage
           namespace: folio-modules
         spec:
           containers:
@@ -3400,13 +3444,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-data-import
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-data-import
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-data-import
           namespace: folio-modules
         spec:
           containers:
@@ -3562,12 +3608,14 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-agreements
       serviceName: mod-agreements
       template:
         metadata:
           labels:
-            app: mod-agreements
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-agreements
           namespace: folio-modules
         spec:
           containers:
@@ -3702,12 +3750,14 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-licenses
       serviceName: mod-licenses
       template:
         metadata:
           labels:
-            app: mod-licenses
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-licenses
           namespace: folio-modules
         spec:
           containers:
@@ -3850,13 +3900,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-email
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-email
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-email
           namespace: folio-modules
         spec:
           containers:
@@ -4002,13 +4054,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-event-config
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-event-config
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-event-config
           namespace: folio-modules
         spec:
           containers:
@@ -4154,13 +4208,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-notify
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-notify
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-notify
           namespace: folio-modules
         spec:
           containers:
@@ -4306,13 +4362,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-sender
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-sender
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-sender
           namespace: folio-modules
         spec:
           containers:
@@ -4458,13 +4516,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-template-engine
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-template-engine
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-template-engine
           namespace: folio-modules
         spec:
           containers:
@@ -4610,13 +4670,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-pubsub
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-pubsub
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-pubsub
           namespace: folio-modules
         spec:
           containers:
@@ -4774,13 +4836,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-gobi
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-gobi
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-gobi
           namespace: folio-modules
         spec:
           containers:
@@ -4926,13 +4990,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-copycat
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-copycat
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-copycat
           namespace: folio-modules
         spec:
           containers:
@@ -5078,13 +5144,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-kb-ebsco-java
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-kb-ebsco-java
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-kb-ebsco-java
           namespace: folio-modules
         spec:
           containers:
@@ -5230,13 +5298,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-ncip
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-ncip
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-ncip
           namespace: folio-modules
         spec:
           containers:
@@ -5382,13 +5452,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-inventory-update
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-inventory-update
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-inventory-update
           namespace: folio-modules
         spec:
           containers:
@@ -5524,13 +5596,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-user-import
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-user-import
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-user-import
           namespace: folio-modules
         spec:
           containers:
@@ -5676,13 +5750,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-service-interaction
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-service-interaction
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-service-interaction
           namespace: folio-modules
         spec:
           containers:
@@ -5819,13 +5895,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-ebsconet
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-ebsconet
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-ebsconet
           namespace: folio-modules
         spec:
           containers:
@@ -5965,13 +6043,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-batch-print
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-batch-print
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-batch-print
           namespace: folio-modules
         spec:
           containers:
@@ -6117,13 +6197,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-serials-management
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-serials-management
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-serials-management
           namespace: folio-modules
         spec:
           containers:
@@ -6263,13 +6345,15 @@ items:
         matchLabels:
           app: app-complete
           environment: scratch
+          module: mod-record-specifications
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-record-specifications
-            workload: folio_module
+            app: app-complete
+            environment: scratch
+            module: mod-record-specifications
           namespace: folio-modules
         spec:
           containers:

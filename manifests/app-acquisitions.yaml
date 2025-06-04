@@ -16,13 +16,15 @@ items:
         matchLabels:
           app: app-acquisitions
           environment: scratch
+          module: mod-organizations
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-organizations
-            workload: folio_module
+            app: app-acquisitions
+            environment: scratch
+            module: mod-organizations
           namespace: folio-modules
         spec:
           containers:
@@ -171,12 +173,14 @@ items:
         matchLabels:
           app: app-acquisitions
           environment: scratch
+          module: mod-organizations-storage
       serviceName: mod-organizations-storage
       template:
         metadata:
           labels:
-            app: mod-organizations-storage
-            workload: folio_module
+            app: app-acquisitions
+            environment: scratch
+            module: mod-organizations-storage
           namespace: folio-modules
         spec:
           containers:
@@ -320,13 +324,15 @@ items:
         matchLabels:
           app: app-acquisitions
           environment: scratch
+          module: mod-orders
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-orders
-            workload: folio_module
+            app: app-acquisitions
+            environment: scratch
+            module: mod-orders
           namespace: folio-modules
         spec:
           containers:
@@ -475,12 +481,14 @@ items:
         matchLabels:
           app: app-acquisitions
           environment: scratch
+          module: mod-orders-storage
       serviceName: mod-orders-storage
       template:
         metadata:
           labels:
-            app: mod-orders-storage
-            workload: folio_module
+            app: app-acquisitions
+            environment: scratch
+            module: mod-orders-storage
           namespace: folio-modules
         spec:
           containers:
@@ -627,13 +635,15 @@ items:
         matchLabels:
           app: app-acquisitions
           environment: scratch
+          module: mod-invoice
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-invoice
-            workload: folio_module
+            app: app-acquisitions
+            environment: scratch
+            module: mod-invoice
           namespace: folio-modules
         spec:
           containers:
@@ -776,12 +786,14 @@ items:
         matchLabels:
           app: app-acquisitions
           environment: scratch
+          module: mod-invoice-storage
       serviceName: mod-invoice-storage
       template:
         metadata:
           labels:
-            app: mod-invoice-storage
-            workload: folio_module
+            app: app-acquisitions
+            environment: scratch
+            module: mod-invoice-storage
           namespace: folio-modules
         spec:
           containers:
@@ -925,13 +937,15 @@ items:
         matchLabels:
           app: app-acquisitions
           environment: scratch
+          module: mod-finance
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
-            app: mod-finance
-            workload: folio_module
+            app: app-acquisitions
+            environment: scratch
+            module: mod-finance
           namespace: folio-modules
         spec:
           containers:
@@ -1077,12 +1091,14 @@ items:
         matchLabels:
           app: app-acquisitions
           environment: scratch
+          module: mod-finance-storage
       serviceName: mod-finance-storage
       template:
         metadata:
           labels:
-            app: mod-finance-storage
-            workload: folio_module
+            app: app-acquisitions
+            environment: scratch
+            module: mod-finance-storage
           namespace: folio-modules
         spec:
           containers:
