@@ -4,10 +4,18 @@ items:
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-graphql
       name: mod-graphql
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -107,6 +115,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-graphql
       name: mod-graphql
       namespace: folio-modules
     spec:
@@ -122,14 +134,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-graphql
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-quick-marc
       name: mod-quick-marc
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -245,6 +270,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-quick-marc
       name: mod-quick-marc
       namespace: folio-modules
     spec:
@@ -260,14 +289,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-quick-marc
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-inventory-storage
       name: mod-inventory-storage
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       serviceName: mod-inventory-storage
       template:
         metadata:
@@ -384,6 +426,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-inventory-storage
       name: mod-inventory-storage
       namespace: folio-modules
     spec:
@@ -395,14 +441,27 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-inventory-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-circulation-storage
       name: mod-circulation-storage
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       serviceName: mod-circulation-storage
       template:
         metadata:
@@ -517,6 +576,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-circulation-storage
       name: mod-circulation-storage
       namespace: folio-modules
     spec:
@@ -528,14 +591,27 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-circulation-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-search
       name: mod-search
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -660,6 +736,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-search
       name: mod-search
       namespace: folio-modules
     spec:
@@ -675,14 +755,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-search
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-inventory
       name: mod-inventory
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -789,6 +882,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-inventory
       name: mod-inventory
       namespace: folio-modules
     spec:
@@ -804,14 +901,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-inventory
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-circulation
       name: mod-circulation
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -917,6 +1027,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-circulation
       name: mod-circulation
       namespace: folio-modules
     spec:
@@ -932,14 +1046,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-circulation
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-feesfines
       name: mod-feesfines
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -1052,6 +1179,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-feesfines
       name: mod-feesfines
       namespace: folio-modules
     spec:
@@ -1067,14 +1198,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-feesfines
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-patron-blocks
       name: mod-patron-blocks
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       serviceName: mod-patron-blocks
       template:
         metadata:
@@ -1188,6 +1332,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-patron-blocks
       name: mod-patron-blocks
       namespace: folio-modules
     spec:
@@ -1199,14 +1347,27 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-patron-blocks
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-entities-links
       name: mod-entities-links
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -1331,6 +1492,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-entities-links
       name: mod-entities-links
       namespace: folio-modules
     spec:
@@ -1346,14 +1511,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-entities-links
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-source-record-manager
       name: mod-source-record-manager
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -1469,6 +1647,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-source-record-manager
       name: mod-source-record-manager
       namespace: folio-modules
     spec:
@@ -1484,14 +1666,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-source-record-manager
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-di-converter-storage
       name: mod-di-converter-storage
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       serviceName: mod-di-converter-storage
       template:
         metadata:
@@ -1606,6 +1801,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-di-converter-storage
       name: mod-di-converter-storage
       namespace: folio-modules
     spec:
@@ -1617,14 +1816,27 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-di-converter-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-patron
       name: mod-patron
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -1737,6 +1949,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-patron
       name: mod-patron
       namespace: folio-modules
     spec:
@@ -1752,14 +1968,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-patron
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-data-export
       name: mod-data-export
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -1880,6 +2109,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-data-export
       name: mod-data-export
       namespace: folio-modules
     spec:
@@ -1895,14 +2128,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-data-export
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-data-export-spring
       name: mod-data-export-spring
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -2030,6 +2276,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-data-export-spring
       name: mod-data-export-spring
       namespace: folio-modules
     spec:
@@ -2045,14 +2295,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-data-export-spring
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-data-export-worker
       name: mod-data-export-worker
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -2175,6 +2438,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-data-export-worker
       name: mod-data-export-worker
       namespace: folio-modules
     spec:
@@ -2190,14 +2457,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-data-export-worker
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-rtac
       name: mod-rtac
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -2310,6 +2590,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-rtac
       name: mod-rtac
       namespace: folio-modules
     spec:
@@ -2325,14 +2609,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-rtac
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-remote-storage
       name: mod-remote-storage
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -2451,6 +2748,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-remote-storage
       name: mod-remote-storage
       namespace: folio-modules
     spec:
@@ -2466,14 +2767,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-remote-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-calendar
       name: mod-calendar
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -2586,6 +2900,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-calendar
       name: mod-calendar
       namespace: folio-modules
     spec:
@@ -2601,14 +2919,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-calendar
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-audit
       name: mod-audit
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -2724,6 +3055,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-audit
       name: mod-audit
       namespace: folio-modules
     spec:
@@ -2739,14 +3074,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-audit
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-courses
       name: mod-courses
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -2859,6 +3207,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-courses
       name: mod-courses
       namespace: folio-modules
     spec:
@@ -2874,14 +3226,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-courses
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-source-record-storage
       name: mod-source-record-storage
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       serviceName: mod-source-record-storage
       template:
         metadata:
@@ -2999,6 +3364,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-source-record-storage
       name: mod-source-record-storage
       namespace: folio-modules
     spec:
@@ -3010,14 +3379,27 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-source-record-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-data-import
       name: mod-data-import
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -3140,6 +3522,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-data-import
       name: mod-data-import
       namespace: folio-modules
     spec:
@@ -3155,14 +3541,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-data-import
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-agreements
       name: mod-agreements
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       serviceName: mod-agreements
       template:
         metadata:
@@ -3267,6 +3666,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-agreements
       name: mod-agreements
       namespace: folio-modules
     spec:
@@ -3278,14 +3681,27 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8080
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-agreements
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-licenses
       name: mod-licenses
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       serviceName: mod-licenses
       template:
         metadata:
@@ -3398,6 +3814,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-licenses
       name: mod-licenses
       namespace: folio-modules
     spec:
@@ -3409,14 +3829,27 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8080
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-licenses
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-email
       name: mod-email
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -3529,6 +3962,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-email
       name: mod-email
       namespace: folio-modules
     spec:
@@ -3544,14 +3981,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-email
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-event-config
       name: mod-event-config
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -3664,6 +4114,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-event-config
       name: mod-event-config
       namespace: folio-modules
     spec:
@@ -3679,14 +4133,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-event-config
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-notify
       name: mod-notify
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -3799,6 +4266,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-notify
       name: mod-notify
       namespace: folio-modules
     spec:
@@ -3814,14 +4285,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-notify
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-sender
       name: mod-sender
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -3934,6 +4418,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-sender
       name: mod-sender
       namespace: folio-modules
     spec:
@@ -3949,14 +4437,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-sender
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-template-engine
       name: mod-template-engine
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -4069,6 +4570,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-template-engine
       name: mod-template-engine
       namespace: folio-modules
     spec:
@@ -4084,14 +4589,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-template-engine
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-pubsub
       name: mod-pubsub
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -4216,6 +4734,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-pubsub
       name: mod-pubsub
       namespace: folio-modules
     spec:
@@ -4231,14 +4753,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-pubsub
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-gobi
       name: mod-gobi
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -4351,6 +4886,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-gobi
       name: mod-gobi
       namespace: folio-modules
     spec:
@@ -4366,14 +4905,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-gobi
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-copycat
       name: mod-copycat
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -4486,6 +5038,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-copycat
       name: mod-copycat
       namespace: folio-modules
     spec:
@@ -4501,14 +5057,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-copycat
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-kb-ebsco-java
       name: mod-kb-ebsco-java
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -4621,6 +5190,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-kb-ebsco-java
       name: mod-kb-ebsco-java
       namespace: folio-modules
     spec:
@@ -4636,14 +5209,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-kb-ebsco-java
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-ncip
       name: mod-ncip
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -4756,6 +5342,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-ncip
       name: mod-ncip
       namespace: folio-modules
     spec:
@@ -4771,14 +5361,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-ncip
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-inventory-update
       name: mod-inventory-update
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -4881,6 +5484,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-inventory-update
       name: mod-inventory-update
       namespace: folio-modules
     spec:
@@ -4896,14 +5503,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-inventory-update
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-user-import
       name: mod-user-import
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -5016,6 +5636,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-user-import
       name: mod-user-import
       namespace: folio-modules
     spec:
@@ -5031,14 +5655,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-user-import
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-service-interaction
       name: mod-service-interaction
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -5142,6 +5779,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-service-interaction
       name: mod-service-interaction
       namespace: folio-modules
     spec:
@@ -5157,14 +5798,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-service-interaction
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-ebsconet
       name: mod-ebsconet
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -5271,6 +5925,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-ebsconet
       name: mod-ebsconet
       namespace: folio-modules
     spec:
@@ -5286,14 +5944,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-ebsconet
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-batch-print
       name: mod-batch-print
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -5406,6 +6077,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-batch-print
       name: mod-batch-print
       namespace: folio-modules
     spec:
@@ -5421,14 +6096,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-batch-print
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-serials-management
       name: mod-serials-management
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -5535,6 +6223,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-serials-management
       name: mod-serials-management
       namespace: folio-modules
     spec:
@@ -5550,14 +6242,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-serials-management
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-record-specifications
       name: mod-record-specifications
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -5673,6 +6378,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-complete
+        environment: scratch
+        module: mod-record-specifications
       name: mod-record-specifications
       namespace: folio-modules
     spec:
@@ -5688,4 +6397,9 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-complete
+          environment: scratch
+          module: mod-record-specifications
       type: ClusterIP

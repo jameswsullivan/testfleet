@@ -4,10 +4,18 @@ items:
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-organizations
       name: mod-organizations
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -123,6 +131,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-organizations
       name: mod-organizations
       namespace: folio-modules
     spec:
@@ -138,14 +150,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
+          module: mod-organizations
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-organizations-storage
       name: mod-organizations-storage
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
       serviceName: mod-organizations-storage
       template:
         metadata:
@@ -259,6 +284,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-organizations-storage
       name: mod-organizations-storage
       namespace: folio-modules
     spec:
@@ -270,14 +299,27 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
+          module: mod-organizations-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-orders
       name: mod-orders
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -393,6 +435,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-orders
       name: mod-orders
       namespace: folio-modules
     spec:
@@ -408,14 +454,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
+          module: mod-orders
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-orders-storage
       name: mod-orders-storage
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
       serviceName: mod-orders-storage
       template:
         metadata:
@@ -532,6 +591,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-orders-storage
       name: mod-orders-storage
       namespace: folio-modules
     spec:
@@ -543,14 +606,27 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
+          module: mod-orders-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-invoice
       name: mod-invoice
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -660,6 +736,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-invoice
       name: mod-invoice
       namespace: folio-modules
     spec:
@@ -675,14 +755,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
+          module: mod-invoice
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-invoice-storage
       name: mod-invoice-storage
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
       serviceName: mod-invoice-storage
       template:
         metadata:
@@ -796,6 +889,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-invoice-storage
       name: mod-invoice-storage
       namespace: folio-modules
     spec:
@@ -807,14 +904,27 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
+          module: mod-invoice-storage
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-finance
       name: mod-finance
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
       strategy:
         type: RollingUpdate
       template:
@@ -927,6 +1037,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-finance
       name: mod-finance
       namespace: folio-modules
     spec:
@@ -942,14 +1056,27 @@ items:
           port: 19002
           protocol: TCP
           targetPort: 19002
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
+          module: mod-finance
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-finance-storage
       name: mod-finance-storage
       namespace: folio-modules
     spec:
       replicas: 1
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
       serviceName: mod-finance-storage
       template:
         metadata:
@@ -1063,6 +1190,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: app-acquisitions
+        environment: scratch
+        module: mod-finance-storage
       name: mod-finance-storage
       namespace: folio-modules
     spec:
@@ -1074,4 +1205,9 @@ items:
           port: 8081
           protocol: TCP
           targetPort: 8081
+      selector:
+        matchLabels:
+          app: app-acquisitions
+          environment: scratch
+          module: mod-finance-storage
       type: ClusterIP
