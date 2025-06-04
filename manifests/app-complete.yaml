@@ -6,8 +6,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-graphql-1.13.1000374
+        app.kubernetes.io/name: mod-graphql
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.13.1000374
         environment: scratch
-        module: mod-graphql
       name: mod-graphql
       namespace: folio-modules
     spec:
@@ -15,16 +18,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-graphql-1.13.1000374
+          app.kubernetes.io/name: mod-graphql
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 1.13.1000374
           environment: scratch
-          module: mod-graphql
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-graphql-1.13.1000374
+            app.kubernetes.io/name: mod-graphql
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 1.13.1000374
             environment: scratch
-            module: mod-graphql
           namespace: folio-modules
         spec:
           containers:
@@ -119,8 +128,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-graphql-1.13.1000374
+        app.kubernetes.io/name: mod-graphql
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.13.1000374
         environment: scratch
-        module: mod-graphql
       name: mod-graphql
       namespace: folio-modules
     spec:
@@ -137,18 +149,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-graphql
+        app: app-complete
+        app.kubernetes.io/instance: mod-graphql-1.13.1000374
+        app.kubernetes.io/name: mod-graphql
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.13.1000374
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-quick-marc-7.1.0-SNAPSHOT.322
+        app.kubernetes.io/name: mod-quick-marc
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 7.1.0-SNAPSHOT.322
         environment: scratch
-        module: mod-quick-marc
       name: mod-quick-marc
       namespace: folio-modules
     spec:
@@ -156,16 +173,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-quick-marc-7.1.0-SNAPSHOT.322
+          app.kubernetes.io/name: mod-quick-marc
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 7.1.0-SNAPSHOT.322
           environment: scratch
-          module: mod-quick-marc
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-quick-marc-7.1.0-SNAPSHOT.322
+            app.kubernetes.io/name: mod-quick-marc
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 7.1.0-SNAPSHOT.322
             environment: scratch
-            module: mod-quick-marc
           namespace: folio-modules
         spec:
           containers:
@@ -276,8 +299,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-quick-marc-7.1.0-SNAPSHOT.322
+        app.kubernetes.io/name: mod-quick-marc
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 7.1.0-SNAPSHOT.322
         environment: scratch
-        module: mod-quick-marc
       name: mod-quick-marc
       namespace: folio-modules
     spec:
@@ -294,18 +320,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-quick-marc
+        app: app-complete
+        app.kubernetes.io/instance: mod-quick-marc-7.1.0-SNAPSHOT.322
+        app.kubernetes.io/name: mod-quick-marc
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 7.1.0-SNAPSHOT.322
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-inventory-storage-29.1.0-SNAPSHOT.1134
+        app.kubernetes.io/name: mod-inventory-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 29.1.0-SNAPSHOT.1134
         environment: scratch
-        module: mod-inventory-storage
       name: mod-inventory-storage
       namespace: folio-modules
     spec:
@@ -313,15 +344,21 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-inventory-storage-29.1.0-SNAPSHOT.1134
+          app.kubernetes.io/name: mod-inventory-storage
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 29.1.0-SNAPSHOT.1134
           environment: scratch
-          module: mod-inventory-storage
       serviceName: mod-inventory-storage
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-inventory-storage-29.1.0-SNAPSHOT.1134
+            app.kubernetes.io/name: mod-inventory-storage
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 29.1.0-SNAPSHOT.1134
             environment: scratch
-            module: mod-inventory-storage
           namespace: folio-modules
         spec:
           containers:
@@ -434,8 +471,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-inventory-storage-29.1.0-SNAPSHOT.1134
+        app.kubernetes.io/name: mod-inventory-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 29.1.0-SNAPSHOT.1134
         environment: scratch
-        module: mod-inventory-storage
       name: mod-inventory-storage
       namespace: folio-modules
     spec:
@@ -448,18 +488,23 @@ items:
           protocol: TCP
           targetPort: 8081
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-inventory-storage
+        app: app-complete
+        app.kubernetes.io/instance: mod-inventory-storage-29.1.0-SNAPSHOT.1134
+        app.kubernetes.io/name: mod-inventory-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 29.1.0-SNAPSHOT.1134
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-circulation-storage-17.5.0-SNAPSHOT.438
+        app.kubernetes.io/name: mod-circulation-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 17.5.0-SNAPSHOT.438
         environment: scratch
-        module: mod-circulation-storage
       name: mod-circulation-storage
       namespace: folio-modules
     spec:
@@ -467,15 +512,21 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-circulation-storage-17.5.0-SNAPSHOT.438
+          app.kubernetes.io/name: mod-circulation-storage
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 17.5.0-SNAPSHOT.438
           environment: scratch
-          module: mod-circulation-storage
       serviceName: mod-circulation-storage
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-circulation-storage-17.5.0-SNAPSHOT.438
+            app.kubernetes.io/name: mod-circulation-storage
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 17.5.0-SNAPSHOT.438
             environment: scratch
-            module: mod-circulation-storage
           namespace: folio-modules
         spec:
           containers:
@@ -586,8 +637,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-circulation-storage-17.5.0-SNAPSHOT.438
+        app.kubernetes.io/name: mod-circulation-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 17.5.0-SNAPSHOT.438
         environment: scratch
-        module: mod-circulation-storage
       name: mod-circulation-storage
       namespace: folio-modules
     spec:
@@ -600,18 +654,23 @@ items:
           protocol: TCP
           targetPort: 8081
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-circulation-storage
+        app: app-complete
+        app.kubernetes.io/instance: mod-circulation-storage-17.5.0-SNAPSHOT.438
+        app.kubernetes.io/name: mod-circulation-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 17.5.0-SNAPSHOT.438
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-search-5.1.0-SNAPSHOT.699
+        app.kubernetes.io/name: mod-search
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.1.0-SNAPSHOT.699
         environment: scratch
-        module: mod-search
       name: mod-search
       namespace: folio-modules
     spec:
@@ -619,16 +678,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-search-5.1.0-SNAPSHOT.699
+          app.kubernetes.io/name: mod-search
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 5.1.0-SNAPSHOT.699
           environment: scratch
-          module: mod-search
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-search-5.1.0-SNAPSHOT.699
+            app.kubernetes.io/name: mod-search
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 5.1.0-SNAPSHOT.699
             environment: scratch
-            module: mod-search
           namespace: folio-modules
         spec:
           containers:
@@ -748,8 +813,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-search-5.1.0-SNAPSHOT.699
+        app.kubernetes.io/name: mod-search
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.1.0-SNAPSHOT.699
         environment: scratch
-        module: mod-search
       name: mod-search
       namespace: folio-modules
     spec:
@@ -766,18 +834,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-search
+        app: app-complete
+        app.kubernetes.io/instance: mod-search-5.1.0-SNAPSHOT.699
+        app.kubernetes.io/name: mod-search
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.1.0-SNAPSHOT.699
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-inventory-21.2.0-SNAPSHOT.872
+        app.kubernetes.io/name: mod-inventory
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 21.2.0-SNAPSHOT.872
         environment: scratch
-        module: mod-inventory
       name: mod-inventory
       namespace: folio-modules
     spec:
@@ -785,16 +858,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-inventory-21.2.0-SNAPSHOT.872
+          app.kubernetes.io/name: mod-inventory
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 21.2.0-SNAPSHOT.872
           environment: scratch
-          module: mod-inventory
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-inventory-21.2.0-SNAPSHOT.872
+            app.kubernetes.io/name: mod-inventory
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 21.2.0-SNAPSHOT.872
             environment: scratch
-            module: mod-inventory
           namespace: folio-modules
         spec:
           containers:
@@ -896,8 +975,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-inventory-21.2.0-SNAPSHOT.872
+        app.kubernetes.io/name: mod-inventory
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 21.2.0-SNAPSHOT.872
         environment: scratch
-        module: mod-inventory
       name: mod-inventory
       namespace: folio-modules
     spec:
@@ -914,18 +996,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-inventory
+        app: app-complete
+        app.kubernetes.io/instance: mod-inventory-21.2.0-SNAPSHOT.872
+        app.kubernetes.io/name: mod-inventory
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 21.2.0-SNAPSHOT.872
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-circulation-24.5.0-SNAPSHOT.1307
+        app.kubernetes.io/name: mod-circulation
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 24.5.0-SNAPSHOT.1307
         environment: scratch
-        module: mod-circulation
       name: mod-circulation
       namespace: folio-modules
     spec:
@@ -933,16 +1020,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-circulation-24.5.0-SNAPSHOT.1307
+          app.kubernetes.io/name: mod-circulation
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 24.5.0-SNAPSHOT.1307
           environment: scratch
-          module: mod-circulation
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-circulation-24.5.0-SNAPSHOT.1307
+            app.kubernetes.io/name: mod-circulation
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 24.5.0-SNAPSHOT.1307
             environment: scratch
-            module: mod-circulation
           namespace: folio-modules
         spec:
           containers:
@@ -1043,8 +1136,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-circulation-24.5.0-SNAPSHOT.1307
+        app.kubernetes.io/name: mod-circulation
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 24.5.0-SNAPSHOT.1307
         environment: scratch
-        module: mod-circulation
       name: mod-circulation
       namespace: folio-modules
     spec:
@@ -1061,18 +1157,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-circulation
+        app: app-complete
+        app.kubernetes.io/instance: mod-circulation-24.5.0-SNAPSHOT.1307
+        app.kubernetes.io/name: mod-circulation
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 24.5.0-SNAPSHOT.1307
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-feesfines-19.4.0-SNAPSHOT.246
+        app.kubernetes.io/name: mod-feesfines
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 19.4.0-SNAPSHOT.246
         environment: scratch
-        module: mod-feesfines
       name: mod-feesfines
       namespace: folio-modules
     spec:
@@ -1080,16 +1181,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-feesfines-19.4.0-SNAPSHOT.246
+          app.kubernetes.io/name: mod-feesfines
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 19.4.0-SNAPSHOT.246
           environment: scratch
-          module: mod-feesfines
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-feesfines-19.4.0-SNAPSHOT.246
+            app.kubernetes.io/name: mod-feesfines
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 19.4.0-SNAPSHOT.246
             environment: scratch
-            module: mod-feesfines
           namespace: folio-modules
         spec:
           containers:
@@ -1197,8 +1304,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-feesfines-19.4.0-SNAPSHOT.246
+        app.kubernetes.io/name: mod-feesfines
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 19.4.0-SNAPSHOT.246
         environment: scratch
-        module: mod-feesfines
       name: mod-feesfines
       namespace: folio-modules
     spec:
@@ -1215,18 +1325,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-feesfines
+        app: app-complete
+        app.kubernetes.io/instance: mod-feesfines-19.4.0-SNAPSHOT.246
+        app.kubernetes.io/name: mod-feesfines
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 19.4.0-SNAPSHOT.246
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-patron-blocks-1.13.0-SNAPSHOT.108
+        app.kubernetes.io/name: mod-patron-blocks
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.13.0-SNAPSHOT.108
         environment: scratch
-        module: mod-patron-blocks
       name: mod-patron-blocks
       namespace: folio-modules
     spec:
@@ -1234,15 +1349,21 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-patron-blocks-1.13.0-SNAPSHOT.108
+          app.kubernetes.io/name: mod-patron-blocks
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 1.13.0-SNAPSHOT.108
           environment: scratch
-          module: mod-patron-blocks
       serviceName: mod-patron-blocks
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-patron-blocks-1.13.0-SNAPSHOT.108
+            app.kubernetes.io/name: mod-patron-blocks
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 1.13.0-SNAPSHOT.108
             environment: scratch
-            module: mod-patron-blocks
           namespace: folio-modules
         spec:
           containers:
@@ -1352,8 +1473,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-patron-blocks-1.13.0-SNAPSHOT.108
+        app.kubernetes.io/name: mod-patron-blocks
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.13.0-SNAPSHOT.108
         environment: scratch
-        module: mod-patron-blocks
       name: mod-patron-blocks
       namespace: folio-modules
     spec:
@@ -1366,18 +1490,23 @@ items:
           protocol: TCP
           targetPort: 8081
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-patron-blocks
+        app: app-complete
+        app.kubernetes.io/instance: mod-patron-blocks-1.13.0-SNAPSHOT.108
+        app.kubernetes.io/name: mod-patron-blocks
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.13.0-SNAPSHOT.108
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-entities-links-4.1.0-SNAPSHOT.336
+        app.kubernetes.io/name: mod-entities-links
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 4.1.0-SNAPSHOT.336
         environment: scratch
-        module: mod-entities-links
       name: mod-entities-links
       namespace: folio-modules
     spec:
@@ -1385,16 +1514,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-entities-links-4.1.0-SNAPSHOT.336
+          app.kubernetes.io/name: mod-entities-links
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 4.1.0-SNAPSHOT.336
           environment: scratch
-          module: mod-entities-links
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-entities-links-4.1.0-SNAPSHOT.336
+            app.kubernetes.io/name: mod-entities-links
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 4.1.0-SNAPSHOT.336
             environment: scratch
-            module: mod-entities-links
           namespace: folio-modules
         spec:
           containers:
@@ -1514,8 +1649,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-entities-links-4.1.0-SNAPSHOT.336
+        app.kubernetes.io/name: mod-entities-links
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 4.1.0-SNAPSHOT.336
         environment: scratch
-        module: mod-entities-links
       name: mod-entities-links
       namespace: folio-modules
     spec:
@@ -1532,18 +1670,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-entities-links
+        app: app-complete
+        app.kubernetes.io/instance: mod-entities-links-4.1.0-SNAPSHOT.336
+        app.kubernetes.io/name: mod-entities-links
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 4.1.0-SNAPSHOT.336
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-source-record-manager-3.11.0-SNAPSHOT.1023
+        app.kubernetes.io/name: mod-source-record-manager
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.11.0-SNAPSHOT.1023
         environment: scratch
-        module: mod-source-record-manager
       name: mod-source-record-manager
       namespace: folio-modules
     spec:
@@ -1551,16 +1694,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-source-record-manager-3.11.0-SNAPSHOT.1023
+          app.kubernetes.io/name: mod-source-record-manager
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.11.0-SNAPSHOT.1023
           environment: scratch
-          module: mod-source-record-manager
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-source-record-manager-3.11.0-SNAPSHOT.1023
+            app.kubernetes.io/name: mod-source-record-manager
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.11.0-SNAPSHOT.1023
             environment: scratch
-            module: mod-source-record-manager
           namespace: folio-modules
         spec:
           containers:
@@ -1671,8 +1820,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-source-record-manager-3.11.0-SNAPSHOT.1023
+        app.kubernetes.io/name: mod-source-record-manager
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.11.0-SNAPSHOT.1023
         environment: scratch
-        module: mod-source-record-manager
       name: mod-source-record-manager
       namespace: folio-modules
     spec:
@@ -1689,18 +1841,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-source-record-manager
+        app: app-complete
+        app.kubernetes.io/instance: mod-source-record-manager-3.11.0-SNAPSHOT.1023
+        app.kubernetes.io/name: mod-source-record-manager
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.11.0-SNAPSHOT.1023
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-di-converter-storage-2.5.0-SNAPSHOT.74
+        app.kubernetes.io/name: mod-di-converter-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.5.0-SNAPSHOT.74
         environment: scratch
-        module: mod-di-converter-storage
       name: mod-di-converter-storage
       namespace: folio-modules
     spec:
@@ -1708,15 +1865,21 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-di-converter-storage-2.5.0-SNAPSHOT.74
+          app.kubernetes.io/name: mod-di-converter-storage
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 2.5.0-SNAPSHOT.74
           environment: scratch
-          module: mod-di-converter-storage
       serviceName: mod-di-converter-storage
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-di-converter-storage-2.5.0-SNAPSHOT.74
+            app.kubernetes.io/name: mod-di-converter-storage
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 2.5.0-SNAPSHOT.74
             environment: scratch
-            module: mod-di-converter-storage
           namespace: folio-modules
         spec:
           containers:
@@ -1827,8 +1990,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-di-converter-storage-2.5.0-SNAPSHOT.74
+        app.kubernetes.io/name: mod-di-converter-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.5.0-SNAPSHOT.74
         environment: scratch
-        module: mod-di-converter-storage
       name: mod-di-converter-storage
       namespace: folio-modules
     spec:
@@ -1841,18 +2007,23 @@ items:
           protocol: TCP
           targetPort: 8081
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-di-converter-storage
+        app: app-complete
+        app.kubernetes.io/instance: mod-di-converter-storage-2.5.0-SNAPSHOT.74
+        app.kubernetes.io/name: mod-di-converter-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.5.0-SNAPSHOT.74
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-patron-6.4.0-SNAPSHOT.168
+        app.kubernetes.io/name: mod-patron
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.4.0-SNAPSHOT.168
         environment: scratch
-        module: mod-patron
       name: mod-patron
       namespace: folio-modules
     spec:
@@ -1860,16 +2031,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-patron-6.4.0-SNAPSHOT.168
+          app.kubernetes.io/name: mod-patron
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 6.4.0-SNAPSHOT.168
           environment: scratch
-          module: mod-patron
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-patron-6.4.0-SNAPSHOT.168
+            app.kubernetes.io/name: mod-patron
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 6.4.0-SNAPSHOT.168
             environment: scratch
-            module: mod-patron
           namespace: folio-modules
         spec:
           containers:
@@ -1977,8 +2154,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-patron-6.4.0-SNAPSHOT.168
+        app.kubernetes.io/name: mod-patron
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.4.0-SNAPSHOT.168
         environment: scratch
-        module: mod-patron
       name: mod-patron
       namespace: folio-modules
     spec:
@@ -1995,18 +2175,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-patron
+        app: app-complete
+        app.kubernetes.io/instance: mod-patron-6.4.0-SNAPSHOT.168
+        app.kubernetes.io/name: mod-patron
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.4.0-SNAPSHOT.168
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-data-export-5.3.0-SNAPSHOT.471
+        app.kubernetes.io/name: mod-data-export
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.3.0-SNAPSHOT.471
         environment: scratch
-        module: mod-data-export
       name: mod-data-export
       namespace: folio-modules
     spec:
@@ -2014,16 +2199,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-data-export-5.3.0-SNAPSHOT.471
+          app.kubernetes.io/name: mod-data-export
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 5.3.0-SNAPSHOT.471
           environment: scratch
-          module: mod-data-export
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-data-export-5.3.0-SNAPSHOT.471
+            app.kubernetes.io/name: mod-data-export
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 5.3.0-SNAPSHOT.471
             environment: scratch
-            module: mod-data-export
           namespace: folio-modules
         spec:
           containers:
@@ -2139,8 +2330,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-data-export-5.3.0-SNAPSHOT.471
+        app.kubernetes.io/name: mod-data-export
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.3.0-SNAPSHOT.471
         environment: scratch
-        module: mod-data-export
       name: mod-data-export
       namespace: folio-modules
     spec:
@@ -2157,18 +2351,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-data-export
+        app: app-complete
+        app.kubernetes.io/instance: mod-data-export-5.3.0-SNAPSHOT.471
+        app.kubernetes.io/name: mod-data-export
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.3.0-SNAPSHOT.471
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-data-export-spring-3.6.0-SNAPSHOT.303
+        app.kubernetes.io/name: mod-data-export-spring
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.6.0-SNAPSHOT.303
         environment: scratch
-        module: mod-data-export-spring
       name: mod-data-export-spring
       namespace: folio-modules
     spec:
@@ -2176,16 +2375,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-data-export-spring-3.6.0-SNAPSHOT.303
+          app.kubernetes.io/name: mod-data-export-spring
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.6.0-SNAPSHOT.303
           environment: scratch
-          module: mod-data-export-spring
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-data-export-spring-3.6.0-SNAPSHOT.303
+            app.kubernetes.io/name: mod-data-export-spring
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.6.0-SNAPSHOT.303
             environment: scratch
-            module: mod-data-export-spring
           namespace: folio-modules
         spec:
           containers:
@@ -2308,8 +2513,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-data-export-spring-3.6.0-SNAPSHOT.303
+        app.kubernetes.io/name: mod-data-export-spring
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.6.0-SNAPSHOT.303
         environment: scratch
-        module: mod-data-export-spring
       name: mod-data-export-spring
       namespace: folio-modules
     spec:
@@ -2326,18 +2534,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-data-export-spring
+        app: app-complete
+        app.kubernetes.io/instance: mod-data-export-spring-3.6.0-SNAPSHOT.303
+        app.kubernetes.io/name: mod-data-export-spring
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.6.0-SNAPSHOT.303
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-data-export-worker-3.5.0-SNAPSHOT.614
+        app.kubernetes.io/name: mod-data-export-worker
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.5.0-SNAPSHOT.614
         environment: scratch
-        module: mod-data-export-worker
       name: mod-data-export-worker
       namespace: folio-modules
     spec:
@@ -2345,16 +2558,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-data-export-worker-3.5.0-SNAPSHOT.614
+          app.kubernetes.io/name: mod-data-export-worker
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.5.0-SNAPSHOT.614
           environment: scratch
-          module: mod-data-export-worker
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-data-export-worker-3.5.0-SNAPSHOT.614
+            app.kubernetes.io/name: mod-data-export-worker
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.5.0-SNAPSHOT.614
             environment: scratch
-            module: mod-data-export-worker
           namespace: folio-modules
         spec:
           containers:
@@ -2472,8 +2691,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-data-export-worker-3.5.0-SNAPSHOT.614
+        app.kubernetes.io/name: mod-data-export-worker
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.5.0-SNAPSHOT.614
         environment: scratch
-        module: mod-data-export-worker
       name: mod-data-export-worker
       namespace: folio-modules
     spec:
@@ -2490,18 +2712,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-data-export-worker
+        app: app-complete
+        app.kubernetes.io/instance: mod-data-export-worker-3.5.0-SNAPSHOT.614
+        app.kubernetes.io/name: mod-data-export-worker
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.5.0-SNAPSHOT.614
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-rtac-3.9.0-SNAPSHOT.108
+        app.kubernetes.io/name: mod-rtac
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.9.0-SNAPSHOT.108
         environment: scratch
-        module: mod-rtac
       name: mod-rtac
       namespace: folio-modules
     spec:
@@ -2509,16 +2736,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-rtac-3.9.0-SNAPSHOT.108
+          app.kubernetes.io/name: mod-rtac
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.9.0-SNAPSHOT.108
           environment: scratch
-          module: mod-rtac
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-rtac-3.9.0-SNAPSHOT.108
+            app.kubernetes.io/name: mod-rtac
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.9.0-SNAPSHOT.108
             environment: scratch
-            module: mod-rtac
           namespace: folio-modules
         spec:
           containers:
@@ -2626,8 +2859,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-rtac-3.9.0-SNAPSHOT.108
+        app.kubernetes.io/name: mod-rtac
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.9.0-SNAPSHOT.108
         environment: scratch
-        module: mod-rtac
       name: mod-rtac
       namespace: folio-modules
     spec:
@@ -2644,18 +2880,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-rtac
+        app: app-complete
+        app.kubernetes.io/instance: mod-rtac-3.9.0-SNAPSHOT.108
+        app.kubernetes.io/name: mod-rtac
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.9.0-SNAPSHOT.108
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-remote-storage-3.5.0-SNAPSHOT.227
+        app.kubernetes.io/name: mod-remote-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.5.0-SNAPSHOT.227
         environment: scratch
-        module: mod-remote-storage
       name: mod-remote-storage
       namespace: folio-modules
     spec:
@@ -2663,16 +2904,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-remote-storage-3.5.0-SNAPSHOT.227
+          app.kubernetes.io/name: mod-remote-storage
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.5.0-SNAPSHOT.227
           environment: scratch
-          module: mod-remote-storage
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-remote-storage-3.5.0-SNAPSHOT.227
+            app.kubernetes.io/name: mod-remote-storage
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.5.0-SNAPSHOT.227
             environment: scratch
-            module: mod-remote-storage
           namespace: folio-modules
         spec:
           containers:
@@ -2786,8 +3033,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-remote-storage-3.5.0-SNAPSHOT.227
+        app.kubernetes.io/name: mod-remote-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.5.0-SNAPSHOT.227
         environment: scratch
-        module: mod-remote-storage
       name: mod-remote-storage
       namespace: folio-modules
     spec:
@@ -2804,18 +3054,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-remote-storage
+        app: app-complete
+        app.kubernetes.io/instance: mod-remote-storage-3.5.0-SNAPSHOT.227
+        app.kubernetes.io/name: mod-remote-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.5.0-SNAPSHOT.227
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-calendar-3.4.0-SNAPSHOT.181
+        app.kubernetes.io/name: mod-calendar
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.4.0-SNAPSHOT.181
         environment: scratch
-        module: mod-calendar
       name: mod-calendar
       namespace: folio-modules
     spec:
@@ -2823,16 +3078,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-calendar-3.4.0-SNAPSHOT.181
+          app.kubernetes.io/name: mod-calendar
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.4.0-SNAPSHOT.181
           environment: scratch
-          module: mod-calendar
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-calendar-3.4.0-SNAPSHOT.181
+            app.kubernetes.io/name: mod-calendar
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.4.0-SNAPSHOT.181
             environment: scratch
-            module: mod-calendar
           namespace: folio-modules
         spec:
           containers:
@@ -2940,8 +3201,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-calendar-3.4.0-SNAPSHOT.181
+        app.kubernetes.io/name: mod-calendar
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.4.0-SNAPSHOT.181
         environment: scratch
-        module: mod-calendar
       name: mod-calendar
       namespace: folio-modules
     spec:
@@ -2958,18 +3222,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-calendar
+        app: app-complete
+        app.kubernetes.io/instance: mod-calendar-3.4.0-SNAPSHOT.181
+        app.kubernetes.io/name: mod-calendar
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.4.0-SNAPSHOT.181
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-audit-3.0.0-SNAPSHOT.221
+        app.kubernetes.io/name: mod-audit
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.0.0-SNAPSHOT.221
         environment: scratch
-        module: mod-audit
       name: mod-audit
       namespace: folio-modules
     spec:
@@ -2977,16 +3246,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-audit-3.0.0-SNAPSHOT.221
+          app.kubernetes.io/name: mod-audit
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.0.0-SNAPSHOT.221
           environment: scratch
-          module: mod-audit
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-audit-3.0.0-SNAPSHOT.221
+            app.kubernetes.io/name: mod-audit
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.0.0-SNAPSHOT.221
             environment: scratch
-            module: mod-audit
           namespace: folio-modules
         spec:
           containers:
@@ -3097,8 +3372,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-audit-3.0.0-SNAPSHOT.221
+        app.kubernetes.io/name: mod-audit
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.0.0-SNAPSHOT.221
         environment: scratch
-        module: mod-audit
       name: mod-audit
       namespace: folio-modules
     spec:
@@ -3115,18 +3393,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-audit
+        app: app-complete
+        app.kubernetes.io/instance: mod-audit-3.0.0-SNAPSHOT.221
+        app.kubernetes.io/name: mod-audit
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.0.0-SNAPSHOT.221
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-courses-1.4.12-SNAPSHOT.168
+        app.kubernetes.io/name: mod-courses
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.4.12-SNAPSHOT.168
         environment: scratch
-        module: mod-courses
       name: mod-courses
       namespace: folio-modules
     spec:
@@ -3134,16 +3417,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-courses-1.4.12-SNAPSHOT.168
+          app.kubernetes.io/name: mod-courses
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 1.4.12-SNAPSHOT.168
           environment: scratch
-          module: mod-courses
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-courses-1.4.12-SNAPSHOT.168
+            app.kubernetes.io/name: mod-courses
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 1.4.12-SNAPSHOT.168
             environment: scratch
-            module: mod-courses
           namespace: folio-modules
         spec:
           containers:
@@ -3251,8 +3540,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-courses-1.4.12-SNAPSHOT.168
+        app.kubernetes.io/name: mod-courses
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.4.12-SNAPSHOT.168
         environment: scratch
-        module: mod-courses
       name: mod-courses
       namespace: folio-modules
     spec:
@@ -3269,18 +3561,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-courses
+        app: app-complete
+        app.kubernetes.io/instance: mod-courses-1.4.12-SNAPSHOT.168
+        app.kubernetes.io/name: mod-courses
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.4.12-SNAPSHOT.168
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-source-record-storage-5.11.0-SNAPSHOT.682
+        app.kubernetes.io/name: mod-source-record-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.11.0-SNAPSHOT.682
         environment: scratch
-        module: mod-source-record-storage
       name: mod-source-record-storage
       namespace: folio-modules
     spec:
@@ -3288,15 +3585,21 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-source-record-storage-5.11.0-SNAPSHOT.682
+          app.kubernetes.io/name: mod-source-record-storage
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 5.11.0-SNAPSHOT.682
           environment: scratch
-          module: mod-source-record-storage
       serviceName: mod-source-record-storage
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-source-record-storage-5.11.0-SNAPSHOT.682
+            app.kubernetes.io/name: mod-source-record-storage
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 5.11.0-SNAPSHOT.682
             environment: scratch
-            module: mod-source-record-storage
           namespace: folio-modules
         spec:
           containers:
@@ -3410,8 +3713,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-source-record-storage-5.11.0-SNAPSHOT.682
+        app.kubernetes.io/name: mod-source-record-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.11.0-SNAPSHOT.682
         environment: scratch
-        module: mod-source-record-storage
       name: mod-source-record-storage
       namespace: folio-modules
     spec:
@@ -3424,18 +3730,23 @@ items:
           protocol: TCP
           targetPort: 8081
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-source-record-storage
+        app: app-complete
+        app.kubernetes.io/instance: mod-source-record-storage-5.11.0-SNAPSHOT.682
+        app.kubernetes.io/name: mod-source-record-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.11.0-SNAPSHOT.682
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-data-import-3.4.0-SNAPSHOT.332
+        app.kubernetes.io/name: mod-data-import
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.4.0-SNAPSHOT.332
         environment: scratch
-        module: mod-data-import
       name: mod-data-import
       namespace: folio-modules
     spec:
@@ -3443,16 +3754,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-data-import-3.4.0-SNAPSHOT.332
+          app.kubernetes.io/name: mod-data-import
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.4.0-SNAPSHOT.332
           environment: scratch
-          module: mod-data-import
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-data-import-3.4.0-SNAPSHOT.332
+            app.kubernetes.io/name: mod-data-import
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.4.0-SNAPSHOT.332
             environment: scratch
-            module: mod-data-import
           namespace: folio-modules
         spec:
           containers:
@@ -3570,8 +3887,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-data-import-3.4.0-SNAPSHOT.332
+        app.kubernetes.io/name: mod-data-import
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.4.0-SNAPSHOT.332
         environment: scratch
-        module: mod-data-import
       name: mod-data-import
       namespace: folio-modules
     spec:
@@ -3588,18 +3908,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-data-import
+        app: app-complete
+        app.kubernetes.io/instance: mod-data-import-3.4.0-SNAPSHOT.332
+        app.kubernetes.io/name: mod-data-import
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.4.0-SNAPSHOT.332
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-agreements-7.3.0-SNAPSHOT.765
+        app.kubernetes.io/name: mod-agreements
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 7.3.0-SNAPSHOT.765
         environment: scratch
-        module: mod-agreements
       name: mod-agreements
       namespace: folio-modules
     spec:
@@ -3607,15 +3932,21 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-agreements-7.3.0-SNAPSHOT.765
+          app.kubernetes.io/name: mod-agreements
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 7.3.0-SNAPSHOT.765
           environment: scratch
-          module: mod-agreements
       serviceName: mod-agreements
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-agreements-7.3.0-SNAPSHOT.765
+            app.kubernetes.io/name: mod-agreements
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 7.3.0-SNAPSHOT.765
             environment: scratch
-            module: mod-agreements
           namespace: folio-modules
         spec:
           containers:
@@ -3716,8 +4047,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-agreements-7.3.0-SNAPSHOT.765
+        app.kubernetes.io/name: mod-agreements
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 7.3.0-SNAPSHOT.765
         environment: scratch
-        module: mod-agreements
       name: mod-agreements
       namespace: folio-modules
     spec:
@@ -3730,18 +4064,23 @@ items:
           protocol: TCP
           targetPort: 8080
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-agreements
+        app: app-complete
+        app.kubernetes.io/instance: mod-agreements-7.3.0-SNAPSHOT.765
+        app.kubernetes.io/name: mod-agreements
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 7.3.0-SNAPSHOT.765
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-licenses-6.3.0-SNAPSHOT.285
+        app.kubernetes.io/name: mod-licenses
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.3.0-SNAPSHOT.285
         environment: scratch
-        module: mod-licenses
       name: mod-licenses
       namespace: folio-modules
     spec:
@@ -3749,15 +4088,21 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-licenses-6.3.0-SNAPSHOT.285
+          app.kubernetes.io/name: mod-licenses
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 6.3.0-SNAPSHOT.285
           environment: scratch
-          module: mod-licenses
       serviceName: mod-licenses
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-licenses-6.3.0-SNAPSHOT.285
+            app.kubernetes.io/name: mod-licenses
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 6.3.0-SNAPSHOT.285
             environment: scratch
-            module: mod-licenses
           namespace: folio-modules
         spec:
           containers:
@@ -3866,8 +4211,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-licenses-6.3.0-SNAPSHOT.285
+        app.kubernetes.io/name: mod-licenses
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.3.0-SNAPSHOT.285
         environment: scratch
-        module: mod-licenses
       name: mod-licenses
       namespace: folio-modules
     spec:
@@ -3880,18 +4228,23 @@ items:
           protocol: TCP
           targetPort: 8080
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-licenses
+        app: app-complete
+        app.kubernetes.io/instance: mod-licenses-6.3.0-SNAPSHOT.285
+        app.kubernetes.io/name: mod-licenses
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.3.0-SNAPSHOT.285
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-email-1.20.0-SNAPSHOT.93
+        app.kubernetes.io/name: mod-email
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.20.0-SNAPSHOT.93
         environment: scratch
-        module: mod-email
       name: mod-email
       namespace: folio-modules
     spec:
@@ -3899,16 +4252,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-email-1.20.0-SNAPSHOT.93
+          app.kubernetes.io/name: mod-email
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 1.20.0-SNAPSHOT.93
           environment: scratch
-          module: mod-email
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-email-1.20.0-SNAPSHOT.93
+            app.kubernetes.io/name: mod-email
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 1.20.0-SNAPSHOT.93
             environment: scratch
-            module: mod-email
           namespace: folio-modules
         spec:
           containers:
@@ -4016,8 +4375,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-email-1.20.0-SNAPSHOT.93
+        app.kubernetes.io/name: mod-email
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.20.0-SNAPSHOT.93
         environment: scratch
-        module: mod-email
       name: mod-email
       namespace: folio-modules
     spec:
@@ -4034,18 +4396,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-email
+        app: app-complete
+        app.kubernetes.io/instance: mod-email-1.20.0-SNAPSHOT.93
+        app.kubernetes.io/name: mod-email
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.20.0-SNAPSHOT.93
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-event-config-2.10.0-SNAPSHOT.72
+        app.kubernetes.io/name: mod-event-config
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.10.0-SNAPSHOT.72
         environment: scratch
-        module: mod-event-config
       name: mod-event-config
       namespace: folio-modules
     spec:
@@ -4053,16 +4420,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-event-config-2.10.0-SNAPSHOT.72
+          app.kubernetes.io/name: mod-event-config
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 2.10.0-SNAPSHOT.72
           environment: scratch
-          module: mod-event-config
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-event-config-2.10.0-SNAPSHOT.72
+            app.kubernetes.io/name: mod-event-config
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 2.10.0-SNAPSHOT.72
             environment: scratch
-            module: mod-event-config
           namespace: folio-modules
         spec:
           containers:
@@ -4170,8 +4543,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-event-config-2.10.0-SNAPSHOT.72
+        app.kubernetes.io/name: mod-event-config
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.10.0-SNAPSHOT.72
         environment: scratch
-        module: mod-event-config
       name: mod-event-config
       namespace: folio-modules
     spec:
@@ -4188,18 +4564,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-event-config
+        app: app-complete
+        app.kubernetes.io/instance: mod-event-config-2.10.0-SNAPSHOT.72
+        app.kubernetes.io/name: mod-event-config
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.10.0-SNAPSHOT.72
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-notify-3.5.0-SNAPSHOT.139
+        app.kubernetes.io/name: mod-notify
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.5.0-SNAPSHOT.139
         environment: scratch
-        module: mod-notify
       name: mod-notify
       namespace: folio-modules
     spec:
@@ -4207,16 +4588,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-notify-3.5.0-SNAPSHOT.139
+          app.kubernetes.io/name: mod-notify
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.5.0-SNAPSHOT.139
           environment: scratch
-          module: mod-notify
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-notify-3.5.0-SNAPSHOT.139
+            app.kubernetes.io/name: mod-notify
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.5.0-SNAPSHOT.139
             environment: scratch
-            module: mod-notify
           namespace: folio-modules
         spec:
           containers:
@@ -4324,8 +4711,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-notify-3.5.0-SNAPSHOT.139
+        app.kubernetes.io/name: mod-notify
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.5.0-SNAPSHOT.139
         environment: scratch
-        module: mod-notify
       name: mod-notify
       namespace: folio-modules
     spec:
@@ -4342,18 +4732,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-notify
+        app: app-complete
+        app.kubernetes.io/instance: mod-notify-3.5.0-SNAPSHOT.139
+        app.kubernetes.io/name: mod-notify
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.5.0-SNAPSHOT.139
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-sender-1.14.1
+        app.kubernetes.io/name: mod-sender
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.14.1
         environment: scratch
-        module: mod-sender
       name: mod-sender
       namespace: folio-modules
     spec:
@@ -4361,16 +4756,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-sender-1.14.1
+          app.kubernetes.io/name: mod-sender
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 1.14.1
           environment: scratch
-          module: mod-sender
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-sender-1.14.1
+            app.kubernetes.io/name: mod-sender
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 1.14.1
             environment: scratch
-            module: mod-sender
           namespace: folio-modules
         spec:
           containers:
@@ -4478,8 +4879,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-sender-1.14.1
+        app.kubernetes.io/name: mod-sender
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.14.1
         environment: scratch
-        module: mod-sender
       name: mod-sender
       namespace: folio-modules
     spec:
@@ -4496,18 +4900,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-sender
+        app: app-complete
+        app.kubernetes.io/instance: mod-sender-1.14.1
+        app.kubernetes.io/name: mod-sender
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.14.1
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-template-engine-1.23.0-SNAPSHOT.103
+        app.kubernetes.io/name: mod-template-engine
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.23.0-SNAPSHOT.103
         environment: scratch
-        module: mod-template-engine
       name: mod-template-engine
       namespace: folio-modules
     spec:
@@ -4515,16 +4924,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-template-engine-1.23.0-SNAPSHOT.103
+          app.kubernetes.io/name: mod-template-engine
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 1.23.0-SNAPSHOT.103
           environment: scratch
-          module: mod-template-engine
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-template-engine-1.23.0-SNAPSHOT.103
+            app.kubernetes.io/name: mod-template-engine
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 1.23.0-SNAPSHOT.103
             environment: scratch
-            module: mod-template-engine
           namespace: folio-modules
         spec:
           containers:
@@ -4632,8 +5047,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-template-engine-1.23.0-SNAPSHOT.103
+        app.kubernetes.io/name: mod-template-engine
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.23.0-SNAPSHOT.103
         environment: scratch
-        module: mod-template-engine
       name: mod-template-engine
       namespace: folio-modules
     spec:
@@ -4650,18 +5068,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-template-engine
+        app: app-complete
+        app.kubernetes.io/instance: mod-template-engine-1.23.0-SNAPSHOT.103
+        app.kubernetes.io/name: mod-template-engine
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.23.0-SNAPSHOT.103
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-pubsub-2.17.0-SNAPSHOT.260
+        app.kubernetes.io/name: mod-pubsub
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.17.0-SNAPSHOT.260
         environment: scratch
-        module: mod-pubsub
       name: mod-pubsub
       namespace: folio-modules
     spec:
@@ -4669,16 +5092,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-pubsub-2.17.0-SNAPSHOT.260
+          app.kubernetes.io/name: mod-pubsub
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 2.17.0-SNAPSHOT.260
           environment: scratch
-          module: mod-pubsub
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-pubsub-2.17.0-SNAPSHOT.260
+            app.kubernetes.io/name: mod-pubsub
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 2.17.0-SNAPSHOT.260
             environment: scratch
-            module: mod-pubsub
           namespace: folio-modules
         spec:
           containers:
@@ -4798,8 +5227,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-pubsub-2.17.0-SNAPSHOT.260
+        app.kubernetes.io/name: mod-pubsub
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.17.0-SNAPSHOT.260
         environment: scratch
-        module: mod-pubsub
       name: mod-pubsub
       namespace: folio-modules
     spec:
@@ -4816,18 +5248,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-pubsub
+        app: app-complete
+        app.kubernetes.io/instance: mod-pubsub-2.17.0-SNAPSHOT.260
+        app.kubernetes.io/name: mod-pubsub
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.17.0-SNAPSHOT.260
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-gobi-3.1.0-SNAPSHOT.253
+        app.kubernetes.io/name: mod-gobi
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.1.0-SNAPSHOT.253
         environment: scratch
-        module: mod-gobi
       name: mod-gobi
       namespace: folio-modules
     spec:
@@ -4835,16 +5272,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-gobi-3.1.0-SNAPSHOT.253
+          app.kubernetes.io/name: mod-gobi
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.1.0-SNAPSHOT.253
           environment: scratch
-          module: mod-gobi
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-gobi-3.1.0-SNAPSHOT.253
+            app.kubernetes.io/name: mod-gobi
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.1.0-SNAPSHOT.253
             environment: scratch
-            module: mod-gobi
           namespace: folio-modules
         spec:
           containers:
@@ -4952,8 +5395,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-gobi-3.1.0-SNAPSHOT.253
+        app.kubernetes.io/name: mod-gobi
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.1.0-SNAPSHOT.253
         environment: scratch
-        module: mod-gobi
       name: mod-gobi
       namespace: folio-modules
     spec:
@@ -4970,18 +5416,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-gobi
+        app: app-complete
+        app.kubernetes.io/instance: mod-gobi-3.1.0-SNAPSHOT.253
+        app.kubernetes.io/name: mod-gobi
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.1.0-SNAPSHOT.253
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-copycat-1.8.0
+        app.kubernetes.io/name: mod-copycat
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.8.0
         environment: scratch
-        module: mod-copycat
       name: mod-copycat
       namespace: folio-modules
     spec:
@@ -4989,16 +5440,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-copycat-1.8.0
+          app.kubernetes.io/name: mod-copycat
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 1.8.0
           environment: scratch
-          module: mod-copycat
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-copycat-1.8.0
+            app.kubernetes.io/name: mod-copycat
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 1.8.0
             environment: scratch
-            module: mod-copycat
           namespace: folio-modules
         spec:
           containers:
@@ -5106,8 +5563,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-copycat-1.8.0
+        app.kubernetes.io/name: mod-copycat
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.8.0
         environment: scratch
-        module: mod-copycat
       name: mod-copycat
       namespace: folio-modules
     spec:
@@ -5124,18 +5584,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-copycat
+        app: app-complete
+        app.kubernetes.io/instance: mod-copycat-1.8.0
+        app.kubernetes.io/name: mod-copycat
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.8.0
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-kb-ebsco-java-6.1.0-SNAPSHOT.465
+        app.kubernetes.io/name: mod-kb-ebsco-java
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.1.0-SNAPSHOT.465
         environment: scratch
-        module: mod-kb-ebsco-java
       name: mod-kb-ebsco-java
       namespace: folio-modules
     spec:
@@ -5143,16 +5608,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-kb-ebsco-java-6.1.0-SNAPSHOT.465
+          app.kubernetes.io/name: mod-kb-ebsco-java
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 6.1.0-SNAPSHOT.465
           environment: scratch
-          module: mod-kb-ebsco-java
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-kb-ebsco-java-6.1.0-SNAPSHOT.465
+            app.kubernetes.io/name: mod-kb-ebsco-java
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 6.1.0-SNAPSHOT.465
             environment: scratch
-            module: mod-kb-ebsco-java
           namespace: folio-modules
         spec:
           containers:
@@ -5260,8 +5731,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-kb-ebsco-java-6.1.0-SNAPSHOT.465
+        app.kubernetes.io/name: mod-kb-ebsco-java
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.1.0-SNAPSHOT.465
         environment: scratch
-        module: mod-kb-ebsco-java
       name: mod-kb-ebsco-java
       namespace: folio-modules
     spec:
@@ -5278,18 +5752,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-kb-ebsco-java
+        app: app-complete
+        app.kubernetes.io/instance: mod-kb-ebsco-java-6.1.0-SNAPSHOT.465
+        app.kubernetes.io/name: mod-kb-ebsco-java
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.1.0-SNAPSHOT.465
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-ncip-1.16.0-SNAPSHOT.109
+        app.kubernetes.io/name: mod-ncip
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.16.0-SNAPSHOT.109
         environment: scratch
-        module: mod-ncip
       name: mod-ncip
       namespace: folio-modules
     spec:
@@ -5297,16 +5776,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-ncip-1.16.0-SNAPSHOT.109
+          app.kubernetes.io/name: mod-ncip
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 1.16.0-SNAPSHOT.109
           environment: scratch
-          module: mod-ncip
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-ncip-1.16.0-SNAPSHOT.109
+            app.kubernetes.io/name: mod-ncip
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 1.16.0-SNAPSHOT.109
             environment: scratch
-            module: mod-ncip
           namespace: folio-modules
         spec:
           containers:
@@ -5414,8 +5899,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-ncip-1.16.0-SNAPSHOT.109
+        app.kubernetes.io/name: mod-ncip
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.16.0-SNAPSHOT.109
         environment: scratch
-        module: mod-ncip
       name: mod-ncip
       namespace: folio-modules
     spec:
@@ -5432,18 +5920,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-ncip
+        app: app-complete
+        app.kubernetes.io/instance: mod-ncip-1.16.0-SNAPSHOT.109
+        app.kubernetes.io/name: mod-ncip
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.16.0-SNAPSHOT.109
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-inventory-update-4.1.1-SNAPSHOT.141
+        app.kubernetes.io/name: mod-inventory-update
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 4.1.1-SNAPSHOT.141
         environment: scratch
-        module: mod-inventory-update
       name: mod-inventory-update
       namespace: folio-modules
     spec:
@@ -5451,16 +5944,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-inventory-update-4.1.1-SNAPSHOT.141
+          app.kubernetes.io/name: mod-inventory-update
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 4.1.1-SNAPSHOT.141
           environment: scratch
-          module: mod-inventory-update
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-inventory-update-4.1.1-SNAPSHOT.141
+            app.kubernetes.io/name: mod-inventory-update
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 4.1.1-SNAPSHOT.141
             environment: scratch
-            module: mod-inventory-update
           namespace: folio-modules
         spec:
           containers:
@@ -5558,8 +6057,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-inventory-update-4.1.1-SNAPSHOT.141
+        app.kubernetes.io/name: mod-inventory-update
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 4.1.1-SNAPSHOT.141
         environment: scratch
-        module: mod-inventory-update
       name: mod-inventory-update
       namespace: folio-modules
     spec:
@@ -5576,18 +6078,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-inventory-update
+        app: app-complete
+        app.kubernetes.io/instance: mod-inventory-update-4.1.1-SNAPSHOT.141
+        app.kubernetes.io/name: mod-inventory-update
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 4.1.1-SNAPSHOT.141
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-user-import-3.11.0-SNAPSHOT.108
+        app.kubernetes.io/name: mod-user-import
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.11.0-SNAPSHOT.108
         environment: scratch
-        module: mod-user-import
       name: mod-user-import
       namespace: folio-modules
     spec:
@@ -5595,16 +6102,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-user-import-3.11.0-SNAPSHOT.108
+          app.kubernetes.io/name: mod-user-import
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 3.11.0-SNAPSHOT.108
           environment: scratch
-          module: mod-user-import
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-user-import-3.11.0-SNAPSHOT.108
+            app.kubernetes.io/name: mod-user-import
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 3.11.0-SNAPSHOT.108
             environment: scratch
-            module: mod-user-import
           namespace: folio-modules
         spec:
           containers:
@@ -5712,8 +6225,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-user-import-3.11.0-SNAPSHOT.108
+        app.kubernetes.io/name: mod-user-import
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.11.0-SNAPSHOT.108
         environment: scratch
-        module: mod-user-import
       name: mod-user-import
       namespace: folio-modules
     spec:
@@ -5730,18 +6246,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-user-import
+        app: app-complete
+        app.kubernetes.io/instance: mod-user-import-3.11.0-SNAPSHOT.108
+        app.kubernetes.io/name: mod-user-import
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 3.11.0-SNAPSHOT.108
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-service-interaction-4.3.0-SNAPSHOT.142
+        app.kubernetes.io/name: mod-service-interaction
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 4.3.0-SNAPSHOT.142
         environment: scratch
-        module: mod-service-interaction
       name: mod-service-interaction
       namespace: folio-modules
     spec:
@@ -5749,16 +6270,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-service-interaction-4.3.0-SNAPSHOT.142
+          app.kubernetes.io/name: mod-service-interaction
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 4.3.0-SNAPSHOT.142
           environment: scratch
-          module: mod-service-interaction
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-service-interaction-4.3.0-SNAPSHOT.142
+            app.kubernetes.io/name: mod-service-interaction
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 4.3.0-SNAPSHOT.142
             environment: scratch
-            module: mod-service-interaction
           namespace: folio-modules
         spec:
           containers:
@@ -5857,8 +6384,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-service-interaction-4.3.0-SNAPSHOT.142
+        app.kubernetes.io/name: mod-service-interaction
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 4.3.0-SNAPSHOT.142
         environment: scratch
-        module: mod-service-interaction
       name: mod-service-interaction
       namespace: folio-modules
     spec:
@@ -5875,18 +6405,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-service-interaction
+        app: app-complete
+        app.kubernetes.io/instance: mod-service-interaction-4.3.0-SNAPSHOT.142
+        app.kubernetes.io/name: mod-service-interaction
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 4.3.0-SNAPSHOT.142
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-ebsconet-2.5.0-SNAPSHOT.89
+        app.kubernetes.io/name: mod-ebsconet
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.5.0-SNAPSHOT.89
         environment: scratch
-        module: mod-ebsconet
       name: mod-ebsconet
       namespace: folio-modules
     spec:
@@ -5894,16 +6429,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-ebsconet-2.5.0-SNAPSHOT.89
+          app.kubernetes.io/name: mod-ebsconet
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 2.5.0-SNAPSHOT.89
           environment: scratch
-          module: mod-ebsconet
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-ebsconet-2.5.0-SNAPSHOT.89
+            app.kubernetes.io/name: mod-ebsconet
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 2.5.0-SNAPSHOT.89
             environment: scratch
-            module: mod-ebsconet
           namespace: folio-modules
         spec:
           containers:
@@ -6005,8 +6546,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-ebsconet-2.5.0-SNAPSHOT.89
+        app.kubernetes.io/name: mod-ebsconet
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.5.0-SNAPSHOT.89
         environment: scratch
-        module: mod-ebsconet
       name: mod-ebsconet
       namespace: folio-modules
     spec:
@@ -6023,18 +6567,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-ebsconet
+        app: app-complete
+        app.kubernetes.io/instance: mod-ebsconet-2.5.0-SNAPSHOT.89
+        app.kubernetes.io/name: mod-ebsconet
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.5.0-SNAPSHOT.89
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-batch-print-1.3.1-SNAPSHOT.15
+        app.kubernetes.io/name: mod-batch-print
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.3.1-SNAPSHOT.15
         environment: scratch
-        module: mod-batch-print
       name: mod-batch-print
       namespace: folio-modules
     spec:
@@ -6042,16 +6591,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-batch-print-1.3.1-SNAPSHOT.15
+          app.kubernetes.io/name: mod-batch-print
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 1.3.1-SNAPSHOT.15
           environment: scratch
-          module: mod-batch-print
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-batch-print-1.3.1-SNAPSHOT.15
+            app.kubernetes.io/name: mod-batch-print
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 1.3.1-SNAPSHOT.15
             environment: scratch
-            module: mod-batch-print
           namespace: folio-modules
         spec:
           containers:
@@ -6159,8 +6714,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-batch-print-1.3.1-SNAPSHOT.15
+        app.kubernetes.io/name: mod-batch-print
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.3.1-SNAPSHOT.15
         environment: scratch
-        module: mod-batch-print
       name: mod-batch-print
       namespace: folio-modules
     spec:
@@ -6177,18 +6735,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-batch-print
+        app: app-complete
+        app.kubernetes.io/instance: mod-batch-print-1.3.1-SNAPSHOT.15
+        app.kubernetes.io/name: mod-batch-print
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 1.3.1-SNAPSHOT.15
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-serials-management-2.1.0-SNAPSHOT.159
+        app.kubernetes.io/name: mod-serials-management
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.1.0-SNAPSHOT.159
         environment: scratch
-        module: mod-serials-management
       name: mod-serials-management
       namespace: folio-modules
     spec:
@@ -6196,16 +6759,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-serials-management-2.1.0-SNAPSHOT.159
+          app.kubernetes.io/name: mod-serials-management
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 2.1.0-SNAPSHOT.159
           environment: scratch
-          module: mod-serials-management
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-serials-management-2.1.0-SNAPSHOT.159
+            app.kubernetes.io/name: mod-serials-management
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 2.1.0-SNAPSHOT.159
             environment: scratch
-            module: mod-serials-management
           namespace: folio-modules
         spec:
           containers:
@@ -6307,8 +6876,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-serials-management-2.1.0-SNAPSHOT.159
+        app.kubernetes.io/name: mod-serials-management
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.1.0-SNAPSHOT.159
         environment: scratch
-        module: mod-serials-management
       name: mod-serials-management
       namespace: folio-modules
     spec:
@@ -6325,18 +6897,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-serials-management
+        app: app-complete
+        app.kubernetes.io/instance: mod-serials-management-2.1.0-SNAPSHOT.159
+        app.kubernetes.io/name: mod-serials-management
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.1.0-SNAPSHOT.159
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-record-specifications-2.1.0-SNAPSHOT.99
+        app.kubernetes.io/name: mod-record-specifications
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.1.0-SNAPSHOT.99
         environment: scratch
-        module: mod-record-specifications
       name: mod-record-specifications
       namespace: folio-modules
     spec:
@@ -6344,16 +6921,22 @@ items:
       selector:
         matchLabels:
           app: app-complete
+          app.kubernetes.io/instance: mod-record-specifications-2.1.0-SNAPSHOT.99
+          app.kubernetes.io/name: mod-record-specifications
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 2.1.0-SNAPSHOT.99
           environment: scratch
-          module: mod-record-specifications
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-complete
+            app.kubernetes.io/instance: mod-record-specifications-2.1.0-SNAPSHOT.99
+            app.kubernetes.io/name: mod-record-specifications
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 2.1.0-SNAPSHOT.99
             environment: scratch
-            module: mod-record-specifications
           namespace: folio-modules
         spec:
           containers:
@@ -6464,8 +7047,11 @@ items:
     metadata:
       labels:
         app: app-complete
+        app.kubernetes.io/instance: mod-record-specifications-2.1.0-SNAPSHOT.99
+        app.kubernetes.io/name: mod-record-specifications
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.1.0-SNAPSHOT.99
         environment: scratch
-        module: mod-record-specifications
       name: mod-record-specifications
       namespace: folio-modules
     spec:
@@ -6482,8 +7068,10 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-complete
-          environment: scratch
-          module: mod-record-specifications
+        app: app-complete
+        app.kubernetes.io/instance: mod-record-specifications-2.1.0-SNAPSHOT.99
+        app.kubernetes.io/name: mod-record-specifications
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.1.0-SNAPSHOT.99
+        environment: scratch
       type: ClusterIP

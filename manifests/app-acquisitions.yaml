@@ -6,8 +6,11 @@ items:
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-organizations-2.2.0-SNAPSHOT.69
+        app.kubernetes.io/name: mod-organizations
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.2.0-SNAPSHOT.69
         environment: scratch
-        module: mod-organizations
       name: mod-organizations
       namespace: folio-modules
     spec:
@@ -15,16 +18,22 @@ items:
       selector:
         matchLabels:
           app: app-acquisitions
+          app.kubernetes.io/instance: mod-organizations-2.2.0-SNAPSHOT.69
+          app.kubernetes.io/name: mod-organizations
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 2.2.0-SNAPSHOT.69
           environment: scratch
-          module: mod-organizations
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-acquisitions
+            app.kubernetes.io/instance: mod-organizations-2.2.0-SNAPSHOT.69
+            app.kubernetes.io/name: mod-organizations
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 2.2.0-SNAPSHOT.69
             environment: scratch
-            module: mod-organizations
           namespace: folio-modules
         spec:
           containers:
@@ -135,8 +144,11 @@ items:
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-organizations-2.2.0-SNAPSHOT.69
+        app.kubernetes.io/name: mod-organizations
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.2.0-SNAPSHOT.69
         environment: scratch
-        module: mod-organizations
       name: mod-organizations
       namespace: folio-modules
     spec:
@@ -153,18 +165,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-acquisitions
-          environment: scratch
-          module: mod-organizations
+        app: app-acquisitions
+        app.kubernetes.io/instance: mod-organizations-2.2.0-SNAPSHOT.69
+        app.kubernetes.io/name: mod-organizations
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 2.2.0-SNAPSHOT.69
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-organizations-storage-5.0.0-SNAPSHOT.119
+        app.kubernetes.io/name: mod-organizations-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.0.0-SNAPSHOT.119
         environment: scratch
-        module: mod-organizations-storage
       name: mod-organizations-storage
       namespace: folio-modules
     spec:
@@ -172,15 +189,21 @@ items:
       selector:
         matchLabels:
           app: app-acquisitions
+          app.kubernetes.io/instance: mod-organizations-storage-5.0.0-SNAPSHOT.119
+          app.kubernetes.io/name: mod-organizations-storage
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 5.0.0-SNAPSHOT.119
           environment: scratch
-          module: mod-organizations-storage
       serviceName: mod-organizations-storage
       template:
         metadata:
           labels:
             app: app-acquisitions
+            app.kubernetes.io/instance: mod-organizations-storage-5.0.0-SNAPSHOT.119
+            app.kubernetes.io/name: mod-organizations-storage
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 5.0.0-SNAPSHOT.119
             environment: scratch
-            module: mod-organizations-storage
           namespace: folio-modules
         spec:
           containers:
@@ -290,8 +313,11 @@ items:
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-organizations-storage-5.0.0-SNAPSHOT.119
+        app.kubernetes.io/name: mod-organizations-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.0.0-SNAPSHOT.119
         environment: scratch
-        module: mod-organizations-storage
       name: mod-organizations-storage
       namespace: folio-modules
     spec:
@@ -304,18 +330,23 @@ items:
           protocol: TCP
           targetPort: 8081
       selector:
-        matchLabels:
-          app: app-acquisitions
-          environment: scratch
-          module: mod-organizations-storage
+        app: app-acquisitions
+        app.kubernetes.io/instance: mod-organizations-storage-5.0.0-SNAPSHOT.119
+        app.kubernetes.io/name: mod-organizations-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.0.0-SNAPSHOT.119
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-orders-13.1.0-SNAPSHOT.1025
+        app.kubernetes.io/name: mod-orders
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 13.1.0-SNAPSHOT.1025
         environment: scratch
-        module: mod-orders
       name: mod-orders
       namespace: folio-modules
     spec:
@@ -323,16 +354,22 @@ items:
       selector:
         matchLabels:
           app: app-acquisitions
+          app.kubernetes.io/instance: mod-orders-13.1.0-SNAPSHOT.1025
+          app.kubernetes.io/name: mod-orders
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 13.1.0-SNAPSHOT.1025
           environment: scratch
-          module: mod-orders
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-acquisitions
+            app.kubernetes.io/instance: mod-orders-13.1.0-SNAPSHOT.1025
+            app.kubernetes.io/name: mod-orders
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 13.1.0-SNAPSHOT.1025
             environment: scratch
-            module: mod-orders
           namespace: folio-modules
         spec:
           containers:
@@ -443,8 +480,11 @@ items:
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-orders-13.1.0-SNAPSHOT.1025
+        app.kubernetes.io/name: mod-orders
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 13.1.0-SNAPSHOT.1025
         environment: scratch
-        module: mod-orders
       name: mod-orders
       namespace: folio-modules
     spec:
@@ -461,18 +501,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-acquisitions
-          environment: scratch
-          module: mod-orders
+        app: app-acquisitions
+        app.kubernetes.io/instance: mod-orders-13.1.0-SNAPSHOT.1025
+        app.kubernetes.io/name: mod-orders
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 13.1.0-SNAPSHOT.1025
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-orders-storage-14.0.0-SNAPSHOT.428
+        app.kubernetes.io/name: mod-orders-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 14.0.0-SNAPSHOT.428
         environment: scratch
-        module: mod-orders-storage
       name: mod-orders-storage
       namespace: folio-modules
     spec:
@@ -480,15 +525,21 @@ items:
       selector:
         matchLabels:
           app: app-acquisitions
+          app.kubernetes.io/instance: mod-orders-storage-14.0.0-SNAPSHOT.428
+          app.kubernetes.io/name: mod-orders-storage
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 14.0.0-SNAPSHOT.428
           environment: scratch
-          module: mod-orders-storage
       serviceName: mod-orders-storage
       template:
         metadata:
           labels:
             app: app-acquisitions
+            app.kubernetes.io/instance: mod-orders-storage-14.0.0-SNAPSHOT.428
+            app.kubernetes.io/name: mod-orders-storage
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 14.0.0-SNAPSHOT.428
             environment: scratch
-            module: mod-orders-storage
           namespace: folio-modules
         spec:
           containers:
@@ -601,8 +652,11 @@ items:
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-orders-storage-14.0.0-SNAPSHOT.428
+        app.kubernetes.io/name: mod-orders-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 14.0.0-SNAPSHOT.428
         environment: scratch
-        module: mod-orders-storage
       name: mod-orders-storage
       namespace: folio-modules
     spec:
@@ -615,18 +669,23 @@ items:
           protocol: TCP
           targetPort: 8081
       selector:
-        matchLabels:
-          app: app-acquisitions
-          environment: scratch
-          module: mod-orders-storage
+        app: app-acquisitions
+        app.kubernetes.io/instance: mod-orders-storage-14.0.0-SNAPSHOT.428
+        app.kubernetes.io/name: mod-orders-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 14.0.0-SNAPSHOT.428
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-invoice-6.1.0-SNAPSHOT.472
+        app.kubernetes.io/name: mod-invoice
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.1.0-SNAPSHOT.472
         environment: scratch
-        module: mod-invoice
       name: mod-invoice
       namespace: folio-modules
     spec:
@@ -634,16 +693,22 @@ items:
       selector:
         matchLabels:
           app: app-acquisitions
+          app.kubernetes.io/instance: mod-invoice-6.1.0-SNAPSHOT.472
+          app.kubernetes.io/name: mod-invoice
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 6.1.0-SNAPSHOT.472
           environment: scratch
-          module: mod-invoice
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-acquisitions
+            app.kubernetes.io/instance: mod-invoice-6.1.0-SNAPSHOT.472
+            app.kubernetes.io/name: mod-invoice
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 6.1.0-SNAPSHOT.472
             environment: scratch
-            module: mod-invoice
           namespace: folio-modules
         spec:
           containers:
@@ -748,8 +813,11 @@ items:
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-invoice-6.1.0-SNAPSHOT.472
+        app.kubernetes.io/name: mod-invoice
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.1.0-SNAPSHOT.472
         environment: scratch
-        module: mod-invoice
       name: mod-invoice
       namespace: folio-modules
     spec:
@@ -766,18 +834,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-acquisitions
-          environment: scratch
-          module: mod-invoice
+        app: app-acquisitions
+        app.kubernetes.io/instance: mod-invoice-6.1.0-SNAPSHOT.472
+        app.kubernetes.io/name: mod-invoice
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.1.0-SNAPSHOT.472
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-invoice-storage-6.1.0-SNAPSHOT.172
+        app.kubernetes.io/name: mod-invoice-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.1.0-SNAPSHOT.172
         environment: scratch
-        module: mod-invoice-storage
       name: mod-invoice-storage
       namespace: folio-modules
     spec:
@@ -785,15 +858,21 @@ items:
       selector:
         matchLabels:
           app: app-acquisitions
+          app.kubernetes.io/instance: mod-invoice-storage-6.1.0-SNAPSHOT.172
+          app.kubernetes.io/name: mod-invoice-storage
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 6.1.0-SNAPSHOT.172
           environment: scratch
-          module: mod-invoice-storage
       serviceName: mod-invoice-storage
       template:
         metadata:
           labels:
             app: app-acquisitions
+            app.kubernetes.io/instance: mod-invoice-storage-6.1.0-SNAPSHOT.172
+            app.kubernetes.io/name: mod-invoice-storage
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 6.1.0-SNAPSHOT.172
             environment: scratch
-            module: mod-invoice-storage
           namespace: folio-modules
         spec:
           containers:
@@ -903,8 +982,11 @@ items:
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-invoice-storage-6.1.0-SNAPSHOT.172
+        app.kubernetes.io/name: mod-invoice-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.1.0-SNAPSHOT.172
         environment: scratch
-        module: mod-invoice-storage
       name: mod-invoice-storage
       namespace: folio-modules
     spec:
@@ -917,18 +999,23 @@ items:
           protocol: TCP
           targetPort: 8081
       selector:
-        matchLabels:
-          app: app-acquisitions
-          environment: scratch
-          module: mod-invoice-storage
+        app: app-acquisitions
+        app.kubernetes.io/instance: mod-invoice-storage-6.1.0-SNAPSHOT.172
+        app.kubernetes.io/name: mod-invoice-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 6.1.0-SNAPSHOT.172
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-finance-5.2.0-SNAPSHOT.289
+        app.kubernetes.io/name: mod-finance
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.2.0-SNAPSHOT.289
         environment: scratch
-        module: mod-finance
       name: mod-finance
       namespace: folio-modules
     spec:
@@ -936,16 +1023,22 @@ items:
       selector:
         matchLabels:
           app: app-acquisitions
+          app.kubernetes.io/instance: mod-finance-5.2.0-SNAPSHOT.289
+          app.kubernetes.io/name: mod-finance
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 5.2.0-SNAPSHOT.289
           environment: scratch
-          module: mod-finance
       strategy:
         type: RollingUpdate
       template:
         metadata:
           labels:
             app: app-acquisitions
+            app.kubernetes.io/instance: mod-finance-5.2.0-SNAPSHOT.289
+            app.kubernetes.io/name: mod-finance
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 5.2.0-SNAPSHOT.289
             environment: scratch
-            module: mod-finance
           namespace: folio-modules
         spec:
           containers:
@@ -1053,8 +1146,11 @@ items:
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-finance-5.2.0-SNAPSHOT.289
+        app.kubernetes.io/name: mod-finance
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.2.0-SNAPSHOT.289
         environment: scratch
-        module: mod-finance
       name: mod-finance
       namespace: folio-modules
     spec:
@@ -1071,18 +1167,23 @@ items:
           protocol: TCP
           targetPort: 19002
       selector:
-        matchLabels:
-          app: app-acquisitions
-          environment: scratch
-          module: mod-finance
+        app: app-acquisitions
+        app.kubernetes.io/instance: mod-finance-5.2.0-SNAPSHOT.289
+        app.kubernetes.io/name: mod-finance
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 5.2.0-SNAPSHOT.289
+        environment: scratch
       type: ClusterIP
   - apiVersion: apps/v1
     kind: StatefulSet
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-finance-storage-8.9.0-SNAPSHOT.406
+        app.kubernetes.io/name: mod-finance-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 8.9.0-SNAPSHOT.406
         environment: scratch
-        module: mod-finance-storage
       name: mod-finance-storage
       namespace: folio-modules
     spec:
@@ -1090,15 +1191,21 @@ items:
       selector:
         matchLabels:
           app: app-acquisitions
+          app.kubernetes.io/instance: mod-finance-storage-8.9.0-SNAPSHOT.406
+          app.kubernetes.io/name: mod-finance-storage
+          app.kubernetes.io/part-of: FOLIO
+          app.kubernetes.io/version: 8.9.0-SNAPSHOT.406
           environment: scratch
-          module: mod-finance-storage
       serviceName: mod-finance-storage
       template:
         metadata:
           labels:
             app: app-acquisitions
+            app.kubernetes.io/instance: mod-finance-storage-8.9.0-SNAPSHOT.406
+            app.kubernetes.io/name: mod-finance-storage
+            app.kubernetes.io/part-of: FOLIO
+            app.kubernetes.io/version: 8.9.0-SNAPSHOT.406
             environment: scratch
-            module: mod-finance-storage
           namespace: folio-modules
         spec:
           containers:
@@ -1208,8 +1315,11 @@ items:
     metadata:
       labels:
         app: app-acquisitions
+        app.kubernetes.io/instance: mod-finance-storage-8.9.0-SNAPSHOT.406
+        app.kubernetes.io/name: mod-finance-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 8.9.0-SNAPSHOT.406
         environment: scratch
-        module: mod-finance-storage
       name: mod-finance-storage
       namespace: folio-modules
     spec:
@@ -1222,8 +1332,10 @@ items:
           protocol: TCP
           targetPort: 8081
       selector:
-        matchLabels:
-          app: app-acquisitions
-          environment: scratch
-          module: mod-finance-storage
+        app: app-acquisitions
+        app.kubernetes.io/instance: mod-finance-storage-8.9.0-SNAPSHOT.406
+        app.kubernetes.io/name: mod-finance-storage
+        app.kubernetes.io/part-of: FOLIO
+        app.kubernetes.io/version: 8.9.0-SNAPSHOT.406
+        environment: scratch
       type: ClusterIP
